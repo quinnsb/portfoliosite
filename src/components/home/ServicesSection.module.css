@@ -1,0 +1,42 @@
+.section {
+  padding: 72px 0;
+}
+
+.card {
+  border-radius: 8px;
+  background: var(--color-blue);
+  color: var(--color-white);
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.kicker {
+  font-size: 22px;
+}
+
+.list {
+  list-style: none;
+  font-family: var(--font-inter-bold);
+  font-size: clamp(34px, 6vw, 72px);
+  line-height: 1.04;
+  text-transform: uppercase;
+}
+
+.badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: var(--color-orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-inter-bold);
+  font-size: 24px;
+}

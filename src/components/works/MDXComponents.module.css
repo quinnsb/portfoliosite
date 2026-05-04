@@ -1,0 +1,42 @@
+.h2,
+.h3,
+.p,
+.ul {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.h2 {
+  margin-top: 54px;
+  margin-bottom: 18px;
+  color: var(--color-black);
+  font-size: clamp(32px, 4vw, 52px);
+}
+
+.h3 {
+  margin-top: 34px;
+  margin-bottom: 12px;
+  color: var(--color-black);
+  font-size: 26px;
+}
+
+.p,
+.li {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.p {
+  margin-bottom: 18px;
+}
+
+.ul {
+  margin-top: 12px;
+  margin-bottom: 24px;
+  padding-left: 24px;
+}
+
+.li + .li {
+  margin-top: 8px;
+}

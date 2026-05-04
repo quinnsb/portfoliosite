@@ -1,0 +1,103 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--color-black);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 60px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.navItem {
+  text-align: center;
+}
+
+.navLink {
+  font-size: clamp(48px, 12vw, 128px);
+  line-height: 1;
+  color: var(--color-white);
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  display: inline-block;
+}
+
+.navLink:hover {
+  opacity: 0.6;
+}
+
+.follow,
+.contact {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.follow {
+  bottom: 40px;
+  left: 24px;
+}
+
+.contact {
+  bottom: 40px;
+  right: 24px;
+  text-align: right;
+}
+
+.label {
+  color: var(--color-gray-dark);
+  font-size: 13px;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.sideLink {
+  color: var(--color-white);
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.sideLink:hover {
+  opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+  .overlay {
+    padding: 120px 60px 80px;
+  }
+
+  .follow {
+    bottom: 60px;
+    left: 60px;
+  }
+
+  .contact {
+    bottom: 60px;
+    right: 60px;
+  }
+
+  .sideLink {
+    font-size: 15px;
+  }
+}

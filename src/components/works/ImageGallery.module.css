@@ -1,0 +1,45 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 70px 0;
+}
+
+.full,
+.grid {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-gray-light);
+}
+
+.full {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+
+.grid {
+  aspect-ratio: 1 / 1;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.full:hover .image,
+.grid:hover .image {
+  transform: scale(1.03);
+}
+
+@media (max-width: 760px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .full,
+  .grid {
+    grid-column: 1;
+    aspect-ratio: 4 / 3;
+  }
+}

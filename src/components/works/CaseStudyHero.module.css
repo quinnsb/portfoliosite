@@ -1,0 +1,21 @@
+.hero {
+  padding: calc(var(--nav-height) + 46px) 0 70px;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-gray-light);
+}
+
+.image {
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .imageWrap {
+    aspect-ratio: 4 / 5;
+  }
+}

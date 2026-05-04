@@ -1,0 +1,26 @@
+.testimonial {
+  max-width: 900px;
+  margin: 24px auto 72px;
+  text-align: center;
+  color: var(--color-black);
+}
+
+.label {
+  margin-bottom: 18px;
+  color: var(--color-orange);
+  font-family: var(--font-inter-bold);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.testimonial blockquote {
+  font-family: var(--font-inter-bold);
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1;
+}
+
+.testimonial figcaption {
+  margin-top: 22px;
+  color: var(--color-gray-dark);
+  font-size: 14px;
+}

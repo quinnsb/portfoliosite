@@ -1,0 +1,27 @@
+.meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  border-top: 1px solid var(--color-gray);
+  padding-top: 24px;
+}
+
+.item dt {
+  margin-bottom: 8px;
+  color: var(--color-gray-dark);
+  font-family: var(--font-inter-bold);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.item dd {
+  margin: 0;
+  color: var(--color-black);
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .meta {
+    grid-template-columns: 1fr;
+  }
+}
