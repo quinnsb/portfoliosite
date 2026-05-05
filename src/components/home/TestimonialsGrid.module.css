@@ -1,71 +1,75 @@
 .section {
-  padding: clamp(84px, 9vw, 132px) 0 clamp(96px, 11vw, 160px);
+  padding: clamp(62px, 7vw, 96px) 0 clamp(74px, 8vw, 112px);
   overflow: hidden;
 }
 
 .heading {
-  max-width: 720px;
-  margin: 0 auto clamp(52px, 6.5vw, 96px);
+  max-width: 420px;
+  margin: 0 auto clamp(34px, 4.8vw, 64px);
   text-align: center;
   color: var(--color-orange);
-  font-size: clamp(58px, 8.8vw, 138px);
-  line-height: 0.86;
+  font-size: clamp(42px, 6.4vw, 78px);
+  line-height: 0.82;
 }
 
 .heading span {
-  font-size: 0.72em;
+  font-size: 0.66em;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: clamp(28px, 3.8vw, 64px) clamp(26px, 4.5vw, 84px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 34px) clamp(42px, 7vw, 112px);
   align-items: start;
+  width: min(100%, 980px);
+  margin: 0 auto;
 }
 
 .card {
   position: relative;
-  min-height: clamp(230px, 17vw, 330px);
-  padding: clamp(28px, 2.7vw, 46px);
+  min-height: clamp(118px, 11vw, 164px);
+  padding: clamp(16px, 1.6vw, 24px);
   color: var(--color-black);
   background: var(--color-white);
-  border: 2px dashed rgb(66 66 58 / 0.22);
-  border-radius: 18px;
-  box-shadow: none;
+  border: 1.5px dashed rgb(66 66 58 / 0.24);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 0.04);
+  transform-origin: center;
+  will-change: transform;
 }
 
 .card h3 {
-  max-width: calc(100% - 92px);
+  max-width: calc(100% - 58px);
   color: inherit;
   font-family: var(--font-averia), Georgia, serif;
-  font-size: clamp(30px, 3vw, 48px);
+  font-size: clamp(20px, 2vw, 28px);
   line-height: 0.95;
 }
 
 .title {
-  max-width: calc(100% - 92px);
-  margin-top: 8px;
+  max-width: calc(100% - 58px);
+  margin-top: 4px;
   color: rgb(66 66 58 / 0.82);
   font-family: var(--font-averia), Georgia, serif;
-  font-size: clamp(16px, 1.5vw, 24px);
+  font-size: clamp(10px, 1vw, 13px);
   font-style: italic;
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: 0.02em;
 }
 
 .quote {
-  margin-top: clamp(58px, 5vw, 96px);
+  margin-top: clamp(28px, 3vw, 46px);
   color: rgb(66 66 58 / 0.88);
-  font-size: clamp(21px, 1.8vw, 32px);
-  line-height: 1.28;
+  font-size: clamp(11px, 1.15vw, 15px);
+  line-height: 1.32;
 }
 
 .avatar {
   position: absolute;
-  top: clamp(28px, 2.6vw, 44px);
-  right: clamp(28px, 2.8vw, 48px);
-  width: clamp(58px, 5.4vw, 92px);
+  top: clamp(14px, 1.5vw, 22px);
+  right: clamp(14px, 1.6vw, 24px);
+  width: clamp(38px, 4vw, 58px);
   height: auto;
   pointer-events: none;
   user-select: none;
@@ -78,59 +82,88 @@
 .blue {
   color: var(--color-white);
   background: var(--color-blue);
-  border-color: rgb(255 255 255 / 0.34);
+  border-color: rgb(255 255 255 / 0.38);
+  box-shadow: 0 16px 34px rgb(41 120 243 / 0.16);
 }
 
 .green {
   color: var(--color-white);
   background: var(--color-green);
-  border-color: rgb(255 255 255 / 0.34);
+  border-color: rgb(255 255 255 / 0.38);
+  box-shadow: 0 16px 34px rgb(14 156 108 / 0.15);
 }
 
 .blue .title,
 .green .title,
 .blue .quote,
 .green .quote {
-  color: rgb(255 255 255 / 0.9);
+  color: rgb(255 255 255 / 0.92);
 }
 
-.leo {
-  grid-column: 1 / span 5;
+.leo,
+.ethan,
+.miles {
+  grid-column: 1;
+}
+
+.nina,
+.maya,
+.sofia {
+  grid-column: 2;
 }
 
 .nina {
-  grid-column: 8 / span 5;
-  margin-top: clamp(86px, 8vw, 144px);
+  margin-top: clamp(34px, 4.4vw, 70px);
 }
 
 .ethan {
-  grid-column: 2 / span 5;
-  margin-top: clamp(28px, 3vw, 58px);
+  width: 92%;
+  margin-top: clamp(18px, 2vw, 32px);
+  margin-left: 18%;
 }
 
 .maya {
-  grid-column: 7 / span 5;
-  margin-top: clamp(-30px, -2vw, -16px);
+  width: 92%;
+  margin-top: clamp(-8px, -0.6vw, 0px);
 }
 
 .miles {
-  grid-column: 1 / span 5;
-  margin-top: clamp(74px, 7vw, 132px);
+  width: 92%;
+  margin-top: clamp(36px, 5vw, 78px);
 }
 
 .sofia {
-  grid-column: 8 / span 5;
-  margin-top: clamp(64px, 6vw, 112px);
+  width: 92%;
+  margin-top: clamp(30px, 4vw, 64px);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
+  .grid {
+    gap: 18px;
+  }
+
+  .ethan,
+  .maya,
+  .miles,
+  .sofia {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .section {
+    padding: 58px 0 72px;
+  }
+
   .heading {
-    font-size: clamp(54px, 11vw, 108px);
+    margin-bottom: 32px;
+    font-size: clamp(40px, 14vw, 66px);
   }
 
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
+    grid-template-columns: 1fr;
+    width: min(100%, 440px);
   }
 
   .leo,
@@ -140,49 +173,28 @@
   .miles,
   .sofia {
     grid-column: auto;
-    margin-top: 0;
+    width: 100%;
+    margin: 0;
   }
 
   .card {
-    min-height: 260px;
-  }
-}
-
-@media (max-width: 720px) {
-  .section {
-    padding: 70px 0 86px;
-  }
-
-  .heading {
-    margin-bottom: 38px;
-    font-size: clamp(48px, 15vw, 76px);
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    min-height: 220px;
-    padding: 24px;
+    min-height: 150px;
   }
 
   .card h3 {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .title {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .quote {
-    margin-top: 48px;
-    font-size: 19px;
+    margin-top: 34px;
+    font-size: 14px;
   }
 
   .avatar {
-    top: 22px;
-    right: 22px;
-    width: 58px;
+    width: 46px;
   }
 }

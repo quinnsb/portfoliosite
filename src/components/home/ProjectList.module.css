@@ -51,6 +51,11 @@
   border-bottom: 1px solid rgb(66 66 58 / 0.14);
 }
 
+.item:hover,
+.item:focus-within {
+  z-index: 20;
+}
+
 .link {
   position: relative;
   min-height: 58px;
@@ -180,6 +185,7 @@
 
 .link:hover .preview,
 .link:focus-visible .preview {
+  z-index: 30;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }

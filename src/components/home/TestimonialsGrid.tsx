@@ -74,9 +74,18 @@ export default function TestimonialsGrid() {
               className={`${styles.card} ${styles[testimonial.color]} ${styles[testimonial.placement]}`}
               initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -4 }}
+              whileHover={{
+                y: -10,
+                rotate: index % 2 === 0 ? -1.3 : 1.3,
+                scale: 1.025,
+              }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.35, delay: index * 0.04 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: index * 0.035,
+              }}
             >
               <div>
                 <h3>{testimonial.name}</h3>
