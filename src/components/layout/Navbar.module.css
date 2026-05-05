@@ -36,21 +36,33 @@
 .menuButton {
   width: 58px;
   height: 58px;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
+  align-content: center;
+  gap: 12px;
   position: relative;
   z-index: 101;
   background: var(--color-black);
   border-radius: 0;
 }
 
-.menuIcon {
+.menuLine {
+  display: block;
   width: 36px;
-  height: 36px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: filter 0.2s ease;
+  height: 2px;
+  background: var(--color-cream);
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.open .menuLine:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.open .menuLine:last-child {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .open .logo {

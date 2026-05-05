@@ -79,6 +79,15 @@ export default function TestimonialsGrid() {
                 rotate: index % 2 === 0 ? -1.3 : 1.3,
                 scale: 1.025,
               }}
+              whileDrag={{
+                scale: 1.06,
+                rotate: index % 2 === 0 ? -3 : 3,
+                zIndex: 10,
+                boxShadow: "0 24px 54px rgb(0 0 0 / 0.18)",
+              }}
+              drag
+              dragMomentum={false}
+              dragElastic={0.08}
               viewport={{ once: true, margin: "-80px" }}
               transition={{
                 type: "spring",

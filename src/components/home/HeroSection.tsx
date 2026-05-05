@@ -1,27 +1,59 @@
+"use client";
+
+import { m } from "framer-motion";
 import Image from "next/image";
 import styles from "./HeroSection.module.css";
+
+const lineVariants = {
+  hidden: { opacity: 0, y: 28, filter: "blur(8px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
 
 export default function HeroSection() {
   return (
     <section className={styles.hero}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.copy}>
+        <m.div
+          className={styles.copy}
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.14,
+              },
+            },
+          }}
+        >
           <h1 className={styles.title}>
-            <span className={styles.line}>I&apos;m Quinn,</span>
-            <span className={`${styles.line} accent-font-italic`}>
+            <m.span className={styles.line} variants={lineVariants}>
+              I&apos;m Quinn,
+            </m.span>
+            <m.span className={`${styles.line} accent-font-italic`} variants={lineVariants}>
               Creative Marketing
-            </span>
-            <span className={styles.line}>
+            </m.span>
+            <m.span className={styles.line} variants={lineVariants}>
               <span className="accent-font-italic">Leader</span> and
-            </span>
-            <span className={styles.line}>multi-media wizard</span>
-            <span className={styles.line}>
+            </m.span>
+            <m.span className={styles.line} variants={lineVariants}>
+              multi-media wizard
+            </m.span>
+            <m.span className={styles.line} variants={lineVariants}>
               with <span className="accent-font-italic">10 years</span> of
-            </span>
-            <span className={styles.line}>experience.</span>
+            </m.span>
+            <m.span className={styles.line} variants={lineVariants}>
+              experience.
+            </m.span>
           </h1>
-        </div>
-        <div className={styles.imageHover}>
+        </m.div>
+        <m.div
+          className={styles.imageHover}
+          initial={{ opacity: 0, y: 38, scale: 0.96, rotate: 1.5 }}
+          animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.7, delay: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <img
             src="/images/icons/asset-7.svg"
             alt=""
@@ -38,7 +70,7 @@ export default function HeroSection() {
               className={styles.image}
             />
           </div>
-        </div>
+        </m.div>
       </div>
     </section>
   );

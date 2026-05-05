@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import NavOverlay from "./NavOverlay";
 import ContactModal from "../ui/ContactModal";
 import styles from "./Navbar.module.css";
@@ -72,14 +71,8 @@ export default function Navbar() {
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
-            <Image
-              src={isOpen ? "/images/icons/menu-close.png" : "/images/icons/menu-open.png"}
-              alt=""
-              width={32}
-              height={32}
-              priority
-              className={styles.menuIcon}
-            />
+            <span className={styles.menuLine} />
+            <span className={styles.menuLine} />
           </button>
         </div>
       </header>
