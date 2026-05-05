@@ -49,18 +49,18 @@
 .follow,
 .contact {
   position: absolute;
+  top: 50%;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  transform: translateY(-50%);
 }
 
 .follow {
-  bottom: 40px;
   left: 24px;
 }
 
 .contact {
-  bottom: 40px;
   right: 24px;
   text-align: right;
 }
@@ -88,12 +88,10 @@
   }
 
   .follow {
-    bottom: 60px;
     left: 60px;
   }
 
   .contact {
-    bottom: 60px;
     right: 60px;
   }
 

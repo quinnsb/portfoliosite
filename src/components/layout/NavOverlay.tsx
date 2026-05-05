@@ -22,28 +22,28 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.35,
+      duration: 0.22,
       ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       when: "beforeChildren",
-      staggerChildren: 0.08,
+      staggerChildren: 0.05,
     },
   },
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.25,
+      duration: 0.18,
       ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       when: "afterChildren",
-      staggerChildren: 0.04,
+      staggerChildren: 0.025,
       staggerDirection: -1,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-  exit: { opacity: 0, y: 16, transition: { duration: 0.2 } },
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
+  exit: { opacity: 0, y: 12, transition: { duration: 0.15 } },
 };
 
 export default function NavOverlay({ isOpen, onClose, onContactClick }: NavOverlayProps) {

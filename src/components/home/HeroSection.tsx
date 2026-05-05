@@ -21,15 +21,23 @@ export default function HeroSection() {
             <span className={styles.line}>experience.</span>
           </h1>
         </div>
-        <div className={styles.imageWrap}>
-          <Image
-            src="/images/hero/quinn-chair.png"
-            alt="Quinn Brewer sitting in a chair"
-            fill
-            sizes="(max-width: 1024px) 80vw, 42vw"
-            priority
-            className={styles.image}
+        <div className={styles.imageHover}>
+          <img
+            src="/images/icons/asset-7.svg"
+            alt=""
+            aria-hidden="true"
+            className={styles.peekIcon}
           />
+          <div className={styles.imageWrap}>
+            <Image
+              src="/images/hero/quinn-chair.png"
+              alt="Quinn Brewer sitting in a chair"
+              fill
+              sizes="(max-width: 1024px) 80vw, 42vw"
+              priority
+              className={styles.image}
+            />
+          </div>
         </div>
       </div>
     </section>

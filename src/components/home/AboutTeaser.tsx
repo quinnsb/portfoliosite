@@ -17,7 +17,7 @@ export default function AboutTeaser() {
         <div className={styles.panel}>
           <div className={styles.imageWrap}>
             <Image
-              src="/images/about/quinn-headshot.png"
+              src="/images/about/quinn-teaser.jpg"
               alt="Quinn Brewer headshot"
               fill
               sizes="(max-width: 900px) 90vw, 440px"

@@ -2,6 +2,13 @@
   padding: 76px 0;
 }
 
+.icon {
+  display: block;
+  margin: 0 auto 12px;
+  width: clamp(36px, 5vw, 56px);
+  height: auto;
+}
+
 .heading {
   margin-bottom: 32px;
   text-align: center;

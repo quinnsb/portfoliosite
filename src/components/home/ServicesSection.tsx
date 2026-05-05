@@ -24,9 +24,14 @@ export default function ServicesSection() {
               </m.li>
             ))}
           </ul>
-          <span className={styles.badge} aria-hidden="true">
-            *
-          </span>
+          <div className={styles.badgeWrap}>
+            <img
+              src="/images/icons/asset-4.svg"
+              alt=""
+              aria-hidden="true"
+              className={styles.badge}
+            />
+          </div>
         </ScrollReveal>
       </div>
     </section>

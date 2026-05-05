@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import MotionProvider from "@/components/providers/MotionProvider";
 import PageTransition from "@/components/providers/PageTransition";
@@ -38,7 +37,6 @@ export default function RootLayout({
         <MotionProvider>
           <Navbar />
           <PageTransition>{children}</PageTransition>
-          <Footer />
         </MotionProvider>
       </body>
     </html>
