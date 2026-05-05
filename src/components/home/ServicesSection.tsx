@@ -29,7 +29,13 @@ export default function ServicesSection() {
               src="/images/icons/asset-4.svg"
               alt=""
               aria-hidden="true"
-              className={styles.badge}
+              className={`${styles.badge} ${styles.badgeDefault}`}
+            />
+            <img
+              src="/images/icons/asset-17.png"
+              alt=""
+              aria-hidden="true"
+              className={`${styles.badge} ${styles.badgeHover}`}
             />
           </div>
         </ScrollReveal>

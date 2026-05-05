@@ -40,12 +40,36 @@
 }
 
 .badgeWrap {
+  position: relative;
   display: flex;
   justify-content: center;
+  width: clamp(40px, 5vw, 56px);
+  aspect-ratio: 1;
 }
 
 .badge {
-  width: clamp(40px, 5vw, 56px);
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: auto;
   display: block;
+  margin: auto;
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease;
+}
+
+.badgeHover {
+  opacity: 0;
+  transform: scale(0.78) rotate(-8deg);
+}
+
+.badgeWrap:hover .badgeDefault {
+  opacity: 0;
+  transform: scale(0.78) rotate(8deg);
+}
+
+.badgeWrap:hover .badgeHover {
+  opacity: 1;
+  transform: scale(1.9) rotate(-10deg);
 }
