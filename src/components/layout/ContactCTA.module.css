@@ -54,16 +54,16 @@
 }
 
 .contactButton {
-  margin-top: clamp(48px, 9vw, 104px);
+  margin-top: clamp(30px, 5.6vw, 68px);
   padding: clamp(12px, 1.4vw, 16px) clamp(22px, 2.6vw, 34px);
   color: var(--color-white);
   font-family: var(--font-inter-bold);
   font-size: clamp(14px, 1.8vw, 20px);
   line-height: 1.1;
-  background: var(--color-blue);
-  border: 2px solid var(--color-blue);
+  background: var(--color-blue-light);
+  border: 2px solid var(--color-blue-light);
   border-radius: 999px;
-  box-shadow: 0 12px 30px rgb(41 120 243 / 0.18);
+  box-shadow: 0 12px 30px rgb(105 175 235 / 0.24);
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
@@ -73,9 +73,9 @@
 
 .contactButton:hover,
 .contactButton:focus-visible {
-  color: var(--color-blue);
+  color: var(--color-blue-light);
   background: var(--color-white);
-  border-color: var(--color-blue);
+  border-color: var(--color-blue-light);
   transform: translateY(-2px);
 }
 
@@ -378,7 +378,7 @@
   }
 
   .contactButton {
-    margin-top: 42px;
+    margin-top: 30px;
     padding: 11px 18px;
     font-size: 13px;
   }

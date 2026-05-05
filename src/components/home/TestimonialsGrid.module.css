@@ -1,56 +1,74 @@
 .section {
-  padding: 72px 0;
+  padding: clamp(84px, 9vw, 132px) 0 clamp(96px, 11vw, 160px);
+  overflow: hidden;
 }
 
 .heading {
-  max-width: 520px;
-  margin: 0 auto 44px;
+  max-width: 720px;
+  margin: 0 auto clamp(52px, 6.5vw, 96px);
   text-align: center;
   color: var(--color-orange);
-  font-size: clamp(34px, 5vw, 58px);
+  font-size: clamp(58px, 8.8vw, 138px);
+  line-height: 0.86;
+}
+
+.heading span {
+  font-size: 0.72em;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(28px, 3.8vw, 64px) clamp(26px, 4.5vw, 84px);
+  align-items: start;
 }
 
 .card {
   position: relative;
-  min-height: 190px;
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  min-height: clamp(230px, 17vw, 330px);
+  padding: clamp(28px, 2.7vw, 46px);
+  color: var(--color-black);
+  background: var(--color-white);
+  border: 2px dashed rgb(66 66 58 / 0.22);
+  border-radius: 18px;
+  box-shadow: none;
 }
 
 .card h3 {
-  font-size: 20px;
+  max-width: calc(100% - 92px);
+  color: inherit;
+  font-family: var(--font-averia), Georgia, serif;
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 0.95;
 }
 
 .title {
-  margin-top: 2px;
-  font-size: 12px;
-  color: rgba(66, 66, 58, 0.7);
+  max-width: calc(100% - 92px);
+  margin-top: 8px;
+  color: rgb(66 66 58 / 0.82);
+  font-family: var(--font-averia), Georgia, serif;
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
 }
 
 .quote {
-  margin-top: 34px;
-  font-size: 15px;
-  line-height: 1.45;
+  margin-top: clamp(58px, 5vw, 96px);
+  color: rgb(66 66 58 / 0.88);
+  font-size: clamp(21px, 1.8vw, 32px);
+  line-height: 1.28;
 }
 
 .avatar {
   position: absolute;
-  top: 22px;
-  right: 22px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 52% 34%, var(--color-yellow) 0 7px, transparent 8px),
-    radial-gradient(circle at 34% 48%, var(--color-orange) 0 8px, transparent 9px),
-    var(--color-blue-light);
+  top: clamp(28px, 2.6vw, 44px);
+  right: clamp(28px, 2.8vw, 48px);
+  width: clamp(58px, 5.4vw, 92px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
 }
 
 .white {
@@ -58,28 +76,113 @@
 }
 
 .blue {
-  background: var(--color-blue);
   color: var(--color-white);
-}
-
-.blue .title,
-.green .title {
-  color: rgba(255, 255, 255, 0.72);
+  background: var(--color-blue);
+  border-color: rgb(255 255 255 / 0.34);
 }
 
 .green {
-  background: var(--color-green);
   color: var(--color-white);
+  background: var(--color-green);
+  border-color: rgb(255 255 255 / 0.34);
 }
 
-@media (max-width: 960px) {
+.blue .title,
+.green .title,
+.blue .quote,
+.green .quote {
+  color: rgb(255 255 255 / 0.9);
+}
+
+.leo {
+  grid-column: 1 / span 5;
+}
+
+.nina {
+  grid-column: 8 / span 5;
+  margin-top: clamp(86px, 8vw, 144px);
+}
+
+.ethan {
+  grid-column: 2 / span 5;
+  margin-top: clamp(28px, 3vw, 58px);
+}
+
+.maya {
+  grid-column: 7 / span 5;
+  margin-top: clamp(-30px, -2vw, -16px);
+}
+
+.miles {
+  grid-column: 1 / span 5;
+  margin-top: clamp(74px, 7vw, 132px);
+}
+
+.sofia {
+  grid-column: 8 / span 5;
+  margin-top: clamp(64px, 6vw, 112px);
+}
+
+@media (max-width: 1100px) {
+  .heading {
+    font-size: clamp(54px, 11vw, 108px);
+  }
+
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .leo,
+  .nina,
+  .ethan,
+  .maya,
+  .miles,
+  .sofia {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .card {
+    min-height: 260px;
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 720px) {
+  .section {
+    padding: 70px 0 86px;
+  }
+
+  .heading {
+    margin-bottom: 38px;
+    font-size: clamp(48px, 15vw, 76px);
+  }
+
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 220px;
+    padding: 24px;
+  }
+
+  .card h3 {
+    font-size: 30px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .quote {
+    margin-top: 48px;
+    font-size: 19px;
+  }
+
+  .avatar {
+    top: 22px;
+    right: 22px;
+    width: 58px;
   }
 }
