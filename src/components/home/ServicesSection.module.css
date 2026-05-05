@@ -61,7 +61,7 @@
 
 .badgeHover {
   opacity: 0;
-  transform: scale(0.78) rotate(-8deg);
+  transform: translateX(4px) scale(0.78) rotate(-8deg);
 }
 
 .badgeWrap:hover .badgeDefault {
@@ -71,5 +71,5 @@
 
 .badgeWrap:hover .badgeHover {
   opacity: 1;
-  transform: scale(1.9) rotate(-10deg);
+  transform: translateX(8px) scale(2.08) rotate(-10deg);
 }
