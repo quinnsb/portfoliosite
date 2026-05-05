@@ -36,6 +36,8 @@
 
 .image {
   object-fit: cover;
+  object-position: 50% 36%;
+  transform: scale(1.18);
 }
 
 .card {

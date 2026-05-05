@@ -9,9 +9,19 @@ import styles from "./ContactCTA.module.css";
 const flowers = [
   { src: "/images/mail-flower/stem-left.png", className: styles.stemLeft, delay: 0.05 },
   {
+    src: "/images/mail-flower/flower-left-red-bud.png",
+    className: styles.flowerLeftRedBud,
+    delay: 0.06,
+  },
+  {
     src: "/images/mail-flower/flower-large-left-full.png",
     className: styles.flowerLargeLeft,
     delay: 0.08,
+  },
+  {
+    src: "/images/mail-flower/bee-dot-1.png",
+    className: styles.beeDotOne,
+    delay: 0.1,
   },
   {
     src: "/images/mail-flower/blue-leaves-left.png",
@@ -24,18 +34,33 @@ const flowers = [
     className: styles.flowerLargeRight,
     delay: 0.2,
   },
-  { src: "/images/mail-flower/flower-red.png", className: styles.flowerRed, delay: 0.26 },
-  { src: "/images/mail-flower/stem-right.png", className: styles.stemRight, delay: 0.28 },
-  { src: "/images/mail-flower/berries.png", className: styles.berries, delay: 0.32 },
   {
-    src: "/images/mail-flower/flower-small-red.png",
-    className: styles.flowerSmallRed,
+    src: "/images/mail-flower/flower-center-red.png",
+    className: styles.flowerCenterRed,
+    delay: 0.24,
+  },
+  { src: "/images/mail-flower/flower-front-red.png", className: styles.flowerFrontRed, delay: 0.26 },
+  {
+    src: "/images/mail-flower/flower-front-blue.png",
+    className: styles.flowerFrontBlue,
+    delay: 0.27,
+  },
+  { src: "/images/mail-flower/stem-right.png", className: styles.stemRight, delay: 0.28 },
+  { src: "/images/mail-flower/flower-berries-full.png", className: styles.berries, delay: 0.32 },
+  {
+    src: "/images/mail-flower/flower-right-red.png",
+    className: styles.flowerRightRed,
     delay: 0.36,
   },
   {
     src: "/images/mail-flower/blue-leaves-right.png",
     className: styles.blueLeavesRight,
     delay: 0.4,
+  },
+  {
+    src: "/images/mail-flower/bee-dot-2.png",
+    className: styles.beeDotTwo,
+    delay: 0.41,
   },
   { src: "/images/mail-flower/bee-1.png", className: styles.beeOne, delay: 0.42 },
   { src: "/images/mail-flower/bee-2.png", className: styles.beeTwo, delay: 0.46 },
@@ -47,14 +72,16 @@ export default function ContactCTA() {
   return (
     <section className={styles.section} id="contact">
       <div className={styles.inner}>
+        <img src="/images/mail-flower/mail-back.png" alt="" className={styles.mailBack} />
+
         <div className={styles.content}>
           <h2 className={styles.title}>
             Have <span className="accent-font-italic">a project</span> in mind?
             <br />
             Let&apos;s bring <span className="accent-font-italic">it to life.</span>
           </h2>
-          <button className={styles.email} onClick={() => setIsOpen(true)}>
-            {SITE.email}
+          <button className={styles.contactButton} onClick={() => setIsOpen(true)}>
+            Start a conversation
           </button>
         </div>
 

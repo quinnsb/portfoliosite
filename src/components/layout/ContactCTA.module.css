@@ -8,19 +8,20 @@
   aspect-ratio: 948 / 1195;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 36px;
-  background: var(--color-yellow);
+  border-radius: 0;
+  background: transparent;
   text-align: center;
   isolation: isolate;
 }
 
-.inner::before {
-  content: "";
+.mailBack {
   position: absolute;
-  inset: 2% 2.4% 2.1%;
   z-index: 0;
-  border-radius: 22px;
-  background: #faf7ef;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
 }
 
 .mailFront {
@@ -52,24 +53,36 @@
   line-height: 1.08;
 }
 
-.email {
+.contactButton {
   margin-top: clamp(48px, 9vw, 104px);
-  color: var(--color-blue-light);
+  padding: clamp(12px, 1.4vw, 16px) clamp(22px, 2.6vw, 34px);
+  color: var(--color-white);
   font-family: var(--font-inter-bold);
-  font-size: clamp(16px, 2.2vw, 24px);
+  font-size: clamp(14px, 1.8vw, 20px);
   line-height: 1.1;
-  transition: color 0.2s ease, transform 0.2s ease;
+  background: var(--color-blue);
+  border: 2px solid var(--color-blue);
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgb(41 120 243 / 0.18);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.email:hover {
+.contactButton:hover,
+.contactButton:focus-visible {
   color: var(--color-blue);
-  transform: translateY(-1px);
+  background: var(--color-white);
+  border-color: var(--color-blue);
+  transform: translateY(-2px);
 }
 
 .garden {
   position: absolute;
   z-index: 2;
-  inset: 31% 2% 17%;
+  inset: 30.5% 0.8% 12.5%;
   pointer-events: none;
 }
 
@@ -90,83 +103,138 @@
 }
 
 .stemLeft {
-  left: 9%;
-  bottom: 16%;
-  width: 6.8%;
+  z-index: 1;
+  left: 7%;
+  bottom: 29%;
+  width: 6.2%;
+}
+
+.flowerLeftRedBud {
+  z-index: 2;
+  left: 0.5%;
+  bottom: 54%;
+  width: 11.5%;
 }
 
 .flowerLargeLeft {
-  left: -2%;
-  bottom: 22%;
-  width: 41%;
+  z-index: 3;
+  left: 2%;
+  bottom: 41%;
+  width: 39%;
+}
+
+.beeDotOne {
+  z-index: 5;
+  left: 30%;
+  top: 6%;
+  width: 2.6%;
 }
 
 .blueLeavesLeft {
-  left: 24%;
-  bottom: 9%;
-  width: 26%;
+  z-index: 2;
+  left: 23%;
+  bottom: 34%;
+  width: 23%;
 }
 
 .stemCenter {
-  left: 57%;
-  bottom: -2%;
-  width: 8%;
+  z-index: 1;
+  left: 58%;
+  bottom: 17%;
+  width: 7.4%;
 }
 
 .flowerLargeRight {
-  left: 39%;
-  bottom: 4%;
-  width: 36%;
+  z-index: 3;
+  left: 43%;
+  bottom: 28%;
+  width: 34%;
 }
 
-.flowerRed {
-  left: 34%;
-  bottom: -13%;
-  width: 25%;
+.flowerCenterRed {
+  z-index: 5;
+  left: 47%;
+  bottom: 70%;
+  width: 8.8%;
+}
+
+.flowerFrontRed {
+  z-index: 4;
+  left: 35%;
+  bottom: 16%;
+  width: 21%;
+}
+
+.flowerFrontBlue {
+  z-index: 5;
+  left: 49%;
+  bottom: 7%;
+  width: 10.5%;
 }
 
 .stemRight {
-  right: 9%;
-  bottom: 10%;
+  z-index: 1;
+  right: 7%;
+  bottom: 31%;
   width: 10%;
 }
 
 .berries {
-  right: -3%;
-  bottom: 26%;
-  width: 29%;
+  z-index: 2;
+  right: 0%;
+  bottom: 47%;
+  width: 25%;
 }
 
-.flowerSmallRed {
-  right: 8%;
-  bottom: 14%;
-  width: 20%;
+.flowerRightRed {
+  z-index: 4;
+  right: 12%;
+  bottom: 36%;
+  width: 9.2%;
 }
 
 .blueLeavesRight {
-  right: 28%;
-  bottom: 12%;
-  width: 17%;
+  z-index: 3;
+  right: 30%;
+  bottom: 36%;
+  width: 14%;
+}
+
+.beeDotTwo {
+  z-index: 5;
+  right: 38%;
+  top: 13%;
+  width: 2.4%;
 }
 
 .beeOne {
-  left: 27%;
-  top: 13%;
-  width: 7%;
+  z-index: 5;
+  left: 37%;
+  top: 7%;
+  width: 6%;
 }
 
 .beeTwo {
-  right: 39%;
-  top: 21%;
-  width: 6.5%;
+  z-index: 5;
+  right: 38%;
+  top: 23%;
+  width: 5.5%;
 }
 
 .stemLeft .flowerAsset {
   animation-delay: -1.2s;
 }
 
+.flowerLeftRedBud .flowerAsset {
+  animation-delay: -2.1s;
+}
+
 .flowerLargeLeft .flowerAsset {
   animation-delay: -0.2s;
+}
+
+.beeDotOne .flowerAsset {
+  animation-delay: -1.4s;
 }
 
 .blueLeavesLeft .flowerAsset {
@@ -181,8 +249,16 @@
   animation-delay: -1.8s;
 }
 
-.flowerRed .flowerAsset {
+.flowerCenterRed .flowerAsset {
+  animation-delay: -1.6s;
+}
+
+.flowerFrontRed .flowerAsset {
   animation-delay: -3.1s;
+}
+
+.flowerFrontBlue .flowerAsset {
+  animation-delay: -2.4s;
 }
 
 .stemRight .flowerAsset {
@@ -193,12 +269,16 @@
   animation-delay: -2.6s;
 }
 
-.flowerSmallRed .flowerAsset {
+.flowerRightRed .flowerAsset {
   animation-delay: -0.7s;
 }
 
 .blueLeavesRight .flowerAsset {
   animation-delay: -3.6s;
+}
+
+.beeDotTwo .flowerAsset {
+  animation-delay: -2.9s;
 }
 
 .beeOne .flowerAsset {
@@ -297,9 +377,10 @@
     font-size: clamp(26px, 8.2vw, 38px);
   }
 
-  .email {
+  .contactButton {
     margin-top: 42px;
-    font-size: 14px;
+    padding: 11px 18px;
+    font-size: 13px;
   }
 
   .garden {

@@ -23,6 +23,7 @@ export const PROJECTS = [
   { title: "Daymade Creative Agency", slug: "daymade-creative-agency" },
   { title: "Photography", slug: "photography" },
   { title: "Podcast Production", slug: "podcast-production" },
+  { title: "Brand Strategy", slug: "brand-strategy" },
 ];
 
 export const SERVICES = [
