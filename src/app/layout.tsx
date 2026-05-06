@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import MotionProvider from "@/components/providers/MotionProvider";
 import PageTransition from "@/components/providers/PageTransition";
+import AudioPlayer from "@/components/ui/AudioPlayer";
 import { averiaSerifLibre, inter, interBold } from "@/lib/fonts";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
@@ -45,6 +46,7 @@ export default function RootLayout({
         <MotionProvider>
           <Navbar />
           <PageTransition>{children}</PageTransition>
+          <AudioPlayer />
         </MotionProvider>
       </body>
     </html>
