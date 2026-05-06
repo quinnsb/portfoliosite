@@ -171,16 +171,16 @@ export default function AudioPlayer() {
         </div>
 
         <div className={styles.cassette}>
-          <div className={styles.brandMark}>QB</div>
           <div className={styles.label}>
-            <span>Now playing</span>
-            <strong>{formatTime(elapsed)}</strong>
+            <span>Awesome Mix Vol.</span>
           </div>
           <div className={styles.reels} aria-hidden="true">
             <span className={isPlaying ? styles.reelSpin : ""} />
             <span className={isPlaying ? styles.reelSpin : ""} />
           </div>
+          <div className={styles.tapeBand} aria-hidden="true" />
           <div className={styles.tapeStripe} aria-hidden="true" />
+          <div className={styles.cassetteTime}>{formatTime(elapsed)}</div>
         </div>
 
         <div className={styles.nowPlaying}>
