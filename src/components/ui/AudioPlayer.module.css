@@ -110,82 +110,71 @@
 .cassette {
   position: relative;
   overflow: hidden;
-  min-height: 190px;
-  padding: 16px 16px 16px 76px;
+  min-height: 148px;
+  padding: 16px;
   background:
-    linear-gradient(90deg, #243d7e 0 28px, transparent 28px),
-    linear-gradient(90deg, #f6f0e8 0 76px, transparent 76px),
-    #111111;
+    linear-gradient(180deg, #ff5324 0 32px, transparent 32px),
+    #243d7e;
   border: 4px solid #111111;
   border-radius: 18px;
-  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.12);
 }
 
 .cassette::before {
   content: "";
   position: absolute;
-  left: 52px;
-  top: 14px;
-  bottom: 14px;
-  width: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  height: 34px;
+  border: 3px solid #111111;
+  border-radius: 4px;
   background:
-    repeating-linear-gradient(0deg, #b94135 0 12px, #f6f0e8 12px 18px);
-  border-left: 3px solid #111111;
-  border-right: 3px solid #111111;
+    repeating-linear-gradient(90deg, rgba(17, 17, 17, 0.18) 0 4px, transparent 4px 8px),
+    #f6f0e8;
 }
 
 .cassette::after {
   content: "";
   position: absolute;
-  inset: 14px 16px 14px 82px;
+  left: 20px;
+  right: 20px;
+  top: 42px;
   z-index: 1;
-  border: 4px solid #243d7e;
-  border-radius: 10px;
+  height: 62px;
+  border: 4px solid #111111;
+  border-radius: 8px;
   background:
-    radial-gradient(circle at 55% 21%, rgba(255, 255, 255, 0.24) 0 6px, transparent 7px),
-    radial-gradient(circle at 46% 78%, rgba(255, 255, 255, 0.2) 0 5px, transparent 6px),
-    linear-gradient(155deg, transparent 0 44%, rgba(255, 255, 255, 0.22) 44% 52%, transparent 52%),
+    linear-gradient(110deg, rgba(255, 255, 255, 0.24), transparent 22% 72%, rgba(255, 255, 255, 0.18)),
     #171717;
 }
 
-.label {
+.cassetteTop {
   position: absolute;
-  left: 28px;
-  top: 18px;
-  bottom: 18px;
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  width: 34px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  color: #243d7e;
-}
-
-.label span {
-  display: block;
-  font: 900 20px/0.95 var(--font-averia), Georgia, serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  left: 18px;
+  right: 18px;
+  top: 14px;
+  z-index: 2;
+  height: 18px;
+  border: 3px solid #111111;
+  border-radius: 4px;
+  background:
+    repeating-linear-gradient(90deg, #b94135 0 10px, #f6f0e8 10px 17px);
 }
 
 .reels {
   position: absolute;
   left: 50%;
-  top: 18px;
+  top: 48px;
   z-index: 3;
-  display: grid;
-  gap: 42px;
-  transform: translateX(-5%);
+  display: flex;
+  gap: 68px;
+  transform: translateX(-50%);
 }
 
 .reels span {
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   border: 5px solid #7f827f;
   border-radius: 50%;
   background:
@@ -200,11 +189,11 @@
 
 .tapeBand {
   position: absolute;
-  left: 110px;
-  top: 74px;
+  left: 76px;
+  right: 76px;
+  top: 65px;
   z-index: 2;
-  width: 120px;
-  height: 44px;
+  height: 22px;
   border-radius: 999px;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 35% 65%, rgba(255, 255, 255, 0.08)),
@@ -214,19 +203,21 @@
 
 .tapeStripe {
   position: absolute;
-  right: 30px;
-  top: 36px;
+  left: 18px;
+  right: 18px;
+  bottom: 58px;
   z-index: 3;
-  width: 13px;
-  height: 118px;
+  width: auto;
+  height: 8px;
   border-radius: 999px;
-  background: #13d9a2;
+  background:
+    linear-gradient(90deg, #13a06f 0 24%, #f0cd3e 24% 41%, #ff5324 41% 58%, #2f4c9c 58% 100%);
 }
 
 .cassetteTime {
   position: absolute;
-  right: 18px;
-  top: 16px;
+  right: 24px;
+  bottom: 25px;
   z-index: 4;
   width: 48px;
   padding: 5px 0;

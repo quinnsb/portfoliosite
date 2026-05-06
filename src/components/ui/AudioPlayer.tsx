@@ -171,9 +171,7 @@ export default function AudioPlayer() {
         </div>
 
         <div className={styles.cassette}>
-          <div className={styles.label}>
-            <span>Awesome Mix Vol.</span>
-          </div>
+          <div className={styles.cassetteTop} aria-hidden="true" />
           <div className={styles.reels} aria-hidden="true">
             <span className={isPlaying ? styles.reelSpin : ""} />
             <span className={isPlaying ? styles.reelSpin : ""} />
