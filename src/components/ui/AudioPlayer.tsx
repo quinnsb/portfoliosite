@@ -11,9 +11,34 @@ type Track = {
 
 const TRACKS: Track[] = [
   {
+    title: "Blame It on the Boogie",
+    artist: "The Jacksons",
+    src: "/audio/the-jacksons-blame-it-on-the-boogie.mp3",
+  },
+  {
+    title: "Tokyo Night",
+    artist: "Vulfmon, Jacob Jeffries & Evangeline",
+    src: "/audio/tokyo-night.mp3",
+  },
+  {
     title: "Euphoria Spring Fling",
     artist: "Klickaud",
     src: "/audio/euphoria-spring-fling-2016-mix.mp3",
+  },
+  {
+    title: "Mister Magic",
+    artist: "Grover Washington, Jr.",
+    src: "/audio/grover-washington-jr-mister-magic.mp3",
+  },
+  {
+    title: "I'd Like To",
+    artist: "Corinne Bailey Rae",
+    src: "/audio/corinne-bailey-rae-id-like-to.mp3",
+  },
+  {
+    title: "What a Fool Believes",
+    artist: "The Doobie Brothers",
+    src: "/audio/the-doobie-brothers-what-a-fool-believes.mp3",
   },
   {
     title: "Brasilian Skies",
@@ -42,9 +67,14 @@ export default function AudioPlayer() {
   const [elapsed, setElapsed] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(72);
+  const [shuffle, setShuffle] = useState(true);
 
   const currentTrack = TRACKS[currentIndex];
   const progress = duration ? (elapsed / duration) * 100 : 0;
+
+  useEffect(() => {
+    setCurrentIndex(Math.floor(Math.random() * TRACKS.length));
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -84,14 +114,23 @@ export default function AudioPlayer() {
     setIsPlaying(true);
   };
 
+  const getRandomIndex = () => {
+    if (TRACKS.length < 2) return 0;
+    let nextIndex = currentIndex;
+    while (nextIndex === currentIndex) {
+      nextIndex = Math.floor(Math.random() * TRACKS.length);
+    }
+    return nextIndex;
+  };
+
   const previous = () => {
-    setCurrentIndex((index) => (index === 0 ? TRACKS.length - 1 : index - 1));
+    setCurrentIndex((index) => (shuffle ? getRandomIndex() : index === 0 ? TRACKS.length - 1 : index - 1));
     setElapsed(0);
     setIsPlaying(true);
   };
 
   const next = () => {
-    setCurrentIndex((index) => (index === TRACKS.length - 1 ? 0 : index + 1));
+    setCurrentIndex((index) => (shuffle ? getRandomIndex() : index === TRACKS.length - 1 ? 0 : index + 1));
     setElapsed(0);
     setIsPlaying(true);
   };
@@ -116,38 +155,37 @@ export default function AudioPlayer() {
       />
 
       <button
-        className={`${styles.trigger} ${isPlaying ? styles.triggerPlaying : ""}`}
+        className={`${styles.trigger} ${isOpen ? styles.triggerOpen : ""}`}
         onClick={() => setIsOpen((value) => !value)}
         type="button"
         aria-label={isOpen ? "Close music player" : "Open music player"}
       >
-        <span />
-        <span />
+        {isOpen ? "x" : <span />}
       </button>
 
       <section className={`${styles.walkman} ${isOpen ? styles.walkmanOpen : ""}`} aria-label="Music player">
-        <div className={styles.antenna} aria-hidden="true" />
-        <div className={styles.header}>
-          <p>Quinn Walkman</p>
-          <button type="button" onClick={() => setIsOpen(false)} aria-label="Close music player">
-            x
-          </button>
+        <div className={styles.topButtons} aria-hidden="true">
+          <span />
+          <span />
+          <span />
         </div>
 
         <div className={styles.cassette}>
+          <div className={styles.brandMark}>QB</div>
           <div className={styles.label}>
-            <span>Side A</span>
-            <strong>{currentTrack.title}</strong>
+            <span>Now playing</span>
+            <strong>{formatTime(elapsed)}</strong>
           </div>
           <div className={styles.reels} aria-hidden="true">
             <span className={isPlaying ? styles.reelSpin : ""} />
             <span className={isPlaying ? styles.reelSpin : ""} />
           </div>
+          <div className={styles.tapeStripe} aria-hidden="true" />
         </div>
 
         <div className={styles.nowPlaying}>
-          <span>{currentTrack.artist}</span>
           <strong>{currentTrack.title}</strong>
+          <span>{currentTrack.artist}</span>
         </div>
 
         <input
@@ -169,13 +207,22 @@ export default function AudioPlayer() {
 
         <div className={styles.controls}>
           <button type="button" onClick={previous} aria-label="Previous track">
-            <span>rew</span>
+            ←
           </button>
           <button type="button" className={styles.playButton} onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>
             {isPlaying ? "pause" : "play"}
           </button>
           <button type="button" onClick={next} aria-label="Next track">
-            <span>ff</span>
+            →
+          </button>
+          <button
+            type="button"
+            className={`${styles.shuffleButton} ${shuffle ? styles.shuffleActive : ""}`}
+            onClick={() => setShuffle((value) => !value)}
+            aria-pressed={shuffle}
+            aria-label="Shuffle"
+          >
+            shuffle
           </button>
         </div>
 
@@ -200,7 +247,8 @@ export default function AudioPlayer() {
               onClick={() => chooseTrack(index)}
             >
               <span>{String(index + 1).padStart(2, "0")}</span>
-              {track.title}
+              <strong>{track.title}</strong>
+              <em>{track.artist}</em>
             </button>
           ))}
         </div>
