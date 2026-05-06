@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactCTA from "@/components/layout/ContactCTA";
-import Button from "@/components/ui/Button";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -12,40 +11,57 @@ export const metadata: Metadata = {
 
 const jobs = [
   {
-    role: "Marketing Director, M Studios Marketing",
-    dates: "May 2025-Present",
-    description:
-      "Leads digital strategy across client accounts, manages direct reports, and oversees data-driven campaigns spanning paid media, email, SEO, and analytics.",
+    role: "Marketing Director",
+    company: "M Studios Marketing",
+    href: "https://www.mstudiosmarketing.com/",
+    dates: "May 2025 - Present",
+    bullets: [
+      "I lead digital strategy across client accounts, connecting creative, content, and performance.",
+      "I oversee campaigns across paid media, email, SEO, and analytics so the work is clear, useful, and built to move.",
+      "I work with strategists, designers, and developers to help good ideas become measurable results.",
+    ],
   },
   {
-    role: "Content Marketing Strategist, M Studios Marketing",
-    dates: "April 2024-April 2025",
-    description:
-      "Led internal and external communication strategies, managed targeted campaigns, and used data analytics to refine messaging approaches.",
+    role: "Content Marketing Strategist",
+    company: "M Studios Marketing",
+    href: "https://www.mstudiosmarketing.com/",
+    dates: "2024 - April 2025",
+    bullets: [
+      "I helped shape content strategies for clients across multiple platforms.",
+      "I wrote, planned, and refined campaigns with a mix of storytelling, analytics, and brand consistency.",
+      "I worked to make marketing systems easier to understand, repeat, and improve.",
+    ],
   },
   {
-    role: "Communications Director, The Forgotten Initiative",
-    dates: "July 2023-March 2024",
-    description:
-      "Oversaw strategic creative communication while leading a team of direct reports, freelancers, and production collaborators.",
+    role: "Communications Director",
+    company: "The Forgotten Initiative",
+    href: "https://theforgotteninitiative.org/",
+    dates: "2023 - 2024",
+    bullets: [
+      "I oversaw strategic creative communication for a national nonprofit ministry.",
+      "I led direct reports, freelancers, and collaborators across social media, email, YouTube, podcast, and web.",
+      "I helped build campaigns that served the mission while keeping execution clear and consistent.",
+    ],
   },
   {
-    role: "Creative Content Producer, The Forgotten Initiative",
-    dates: "June 2021-July 2023",
-    description:
-      "Created video, podcasts, graphics, and in-person event experiences that helped stories travel with care and clarity.",
+    role: "Creative Content Producer",
+    company: "The Forgotten Initiative",
+    href: "https://theforgotteninitiative.org/",
+    dates: "2021 - 2023",
+    bullets: [
+      "I produced content marketing media across video, podcasts, graphic design, and in-person events.",
+      "I collaborated with a team to keep messaging thoughtful, consistent, and useful.",
+      "I pushed the standard of excellence forward for every piece of media we made.",
+    ],
   },
 ];
 
-const skills = [
-  "Internal Communications",
-  "Copywriting & Editing",
-  "Strategic Growth",
-  "Metrics & Analysis",
-  "Interpersonal Skills",
-  "Digital Tools",
-  "Content Creation",
-  "Collaborative Team Leadership",
+const strengths = [
+  "Lead full-funnel marketing strategies",
+  "Create content that builds trust and drives action",
+  "Turn insights into campaigns that convert",
+  "Manage cross-functional teams and freelancers",
+  "Build systems that scale with clarity and consistency",
 ];
 
 export default function AboutPage() {
@@ -53,52 +69,51 @@ export default function AboutPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroGrid}`}>
-          <div>
-            <h1 className={styles.title}>
-              A strategic storyteller with a maker&apos;s eye.
-            </h1>
-            <p className={styles.intro}>
-              Dynamic marketing leader driven to craft powerful messaging, ignite
-              engagement, and fuel success through strategic storytelling and data-driven
-              insights.
-            </p>
-          </div>
           <div className={styles.imageWrap}>
             <Image
               src="/images/about/quinn-about-2026.jpg"
-              alt="Quinn Brewer holding colorful coolers"
+              alt="Quinn Brewer smiling"
               fill
-              sizes="(max-width: 860px) 90vw, 40vw"
+              sizes="(max-width: 860px) 86vw, 30vw"
               className={styles.image}
               priority
             />
           </div>
+          <div className={styles.heroCopy}>
+            <h1 className={styles.title}>
+              I&apos;m Quinn, a marketing leader and multimedia creative.
+            </h1>
+            <p className={styles.intro}>
+              I care about strategy, storytelling, and making work that feels thoughtful,
+              excellent, and alive.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className={styles.section}>
         <div className={`container ${styles.split}`}>
-          <div>
-            <p className={styles.eyebrow}>Background</p>
-            <h2 className={styles.sectionTitle}>
-              Creative direction, content systems, and campaigns that know where
-              they&apos;re going.
-            </h2>
+          <h2 className={styles.sectionTitle}>My Mission</h2>
+          <div className={styles.statement}>
+            <p>
+              My mission is to make the world a better place by creating beautiful
+              &amp; excellent things with people I care about.
+            </p>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={`container ${styles.split}`}>
+          <h2 className={styles.sectionTitle}>A Bit More</h2>
           <div className={styles.copy}>
             <p>
-              Quinn Brewer is a marketing director and multimedia creative whose work
-              sits at the intersection of message, visual identity, production, and
-              measurable growth.
+              I live with my wife and family in Normal, Illinois. I like birding,
+              reading long fantasy novels, cooking elaborate recipes, and hanging
+              out with my dog Koda.
             </p>
             <p>
-              Across agency and nonprofit environments, he has helped teams clarify
-              what they need to say, shape how it should feel, and build the content
-              engines to keep that message moving.
-            </p>
-            <p>
-              He earned a BS in Creative Technology from Illinois State University in
-              2020.
+              Thanks for checking out my work.
             </p>
           </div>
         </div>
@@ -106,37 +121,35 @@ export default function AboutPage() {
 
       <section className={styles.section}>
         <div className={`container ${styles.split}`}>
-          <div>
-            <p className={styles.eyebrow}>Experience</p>
-            <h2 className={styles.sectionTitle}>Where the work has happened.</h2>
-          </div>
-          <div className={styles.timeline}>
-            {jobs.map((job) => (
-              <article key={job.role} className={styles.job}>
-                <h3>{job.role}</h3>
-                <p className={styles.eyebrow}>{job.dates}</p>
-                <p>{job.description}</p>
-              </article>
+          <h2 className={styles.sectionTitle}>What I Do Best</h2>
+          <ul className={styles.strengths}>
+            {strengths.map((strength) => (
+              <li key={strength}>{strength}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       <section className={styles.section}>
-        <div className="container">
-          <p className={styles.eyebrow}>Expertise</p>
-          <ul className={styles.skills}>
-            {skills.map((skill) => (
-              <li key={skill}>{skill}</li>
+        <div className={`container ${styles.split}`}>
+          <h2 className={styles.sectionTitle}>Work History</h2>
+          <div className={styles.timeline}>
+            {jobs.map((job) => (
+              <article key={`${job.role}-${job.company}`} className={styles.job}>
+                <h3>
+                  {job.role} <span>at </span>
+                  <a href={job.href} target="_blank" rel="noreferrer">
+                    {job.company}
+                  </a>
+                </h3>
+                <p className={styles.dates}>{job.dates}</p>
+                <ul>
+                  {job.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </article>
             ))}
-          </ul>
-          <div className={styles.downloadPanel}>
-            <h2>
-              Want the formal version?
-              <br />
-              Grab the resume.
-            </h2>
-            <Button href="/quinn-brewer-resume.pdf">Download resume</Button>
           </div>
         </div>
       </section>
