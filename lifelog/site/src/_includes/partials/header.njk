@@ -1,57 +1,55 @@
-<header class="border-b border-ink" style="background-color: var(--color-bg);">
-  <div class="container flex justify-between items-center py-3">
-    <a href="/" class="font-bold text-lg tracking-tighter uppercase no-underline text-ink">
+<header class="site-header" style="background-color: var(--color-bg);">
+  <div class="container flex justify-between items-center py-4">
+    <a href="/" class="site-logo no-underline text-ink">
       Brewer Research & Design
     </a>
 
-    <div class="flex items-center gap-4">
-      <nav class="hidden md:flex gap-6 label-caps" aria-label="Main navigation">
-        <a href="/rankings/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url.startsWith('/rankings') %} border-b-2 border-ink text-ink{% endif %}">Rankings</a>
-        <a href="/writing/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url.startsWith('/writing') %} border-b-2 border-ink text-ink{% endif %}">Writing</a>
-        <a href="/projects/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url.startsWith('/projects') %} border-b-2 border-ink text-ink{% endif %}">Projects</a>
-        <a href="/logs/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url == '/logs/' %} border-b-2 border-ink text-ink{% endif %}">Logs</a>
-        <a href="/about/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url == '/about/' %} border-b-2 border-ink text-ink{% endif %}">About</a>
+    <div class="flex items-center gap-6">
+      <nav class="hidden md:flex gap-6 nav-links" aria-label="Main navigation">
+        <a href="/rankings/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url.startsWith('/rankings') %} text-ink{% endif %}">Rankings</a>
+        <a href="/writing/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url.startsWith('/writing') %} text-ink{% endif %}">Writing</a>
+        <a href="/projects/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url.startsWith('/projects') %} text-ink{% endif %}">Projects</a>
+        <a href="/logs/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url == '/logs/' %} text-ink{% endif %}">Logs</a>
+        <a href="/about/" class="no-underline text-ink-secondary hover:text-ink{% if page.url and page.url == '/about/' %} text-ink{% endif %}">About</a>
       </nav>
 
       <button
         id="theme-toggle"
-        class="label-caps border-rule px-2 py-1 cursor-pointer bg-transparent text-ink hover-invert"
+        class="theme-toggle"
         aria-label="Toggle dark mode"
         title="Toggle dark mode"
       ><span id="theme-icon">☀</span></button>
 
       <button
         id="menu-toggle"
-        class="md:hidden label-caps border-rule px-2 py-1 bg-bg cursor-pointer"
+        class="md:hidden menu-toggle"
         aria-label="Open menu"
         aria-expanded="false"
         aria-controls="mobile-nav"
-      >[ Menu ]</button>
+      >Menu</button>
     </div>
   </div>
 
-  <nav id="mobile-nav" class="hidden md:hidden border-t border-ink" aria-label="Mobile navigation">
-    <div class="container flex flex-col py-2">
-      <a href="/rankings/" class="label-caps no-underline text-ink py-2 border-b border-dashed border-ink-secondary">Rankings</a>
-      <a href="/writing/" class="label-caps no-underline text-ink py-2 border-b border-dashed border-ink-secondary">Writing</a>
-      <a href="/projects/" class="label-caps no-underline text-ink py-2 border-b border-dashed border-ink-secondary">Projects</a>
-      <a href="/logs/" class="label-caps no-underline text-ink py-2 border-b border-dashed border-ink-secondary">Logs</a>
-      <a href="/about/" class="label-caps no-underline text-ink py-2">About</a>
+  <nav id="mobile-nav" class="hidden md:hidden" aria-label="Mobile navigation">
+    <div class="container flex flex-col py-2 border-t" style="border-color: var(--color-border);">
+      <a href="/rankings/" class="nav-links no-underline text-ink py-3 border-b" style="border-color: var(--color-border);">Rankings</a>
+      <a href="/writing/" class="nav-links no-underline text-ink py-3 border-b" style="border-color: var(--color-border);">Writing</a>
+      <a href="/projects/" class="nav-links no-underline text-ink py-3 border-b" style="border-color: var(--color-border);">Projects</a>
+      <a href="/logs/" class="nav-links no-underline text-ink py-3 border-b" style="border-color: var(--color-border);">Logs</a>
+      <a href="/about/" class="nav-links no-underline text-ink py-3">About</a>
     </div>
   </nav>
 </header>
 
 <script>
 (function () {
-  /* Mobile menu */
   var btn = document.getElementById('menu-toggle');
   var nav = document.getElementById('mobile-nav');
   if (btn && nav) {
-    function toggle() {
+    btn.addEventListener('click', function() {
       var open = nav.classList.toggle('hidden');
       btn.setAttribute('aria-expanded', !open);
-    }
-    btn.addEventListener('click', toggle);
+    });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !nav.classList.contains('hidden')) {
         nav.classList.add('hidden');
@@ -59,15 +57,8 @@
         btn.focus();
       }
     });
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
   }
 
-  /* Dark mode toggle */
   var themeBtn = document.getElementById('theme-toggle');
   var themeIcon = document.getElementById('theme-icon');
   if (!themeBtn) return;

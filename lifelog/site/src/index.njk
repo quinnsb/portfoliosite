@@ -4,181 +4,71 @@ title: "Brewer Research & Design"
 description: "A personal archive of rankings, writing, and projects."
 ---
 
-{# Hero header #}
-<section class="border-rule p-6 md:p-10 mb-8 mt-4">
-  <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-tight m-0 leading-tight">
-    An archive of things <span class="highlight">ranked</span>,<br>
-    things <span class="highlight">written</span>,<br>
-    and things <span class="highlight">made</span>.
+{# Hero #}
+<section class="hero">
+  <h1 class="hero-headline">
+    An archive of things<br>
+    <em>ranked, written,</em><br>
+    and made.
   </h1>
-  <div class="divider mt-5 mb-4" style="border-top: 2px solid var(--color-accent-rust); height: 2px; background: var(--color-accent-rust);"></div>
-  <p class="text-sm m-0 uppercase tracking-wide">
-    A personal research archive by <span class="font-bold">Quinn Brewer</span> — est. 2026
+  <p class="hero-subtitle">
+    A personal research archive by Quinn Brewer. Documenting the mundane with institutional seriousness since 2026.
   </p>
+  <a href="/rankings/" class="pill-button">Start reading &rarr;</a>
 </section>
 
-{# Compute max rows across all 3 sections (capped at 5) #}
-{%- set rnkCount = collections.rankings.length -%}
-{%- set wrtCount = collections.writing.length -%}
-{%- set prjCount = collections.projects.length -%}
-{%- set rnkShow = 5 if rnkCount > 5 else rnkCount -%}
-{%- set wrtShow = 5 if wrtCount > 5 else wrtCount -%}
-{%- set prjShow = 5 if prjCount > 5 else prjCount -%}
-{%- set maxRows = rnkShow -%}
-{%- if wrtShow > maxRows %}{% set maxRows = wrtShow %}{% endif -%}
-{%- if prjShow > maxRows %}{% set maxRows = prjShow %}{% endif -%}
+<div class="section-divider"></div>
 
-{# 3-Column Index Grid — row-aligned across columns #}
-<section class="border-rule hidden md:grid" style="grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto repeat({{ maxRows }}, auto) auto;">
-
-  {# Header row #}
-  <div class="px-4 py-3 border-b border-r border-ink flex items-center justify-between" style="background-color: var(--color-accent-yellow); border-bottom-color: var(--color-ink);">
-    <a href="/rankings/" class="label-caps no-underline text-ink">
-      Rankings <span class="label-jp ml-1">順位</span>
-    </a>
-    <span class="label-caps text-ink">{{ rnkCount }}</span>
-  </div>
-  <div class="px-4 py-3 border-b border-r border-ink flex items-center justify-between" style="background-color: var(--color-accent-blue); border-bottom-color: var(--color-ink);">
-    <a href="/writing/" class="label-caps no-underline" style="color: var(--color-bg);">
-      Writing <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">執筆</span>
-    </a>
-    <span class="label-caps" style="color: var(--color-bg);">{{ wrtCount }}</span>
-  </div>
-  <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-rust); border-bottom-color: var(--color-ink);">
-    <a href="/projects/" class="label-caps no-underline" style="color: var(--color-bg);">
-      Projects <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">企画</span>
-    </a>
-    <span class="label-caps" style="color: var(--color-bg);">{{ prjCount }}</span>
+{# Trending / Recent section #}
+<section class="py-10">
+  <div class="section-header mb-6">
+    <h2 class="section-title">Recent entries</h2>
   </div>
 
-  {# Entry rows — all three columns per row #}
-  {% for i in range(0, maxRows) %}
-    {# Rankings cell #}
-    {% if i < rnkShow %}
-      {% set entry = collections.rankings[i] %}
-      <a href="/rankings/{{ entry.data.catalogId.id | lower }}/"
-         class="block px-4 py-2.5 border-b border-r border-ink hover-invert no-underline text-ink">
-        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-        <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-      </a>
-    {% else %}
-      <div class="border-b border-r border-ink"></div>
-    {% endif %}
+  {%- set sortedEntries = collections.allEntries | sort(true, false, 'data.date') -%}
 
-    {# Writing cell #}
-    {% if i < wrtShow %}
-      {% set entry = collections.writing[i] %}
-      <a href="/writing/{{ entry.data.catalogId.id | lower }}/"
-         class="block px-4 py-2.5 border-b border-r border-ink hover-invert no-underline text-ink">
-        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-        <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-      </a>
-    {% else %}
-      <div class="border-b border-r border-ink"></div>
-    {% endif %}
-
-    {# Projects cell #}
-    {% if i < prjShow %}
-      {% set entry = collections.projects[i] %}
-      <a href="/projects/{{ entry.data.catalogId.id | lower }}/"
-         class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
-        <div class="flex items-center gap-2">
-          <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-          {% if entry.data.status %}
-          <span class="chip text-[9px] py-0 px-1
-            {% if entry.data.status === 'ongoing' %} chip-green
-            {% elif entry.data.status === 'abandoned' %} chip-rust
-            {% endif %}
-          ">{{ entry.data.status }}</span>
-          {% endif %}
-        </div>
-        <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-      </a>
-    {% else %}
-      <div class="border-b border-ink"></div>
-    {% endif %}
-  {% endfor %}
-
-  {# View All row #}
-  <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-r border-ink">
-    View All →
-  </a>
-  <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-r border-ink">
-    View All →
-  </a>
-  <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">
-    View All →
-  </a>
-</section>
-
-{# Mobile: stacked columns #}
-<section class="border-rule md:hidden">
-  {# Rankings #}
-  <div class="border-b border-ink">
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-yellow);">
-      <a href="/rankings/" class="label-caps no-underline text-ink">Rankings <span class="label-jp ml-1">順位</span></a>
-      <span class="label-caps text-ink">{{ rnkCount }}</span>
-    </div>
-    {% for entry in collections.rankings %}{% if loop.index0 < 5 %}
-    <a href="/rankings/{{ entry.data.catalogId.id | lower }}/" class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
-      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-    </a>
-    {% endif %}{% endfor %}
-    <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">View All →</a>
-  </div>
-  {# Writing #}
-  <div class="border-b border-ink">
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-blue);">
-      <a href="/writing/" class="label-caps no-underline" style="color: var(--color-bg);">Writing <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">執筆</span></a>
-      <span class="label-caps" style="color: var(--color-bg);">{{ wrtCount }}</span>
-    </div>
-    {% for entry in collections.writing %}{% if loop.index0 < 5 %}
-    <a href="/writing/{{ entry.data.catalogId.id | lower }}/" class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
-      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-    </a>
-    {% endif %}{% endfor %}
-    <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">View All →</a>
-  </div>
-  {# Projects #}
-  <div>
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-rust);">
-      <a href="/projects/" class="label-caps no-underline" style="color: var(--color-bg);">Projects <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">企画</span></a>
-      <span class="label-caps" style="color: var(--color-bg);">{{ prjCount }}</span>
-    </div>
-    {% for entry in collections.projects %}{% if loop.index0 < 5 %}
-    <a href="/projects/{{ entry.data.catalogId.id | lower }}/" class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
-      <div class="flex items-center gap-2">
-        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-        {% if entry.data.status %}<span class="chip text-[9px] py-0 px-1 {% if entry.data.status === 'ongoing' %} chip-green{% elif entry.data.status === 'abandoned' %} chip-rust{% endif %}">{{ entry.data.status }}</span>{% endif %}
-      </div>
-      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-    </a>
-    {% endif %}{% endfor %}
-    <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">View All →</a>
-  </div>
-</section>
-
-{# Activity Feed #}
-<section class="mt-8">
-  <div class="flex items-center gap-4 mb-4">
-    <h2 class="label-caps shrink-0 m-0">Activity Feed <span class="label-jp ml-1">活動記録</span></h2>
-    <div class="divider"></div>
-  </div>
-
-  <div class="border-rule">
-    {%- set sortedEntries = collections.allEntries | sort(true, false, 'data.date') -%}
-
+  <div class="entry-list">
     {%- for entry in sortedEntries -%}
-    {%- if loop.index0 < 15 -%}
-    <a href="{{ entry.url }}"
-       class="grid grid-cols-[100px_80px_1fr] border-b border-ink hover-invert no-underline text-ink">
-      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ (entry.data.date or entry.data.date_updated) | dateFormat }}</span>
-      <span class="label-caps px-3 py-2 border-r border-ink">{{ entry.data.catalogId.id }}</span>
-      <span class="px-3 py-2 uppercase text-xs font-bold truncate">{{ entry.data.title }}</span>
+    {%- if loop.index0 < 8 -%}
+    <a href="{{ entry.url }}" class="entry-card no-underline">
+      <div class="entry-card__meta">
+        <span class="entry-card__type
+          {%- if entry.data.catalogId.id.startsWith('RNK') %} type-rnk
+          {%- elif entry.data.catalogId.id.startsWith('WRT') %} type-wrt
+          {%- elif entry.data.catalogId.id.startsWith('PRJ') %} type-prj
+          {%- endif %}">{{ entry.data.catalogId.id | replace("-", "-") }}</span>
+        <span class="entry-card__date">{{ (entry.data.date or entry.data.date_updated) | dateFormat }}</span>
+      </div>
+      <h3 class="entry-card__title">{{ entry.data.title }}</h3>
     </a>
     {%- endif -%}
     {%- endfor -%}
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+{# Browse by section #}
+<section class="py-10">
+  <div class="section-header mb-8">
+    <h2 class="section-title">Browse by section</h2>
+  </div>
+
+  <div class="browse-grid">
+    <a href="/rankings/" class="browse-card no-underline">
+      <span class="browse-card__count">{{ collections.rankings.length }}</span>
+      <h3 class="browse-card__title">Rankings</h3>
+      <p class="browse-card__desc">Definitive, non-negotiable orderings of things that matter.</p>
+    </a>
+    <a href="/writing/" class="browse-card no-underline">
+      <span class="browse-card__count">{{ collections.writing.length }}</span>
+      <h3 class="browse-card__title">Writing</h3>
+      <p class="browse-card__desc">Essays, observations, and investigations of varying seriousness.</p>
+    </a>
+    <a href="/projects/" class="browse-card no-underline">
+      <span class="browse-card__count">{{ collections.projects.length }}</span>
+      <h3 class="browse-card__title">Projects</h3>
+      <p class="browse-card__desc">Ongoing and completed works of questionable practical value.</p>
+    </a>
   </div>
 </section>

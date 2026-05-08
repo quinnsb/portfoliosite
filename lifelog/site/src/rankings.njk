@@ -9,43 +9,29 @@ pagination:
 permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
 
-{# Doc ID top-right #}
-<div class="flex justify-end mb-2">
-  <span class="chip">Doc-ID: RNK-IDX-99</span>
-</div>
-
-{# Section header #}
-<section class="border-rule p-5 mb-6">
-  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-2">
-    <div>
-      <h1 class="text-4xl font-bold uppercase tracking-tight m-0">
-        Rankings <span class="label-jp ml-2 align-middle">順位</span>
-      </h1>
-      <div class="divider mt-3 mb-3" style="border-top: 2px solid var(--color-accent-rust); height: 2px; background: var(--color-accent-rust);"></div>
-      <p class="label-caps m-0">{{ collections.rankings.length | default(0) }} Entries · Indexed Chronologically</p>
-    </div>
-    <div>
-      <span class="chip chip-yellow">[ {{ collections.rankings.length }} Filed ]</span>
-    </div>
-  </div>
+{# Page header #}
+<section class="py-10">
+  <h1 class="hero-headline" style="font-size: clamp(36px, 6vw, 72px); margin-bottom: 12px;">Rankings</h1>
+  <p class="hero-subtitle" style="margin-bottom: 0;">Definitive, non-negotiable orderings of things that matter.</p>
 </section>
 
+<div class="section-divider"></div>
+
 {# Filter bar #}
-<section class="border-rule flex flex-col md:flex-row mb-4">
-  <div class="flex-1 flex items-center px-4 py-3 border-b md:border-b-0 md:border-r border-ink">
-    <span class="text-ink-secondary mr-2 text-lg">[</span>
+<section class="flex flex-col md:flex-row items-stretch md:items-center gap-3 py-4 mb-2">
+  <div class="flex-1 relative">
     <input
       type="text"
       id="section-filter"
-      placeholder="Find in section..."
-      class="bg-transparent border-none outline-none flex-1 font-mono text-sm uppercase tracking-wide placeholder:text-ink-secondary placeholder:uppercase"
+      placeholder="Search rankings..."
+      class="w-full bg-transparent border border-border rounded-lg px-4 py-2 text-sm outline-none focus:border-ink placeholder:text-ink-secondary"
+      style="font-family: var(--font-body);"
       aria-label="Filter rankings by title or tag"
     >
-    <span class="text-ink-secondary ml-2 text-lg">]</span>
   </div>
-  <div class="flex flex-wrap">
-    <div class="filter-dropdown relative border-r border-ink">
-      <button class="label-caps px-4 py-3 flex items-center gap-1 cursor-pointer hover-invert" data-dropdown="sort">
+  <div class="flex flex-wrap gap-2">
+    <div class="filter-dropdown relative">
+      <button class="chip cursor-pointer" data-dropdown="sort">
         Sort <span class="text-ink-secondary">↓</span>
       </button>
       <div class="filter-dropdown__menu hidden" data-menu="sort">
@@ -55,8 +41,8 @@ permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
         <button class="filter-dropdown__item" data-sort="id-desc">ID Descending</button>
       </div>
     </div>
-    <div class="filter-dropdown relative border-r border-ink">
-      <button class="label-caps px-4 py-3 flex items-center gap-1 cursor-pointer hover-invert" data-dropdown="year">
+    <div class="filter-dropdown relative">
+      <button class="chip cursor-pointer" data-dropdown="year">
         Year <span class="text-ink-secondary">↓</span>
       </button>
       <div class="filter-dropdown__menu hidden" data-menu="year">
@@ -73,8 +59,8 @@ permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
         {%- endfor -%}
       </div>
     </div>
-    <div class="filter-dropdown relative border-r border-ink">
-      <button class="label-caps px-4 py-3 flex items-center gap-1 cursor-pointer hover-invert" data-dropdown="tag">
+    <div class="filter-dropdown relative">
+      <button class="chip cursor-pointer" data-dropdown="tag">
         Tag <span class="text-ink-secondary">↓</span>
       </button>
       <div class="filter-dropdown__menu hidden" data-menu="tag">
@@ -93,7 +79,7 @@ permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
       </div>
     </div>
     <div class="filter-dropdown relative">
-      <button class="label-caps px-4 py-3 flex items-center gap-1 cursor-pointer hover-invert" data-dropdown="category">
+      <button class="chip cursor-pointer" data-dropdown="category">
         Category <span class="text-ink-secondary">↓</span>
       </button>
       <div class="filter-dropdown__menu hidden" data-menu="category">
@@ -112,38 +98,29 @@ permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
   </div>
 </section>
 
-{# Entry table #}
-<section class="border-rule" id="entry-table">
-  {# Table header #}
-  <div class="hidden md:grid grid-cols-[100px_110px_1fr_180px] border-b border-ink">
-    <span class="label-caps px-3 py-2 text-ink-secondary">ID</span>
-    <span class="label-caps px-3 py-2 text-ink-secondary">Date</span>
-    <span class="label-caps px-3 py-2 text-ink-secondary">Title</span>
-    <span class="label-caps px-3 py-2 text-ink-secondary text-right">Tags</span>
-  </div>
-
-  {# Entry rows #}
+{# Entry list #}
+<div class="entry-list" id="entry-table">
   {% for entry in entries %}
   {% if entry.data.status === "redacted" or entry.data.status === "withdrawn" %}
-  {# Redacted entry — black bar with visible catalog ID #}
   <div
-    class="grid grid-cols-1 md:grid-cols-[100px_110px_1fr_180px] border-b border-ink entry-row entry-row--redacted"
+    class="entry-card entry-row entry-row--redacted"
     data-title=""
     data-tags=""
     data-category=""
     data-year="{{ entry.data.date | dateFormat | truncate(4, true, '') }}"
     data-date="{{ entry.data.date | dateFormat }}"
     data-id="{{ entry.data.catalogId.id }}"
+    style="opacity: 0.5;"
   >
-    <span class="label-caps px-3 py-3 text-bg" style="background:var(--color-ink);color:var(--color-bg);">{{ entry.data.catalogId.id }}</span>
-    <span class="px-3 py-3" style="background:var(--color-ink);"></span>
-    <span class="px-3 py-3" style="background:var(--color-ink);"></span>
-    <span class="px-3 py-3" style="background:var(--color-ink);"></span>
+    <div class="entry-card__meta">
+      <span class="entry-card__type type-rnk">{{ entry.data.catalogId.id }}</span>
+    </div>
+    <h3 class="entry-card__title" style="background: var(--color-ink); color: transparent; border-radius: 4px; display: inline-block;">&nbsp;&nbsp;REDACTED&nbsp;&nbsp;</h3>
   </div>
   {% else %}
   <a
     href="/rankings/{{ entry.data.catalogId.id | lower }}/"
-    class="grid grid-cols-1 md:grid-cols-[100px_110px_1fr_180px] border-b border-ink hover-invert cursor-pointer no-underline text-ink entry-row"
+    class="entry-card no-underline entry-row"
     data-title="{{ entry.data.title | lower }}"
     data-tags="{{ entry.data.tags | join(' ') | lower }}"
     data-category="{{ entry.data.category | lower }}"
@@ -151,53 +128,47 @@ permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
     data-date="{{ entry.data.date | dateFormat }}"
     data-id="{{ entry.data.catalogId.id }}"
   >
-    <span class="label-caps px-3 py-3 text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-    <span class="label-caps px-3 py-1 md:py-3">{{ entry.data.date | dateFormat }}</span>
-    <span class="px-3 py-1 md:py-3 uppercase text-sm font-bold truncate">{{ entry.data.title }}</span>
-    <span class="px-3 py-1 md:py-3 text-right">
+    <div class="entry-card__meta">
+      <span class="entry-card__type type-rnk">{{ entry.data.catalogId.id }}</span>
+      <span class="entry-card__date">{{ entry.data.date | dateFormat }}</span>
       {% for tag in entry.data.tags %}
         {% if tag !== "rankings" %}
-        <span class="label-caps text-accent-rust">#{{ tag }}</span>
+        <span class="text-ink-secondary" style="font-size: 13px;">#{{ tag }}</span>
         {% endif %}
       {% endfor %}
-    </span>
+    </div>
+    <h3 class="entry-card__title">{{ entry.data.title }}</h3>
   </a>
   {% endif %}
   {% endfor %}
 
   {# Empty state #}
   {% if entries.length == 0 %}
-  <div class="px-3 py-6 text-center label-caps text-ink-secondary">
+  <div class="py-10 text-center text-ink-secondary">
     No entries found.
   </div>
   {% endif %}
 
-  {# No results from filter (hidden by default) #}
-  <div id="no-filter-results" class="px-3 py-6 text-center label-caps text-ink-secondary hidden">
+  {# No results from filter #}
+  <div id="no-filter-results" class="py-10 text-center text-ink-secondary hidden">
     No entries match the current filter.
   </div>
-</section>
+</div>
 
 {# Pagination #}
 {% if pagination.pages.length > 1 %}
-<nav class="border-rule mt-6 grid grid-cols-3" aria-label="Pagination">
-  <div class="border-r border-ink px-4 py-3">
-    {% if pagination.href.previous %}
-    <a href="{{ pagination.href.previous }}" class="label-caps no-underline text-ink hover-invert px-2 py-1">← Prev</a>
-    {% else %}
-    <span class="label-caps text-ink-secondary">← Prev</span>
-    {% endif %}
-  </div>
-  <div class="border-r border-ink px-4 py-3 text-center label-caps">
-    Page {{ pagination.pageNumber + 1 | string | padStart(2, '0') }} / {{ pagination.pages.length | string | padStart(2, '0') }}
-  </div>
-  <div class="px-4 py-3 text-right">
-    {% if pagination.href.next %}
-    <a href="{{ pagination.href.next }}" class="label-caps no-underline text-ink hover-invert px-2 py-1">Next →</a>
-    {% else %}
-    <span class="label-caps text-ink-secondary">Next →</span>
-    {% endif %}
-  </div>
+<nav class="flex items-center justify-center gap-4 py-8" aria-label="Pagination">
+  {% if pagination.href.previous %}
+  <a href="{{ pagination.href.previous }}" class="chip no-underline">← Prev</a>
+  {% else %}
+  <span class="chip" style="opacity: 0.4;">← Prev</span>
+  {% endif %}
+  <span class="text-ink-secondary text-sm">Page {{ pagination.pageNumber + 1 }} / {{ pagination.pages.length }}</span>
+  {% if pagination.href.next %}
+  <a href="{{ pagination.href.next }}" class="chip no-underline">Next →</a>
+  {% else %}
+  <span class="chip" style="opacity: 0.4;">Next →</span>
+  {% endif %}
 </nav>
 {% endif %}
 
@@ -281,7 +252,6 @@ permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
       item.classList.remove('is-active');
     });
     btn.classList.add('is-active');
-    // Update button label
     var trigger = document.querySelector('[data-dropdown="' + menuKey + '"]');
     var label = menuKey.charAt(0).toUpperCase() + menuKey.slice(1);
     var val = btn.textContent.trim();
@@ -318,7 +288,6 @@ permalink: "rankings/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
     });
 
     // Sort visible rows
-    var header = table.querySelector('.hidden.md\\:grid');
     var sorted = rows.slice().sort(function(a, b) {
       switch (state.sort) {
         case 'newest':
