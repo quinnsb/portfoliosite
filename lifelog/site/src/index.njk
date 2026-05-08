@@ -111,51 +111,16 @@ description: "A personal archive of rankings, writing, and projects."
   </div>
 
   <div class="border-rule">
-    {%- set feed = [] -%}
+    {%- set sortedEntries = collections.allEntries | sort(true, false, 'data.date') -%}
 
-    {%- for entry in collections.allEntries -%}
-      {%- set entryDate = (entry.data.date or entry.data.date_updated) | dateFormat -%}
-      {%- set feedItem = {
-        sortDate: entryDate,
-        date: entry.data.date or entry.data.date_updated,
-        type: "entry",
-        id: entry.data.catalogId.id,
-        title: entry.data.title,
-        url: entry.url
-      } -%}
-      {%- set feed = (feed.push(feedItem), feed) -%}
-    {%- endfor -%}
-
-    {%- for event in events -%}
-      {%- set eventDate = event.date | dateFormat -%}
-      {%- set feedItem = {
-        sortDate: eventDate,
-        date: event.date,
-        type: "system",
-        id: event.id,
-        title: event.description
-      } -%}
-      {%- set feed = (feed.push(feedItem), feed) -%}
-    {%- endfor -%}
-
-    {%- set sortedFeed = feed | sort(true, false, 'sortDate') -%}
-
-    {%- for item in sortedFeed -%}
+    {%- for entry in sortedEntries -%}
     {%- if loop.index0 < 15 -%}
-    {% if item.type === "entry" %}
-    <a href="{{ item.url }}"
+    <a href="{{ entry.url }}"
        class="grid grid-cols-[100px_80px_1fr] border-b border-ink hover-invert no-underline text-ink">
-      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ item.date | dateFormat }}</span>
-      <span class="label-caps px-3 py-2 border-r border-ink">{{ item.id }}</span>
-      <span class="px-3 py-2 uppercase text-xs font-bold truncate">{{ item.title }}</span>
+      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ (entry.data.date or entry.data.date_updated) | dateFormat }}</span>
+      <span class="label-caps px-3 py-2 border-r border-ink">{{ entry.data.catalogId.id }}</span>
+      <span class="px-3 py-2 uppercase text-xs font-bold truncate">{{ entry.data.title }}</span>
     </a>
-    {% else %}
-    <div class="grid grid-cols-[100px_80px_1fr] border-b border-ink">
-      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ item.date | dateFormat }}</span>
-      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ item.id }}</span>
-      <span class="px-3 py-2 uppercase text-xs text-ink-secondary truncate">{{ item.title }}</span>
-    </div>
-    {% endif %}
     {%- endif -%}
     {%- endfor -%}
   </div>
