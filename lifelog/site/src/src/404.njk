@@ -1,0 +1,72 @@
+---
+layout: base.njk
+title: "404 — File Not Found — Brewer Research & Design"
+description: "The requested document could not be located."
+permalink: "404.html"
+eleventyExcludeFromCollections: true
+---
+
+{# Doc ID top-right #}
+<div class="flex justify-end mb-2">
+  <span class="chip chip-rust">Doc-ID: ERR-404</span>
+</div>
+
+{# Section header #}
+<section class="border-rule p-5 mb-6">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-2">
+    <div>
+      <h1 class="text-4xl font-bold uppercase tracking-tight m-0">
+        File Not Found <span class="label-jp ml-2 align-middle">未検出</span>
+      </h1>
+      <div class="divider mt-3 mb-3" style="border-top: 2px solid var(--color-accent-rust); height: 2px; background: var(--color-accent-rust);"></div>
+      <p class="label-caps m-0">Error Report · Status Code 404 · Clearance Insufficient</p>
+    </div>
+    <div>
+      <span class="chip chip-rust">[ Status: Missing ]</span>
+    </div>
+  </div>
+</section>
+
+{# Error body #}
+<section class="border-rule mb-6">
+  <div class="px-5 py-3 border-b border-ink">
+    <span class="label-caps">Incident Report</span>
+  </div>
+  <div class="p-5">
+    <div class="border-rule p-5 mb-4" style="background: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--color-surface-container) 10px, var(--color-surface-container) 20px);">
+      <div class="bg-bg border-rule p-4">
+        <p class="text-center label-caps text-accent-rust mb-2">⬛ DOCUMENT NOT FOUND ⬛</p>
+        <p class="text-sm text-center m-0">
+          The requested file could not be located in the archive. It may have been redacted, reclassified, or may never have existed in the first place. All three possibilities are equally likely.
+        </p>
+      </div>
+    </div>
+
+    <div class="divider-dashed my-6"></div>
+
+    <div class="border-rule">
+      <div class="grid grid-cols-[120px_1fr] border-b border-ink">
+        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Error</span>
+        <span class="label-caps px-3 py-2">404 — Not Found</span>
+      </div>
+      <div class="grid grid-cols-[120px_1fr] border-b border-ink">
+        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Cause</span>
+        <span class="label-caps px-3 py-2">Unknown</span>
+      </div>
+      <div class="grid grid-cols-[120px_1fr]">
+        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Action</span>
+        <span class="label-caps px-3 py-2">Return to Index</span>
+      </div>
+    </div>
+
+    <div class="divider-dashed my-6"></div>
+
+    <div class="text-center">
+      <a href="/" class="chip hover-invert no-underline">← Return to Archive Index</a>
+    </div>
+  </div>
+</section>
+
+<div class="text-center label-caps text-ink-secondary py-4">
+  — End of error report —
+</div>

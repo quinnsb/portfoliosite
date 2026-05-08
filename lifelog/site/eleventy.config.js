@@ -4,6 +4,7 @@ const { parseCatalogId, validateCatalogIds, TYPE_MAP } = require("./lib/catalog"
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
+  eleventyConfig.addPassthroughCopy("src/assets/images");
 
   // RSS helpers (avoiding ESM plugin compatibility issues)
   eleventyConfig.addFilter("dateToRfc3339", function (date) {

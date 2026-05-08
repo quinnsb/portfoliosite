@@ -1,0 +1,285 @@
+---
+layout: base.njk
+title: "Projects — Brewer Research & Design"
+description: "Side projects, experiments, and ongoing investigations."
+pagination:
+  data: collections.projects
+  size: 20
+  alias: entries
+permalink: "projects/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+{# Doc ID top-right #}
+<div class="flex justify-end mb-2">
+  <span class="chip">Doc-ID: PRJ-IDX-99</span>
+</div>
+
+{# Section header #}
+<section class="border-rule p-5 mb-6">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-2">
+    <div>
+      <h1 class="text-4xl font-bold uppercase tracking-tight m-0">
+        Projects <span class="label-jp ml-2 align-middle">企画</span>
+      </h1>
+      <div class="divider mt-3 mb-3" style="border-top: 2px solid var(--color-accent-rust); height: 2px; background: var(--color-accent-rust);"></div>
+      <p class="label-caps m-0">{{ collections.projects.length | default(0) }} Entries · Indexed by Last Update</p>
+    </div>
+    <div>
+      <span class="chip chip-filled-rust">[ {{ collections.projects.length }} Filed ]</span>
+    </div>
+  </div>
+</section>
+
+{# Filter bar #}
+<section class="border-rule flex flex-col md:flex-row mb-4">
+  <div class="flex-1 flex items-center px-4 py-3 border-b md:border-b-0 md:border-r border-ink">
+    <span class="text-ink-secondary mr-2 text-lg">[</span>
+    <input
+      type="text"
+      id="section-filter"
+      placeholder="Find in section..."
+      class="bg-transparent border-none outline-none flex-1 font-mono text-sm uppercase tracking-wide placeholder:text-ink-secondary placeholder:uppercase"
+      aria-label="Filter projects by title or tag"
+    >
+    <span class="text-ink-secondary ml-2 text-lg">]</span>
+  </div>
+  <div class="flex flex-wrap">
+    <div class="filter-dropdown relative border-r border-ink">
+      <button class="label-caps px-4 py-3 flex items-center gap-1 cursor-pointer hover-invert" data-dropdown="sort">
+        Sort <span class="text-ink-secondary">↓</span>
+      </button>
+      <div class="filter-dropdown__menu hidden" data-menu="sort">
+        <button class="filter-dropdown__item" data-sort="newest">Last Updated</button>
+        <button class="filter-dropdown__item" data-sort="oldest">Oldest First</button>
+        <button class="filter-dropdown__item" data-sort="id-asc">ID Ascending</button>
+        <button class="filter-dropdown__item" data-sort="id-desc">ID Descending</button>
+      </div>
+    </div>
+    <div class="filter-dropdown relative border-r border-ink">
+      <button class="label-caps px-4 py-3 flex items-center gap-1 cursor-pointer hover-invert" data-dropdown="status">
+        Status <span class="text-ink-secondary">↓</span>
+      </button>
+      <div class="filter-dropdown__menu hidden" data-menu="status">
+        <button class="filter-dropdown__item is-active" data-filter-status="">All Statuses</button>
+        <button class="filter-dropdown__item" data-filter-status="ongoing">Ongoing</button>
+        <button class="filter-dropdown__item" data-filter-status="completed">Completed</button>
+        <button class="filter-dropdown__item" data-filter-status="abandoned">Abandoned</button>
+        <button class="filter-dropdown__item" data-filter-status="dormant">Dormant</button>
+      </div>
+    </div>
+    <div class="filter-dropdown relative">
+      <button class="label-caps px-4 py-3 flex items-center gap-1 cursor-pointer hover-invert" data-dropdown="tag">
+        Tag <span class="text-ink-secondary">↓</span>
+      </button>
+      <div class="filter-dropdown__menu hidden" data-menu="tag">
+        <button class="filter-dropdown__item is-active" data-filter-tag="">All Tags</button>
+        {%- set allTags = [] -%}
+        {%- for entry in collections.projects -%}
+          {%- for tag in entry.data.tags -%}
+            {%- if tag !== "projects" and tag not in allTags -%}
+              {%- set allTags = (allTags.push(tag), allTags) -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+        {%- for tag in allTags | sort -%}
+        <button class="filter-dropdown__item" data-filter-tag="{{ tag }}">{{ tag }}</button>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Entry list #}
+<section class="border-rule" id="entry-table">
+  {% for entry in entries %}
+  <a
+    href="/projects/{{ entry.data.catalogId.id | lower }}/"
+    class="block border-b border-ink hover-invert cursor-pointer no-underline text-ink entry-row px-4 py-4"
+    data-title="{{ entry.data.title | lower }}"
+    data-tags="{{ entry.data.tags | join(' ') | lower }}"
+    data-status="{{ entry.data.status | lower }}"
+    data-date="{{ entry.data.date_updated | dateFormat }}"
+    data-id="{{ entry.data.catalogId.id }}"
+  >
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-1 md:gap-4">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-3 mb-1 flex-wrap">
+          <span class="label-caps text-ink-secondary shrink-0">{{ entry.data.catalogId.id }}</span>
+          <span class="label-caps shrink-0">{{ entry.data.date_started | dateFormat }} → {{ entry.data.date_updated | dateFormat }}</span>
+          {% if entry.data.status %}
+          <span class="chip
+            {% if entry.data.status === 'ongoing' %} chip-blue
+            {% elif entry.data.status === 'abandoned' %} chip-rust
+            {% endif %}
+          ">{{ entry.data.status }}</span>
+          {% endif %}
+        </div>
+        <div class="uppercase text-sm font-bold mb-1">{{ entry.data.title }}</div>
+        <div class="text-ink-secondary text-xs leading-relaxed">{{ entry.templateContent | excerpt }}</div>
+      </div>
+      <div class="flex gap-1 flex-wrap shrink-0 md:text-right">
+        {% for tag in entry.data.tags %}
+          {% if tag !== "projects" %}
+          <span class="label-caps text-accent-rust">#{{ tag }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+
+  {# Empty state #}
+  {% if entries.length == 0 %}
+  <div class="px-3 py-6 text-center label-caps text-ink-secondary">
+    No entries found.
+  </div>
+  {% endif %}
+
+  {# No results from filter #}
+  <div id="no-filter-results" class="px-3 py-6 text-center label-caps text-ink-secondary hidden">
+    No entries match the current filter.
+  </div>
+</section>
+
+{# Pagination #}
+{% if pagination.pages.length > 1 %}
+<nav class="border-rule mt-6 grid grid-cols-3" aria-label="Pagination">
+  <div class="border-r border-ink px-4 py-3">
+    {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="label-caps no-underline text-ink hover-invert px-2 py-1">← Prev</a>
+    {% else %}
+    <span class="label-caps text-ink-secondary">← Prev</span>
+    {% endif %}
+  </div>
+  <div class="border-r border-ink px-4 py-3 text-center label-caps">
+    Page {{ pagination.pageNumber + 1 | string | padStart(2, '0') }} / {{ pagination.pages.length | string | padStart(2, '0') }}
+  </div>
+  <div class="px-4 py-3 text-right">
+    {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="label-caps no-underline text-ink hover-invert px-2 py-1">Next →</a>
+    {% else %}
+    <span class="label-caps text-ink-secondary">Next →</span>
+    {% endif %}
+  </div>
+</nav>
+{% endif %}
+
+{# Client-side filter + sort script #}
+<script>
+(function() {
+  var input = document.getElementById('section-filter');
+  var table = document.getElementById('entry-table');
+  var rows = Array.from(document.querySelectorAll('.entry-row'));
+  var noResults = document.getElementById('no-filter-results');
+
+  var state = { text: '', status: '', tag: '', sort: 'newest' };
+
+  document.querySelectorAll('[data-dropdown]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var key = btn.getAttribute('data-dropdown');
+      var menu = document.querySelector('[data-menu="' + key + '"]');
+      var wasOpen = !menu.classList.contains('hidden');
+      closeAllMenus();
+      if (!wasOpen) menu.classList.remove('hidden');
+    });
+  });
+
+  document.addEventListener('click', closeAllMenus);
+
+  function closeAllMenus() {
+    document.querySelectorAll('.filter-dropdown__menu').forEach(function(m) {
+      m.classList.add('hidden');
+    });
+  }
+
+  document.querySelectorAll('[data-sort]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      state.sort = btn.getAttribute('data-sort');
+      setActive(btn, 'sort');
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll('[data-filter-status]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      state.status = btn.getAttribute('data-filter-status');
+      setActive(btn, 'status');
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll('[data-filter-tag]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      state.tag = btn.getAttribute('data-filter-tag');
+      setActive(btn, 'tag');
+      applyFilters();
+    });
+  });
+
+  if (input) {
+    input.addEventListener('input', function() {
+      state.text = this.value.toLowerCase().trim();
+      applyFilters();
+    });
+  }
+
+  function setActive(btn, menuKey) {
+    var menu = document.querySelector('[data-menu="' + menuKey + '"]');
+    menu.querySelectorAll('.filter-dropdown__item').forEach(function(item) {
+      item.classList.remove('is-active');
+    });
+    btn.classList.add('is-active');
+    var trigger = document.querySelector('[data-dropdown="' + menuKey + '"]');
+    var label = menuKey.charAt(0).toUpperCase() + menuKey.slice(1);
+    var val = btn.textContent.trim();
+    if (val.indexOf('All') === 0) {
+      trigger.innerHTML = label + ' <span class="text-ink-secondary">↓</span>';
+    } else {
+      trigger.innerHTML = label + ': ' + val + ' <span class="text-ink-secondary">↓</span>';
+    }
+  }
+
+  function applyFilters() {
+    var visible = 0;
+    var hasFilters = state.text || state.status || state.tag;
+
+    rows.forEach(function(row) {
+      var title = row.getAttribute('data-title') || '';
+      var tags = row.getAttribute('data-tags') || '';
+      var status = row.getAttribute('data-status') || '';
+
+      var match = true;
+      if (state.text) {
+        match = title.indexOf(state.text) !== -1 || tags.indexOf(state.text) !== -1;
+      }
+      if (match && state.status) match = status === state.status;
+      if (match && state.tag) match = tags.indexOf(state.tag) !== -1;
+
+      row.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    var sorted = rows.slice().sort(function(a, b) {
+      switch (state.sort) {
+        case 'newest':
+          return (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || '');
+        case 'oldest':
+          return (a.getAttribute('data-date') || '').localeCompare(b.getAttribute('data-date') || '');
+        case 'id-asc':
+          return (a.getAttribute('data-id') || '').localeCompare(b.getAttribute('data-id') || '');
+        case 'id-desc':
+        default:
+          return (b.getAttribute('data-id') || '').localeCompare(a.getAttribute('data-id') || '');
+      }
+    });
+
+    sorted.forEach(function(row) {
+      table.insertBefore(row, noResults);
+    });
+
+    noResults.style.display = visible === 0 && hasFilters ? '' : 'none';
+    noResults.classList.toggle('hidden', visible > 0 || !hasFilters);
+  }
+})();
+</script>

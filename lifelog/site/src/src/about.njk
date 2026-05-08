@@ -1,0 +1,76 @@
+---
+layout: base.njk
+title: "Protocols — Brewer Research & Design"
+description: "About the author and this archive."
+permalink: "about/"
+---
+
+{# Doc ID top-right #}
+<div class="flex justify-end mb-2">
+  <span class="chip">Doc-ID: SYS-PROTO-01</span>
+</div>
+
+{# Section header #}
+<section class="border-rule p-5 mb-6">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-2">
+    <div>
+      <h1 class="text-4xl font-bold uppercase tracking-tight m-0">
+        Protocols <span class="label-jp ml-2 align-middle">手順と紹介</span>
+      </h1>
+      <div class="divider mt-3 mb-3" style="border-top: 2px solid var(--color-accent-rust); height: 2px; background: var(--color-accent-rust);"></div>
+      <p class="label-caps m-0">About the Author & This Archive</p>
+    </div>
+  </div>
+</section>
+
+{# Author bio #}
+<section class="border-rule mb-6">
+  <div class="px-5 py-3 border-b border-ink" style="background-color: var(--color-accent-yellow);">
+    <span class="label-caps">Personnel File <span class="label-jp ml-1">人事記録</span></span>
+  </div>
+  <div class="p-5 md:p-6">
+    <div class="flex flex-col md:flex-row gap-6">
+      <div class="w-32 h-32 border-rule relative overflow-hidden shrink-0">
+        <img src="/assets/images/quinnpixelmug.png" alt="Quinn Brewer" class="w-full h-full object-cover" style="image-rendering: pixelated;">
+      </div>
+      <div>
+        <h2 class="headline-md m-0 mb-1">Quinn Brewer</h2>
+        <p class="label-jp m-0 mb-3">デザイナー · 戦略家 · アーキビスト</p>
+        <p class="text-sm leading-relaxed mb-3">
+          Quinn Brewer is a designer, strategist, and reluctant archivist based in the American South. By day, a marketing director. By night, a person who ranks things that do not need to be ranked and writes about topics that do not warrant the word count they receive.
+        </p>
+        <p class="text-sm leading-relaxed mb-3">
+          This archive exists because Quinn believes that <span class="highlight">documenting the mundane with institutional seriousness</span> is both a valid creative practice and an excellent way to avoid doing anything productive.
+        </p>
+        <div class="flex gap-2 flex-wrap mt-4">
+          <a href="https://quinnbrewer.com" class="chip no-underline hover-invert" target="_blank" rel="noopener">quinnbrewer.com ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# About the archive #}
+<section class="border-rule mb-6">
+  <div class="px-5 py-3 border-b border-ink">
+    <span class="label-caps">About This Archive <span class="label-jp ml-1">このアーカイブについて</span></span>
+  </div>
+  <div class="p-5 md:p-6">
+    <p class="text-sm leading-relaxed mb-4">
+      Brewer Research & Design is a personal archive operating under the aesthetic of a declassified institutional document system. All content is organized by catalog number, filed chronologically, and presented with the bureaucratic gravity it almost certainly does not deserve.
+    </p>
+
+    <div class="highlight-block mb-4">
+      <p class="text-sm leading-relaxed m-0">
+        Every document is assigned a permanent catalog identifier: <code class="text-xs bg-surface-container px-1">{TYPE}-{NNNN}</code>
+      </p>
+    </div>
+
+    <div class="flex gap-3 flex-wrap mt-4">
+      <span class="chip chip-yellow">RNK — Rankings</span>
+      <span class="chip chip-blue" style="color: var(--color-bg); background: var(--color-accent-blue);">WRT — Writing</span>
+      <span class="chip chip-filled-rust">PRJ — Projects</span>
+      <span class="chip">SYS — System</span>
+    </div>
+  </div>
+</section>
