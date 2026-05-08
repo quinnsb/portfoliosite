@@ -22,8 +22,8 @@ permalink: "test/"
       --color-blue: #243f8c;
       --color-yellow: #fccb2d;
 
-      --font-display: 'Georgia', 'Times New Roman', 'Iowan Old Style', 'Palatino Linotype', serif;
-      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --font-display: 'GT Super Display', Georgia, serif;
+      --font-body: 'Sohne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-mono: 'Departure Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
       --radius-pill: 1386px;
@@ -44,6 +44,48 @@ permalink: "test/"
     }
 
     /* ===== FONT FACES ===== */
+    @font-face {
+      font-family: "GT Super Display";
+      src: url("/assets/fonts/GTSuperDisplay-Light.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "GT Super Display";
+      src: url("/assets/fonts/GTSuperDisplay-LightItalic.woff2") format("woff2");
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "GT Super Display";
+      src: url("/assets/fonts/GTSuperDisplay-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "GT Super Display";
+      src: url("/assets/fonts/GTSuperDisplay-BoldItalic.woff2") format("woff2");
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "GT Super Display";
+      src: url("/assets/fonts/GTSuperDisplay-SuperItalic.woff2") format("woff2");
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Sohne";
+      src: url("/assets/fonts/Sohne-Buch.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
     @font-face {
       font-family: "Departure Mono";
       src: url("/assets/fonts/DepartureMono-Regular.woff2") format("woff2");
@@ -161,7 +203,7 @@ permalink: "test/"
     .hero__headline {
       font-family: var(--font-display);
       font-size: clamp(48px, 8vw, 96px);
-      font-weight: 400;
+      font-weight: 300;
       line-height: 0.95;
       letter-spacing: -0.04em;
       color: var(--color-black);
@@ -169,6 +211,7 @@ permalink: "test/"
     }
 
     .hero__headline em {
+      font-weight: 900;
       font-style: italic;
     }
 
