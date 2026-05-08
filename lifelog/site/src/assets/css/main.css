@@ -5,11 +5,13 @@
 
 @theme {
   --font-mono: "Departure Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "GT Super Display", Georgia, "Times New Roman", serif;
+  --font-body: "Sohne", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Ink and Paper palette */
-  --color-bg: #F5F2EC;
-  --color-ink: #1b1d17;
-  --color-ink-secondary: #454545;
+  /* Ink and Paper palette — Medium-inspired */
+  --color-bg: #F7F4EF;
+  --color-ink: #242424;
+  --color-ink-secondary: #6b6b6b;
   --color-accent-rust: #e45033;
   --color-accent-blue: #243f8c;
   --color-accent-yellow: #fccb2d;
@@ -52,11 +54,60 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "GT Super Display";
+  src: url("/assets/fonts/GTSuperDisplay-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Super Display";
+  src: url("/assets/fonts/GTSuperDisplay-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Super Display";
+  src: url("/assets/fonts/GTSuperDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Super Display";
+  src: url("/assets/fonts/GTSuperDisplay-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sohne";
+  src: url("/assets/fonts/Sohne-Buch.woff2") format("woff2"),
+       url("/assets/fonts/Sohne-Buch.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sohne";
+  src: url("/assets/fonts/Sohne-Halbfett.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== DARK MODE ===== */
 
 html.dark {
-  --color-bg: #1b1d17;
-  --color-ink: #F5F2EC;
+  --color-bg: #191919;
+  --color-ink: #F2F2F2;
   --color-ink-secondary: #9a9590;
   --color-accent-rust: #f06a50;
   --color-accent-blue: #5b7ee6;
@@ -104,10 +155,10 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
   }
 
   body {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 24px;
     letter-spacing: 0;
     color: var(--color-ink);
     background-color: var(--color-bg);
@@ -138,21 +189,21 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
 }
 
 @utility headline-lg {
-  font-family: var(--font-mono);
-  font-size: 24px;
+  font-family: var(--font-display);
+  font-size: 32px;
   font-weight: 700;
-  line-height: 32px;
+  line-height: 36px;
   letter-spacing: -0.02em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 @utility headline-md {
-  font-family: var(--font-mono);
-  font-size: 18px;
+  font-family: var(--font-display);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 28px;
   letter-spacing: -0.01em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 @utility label-jp {
@@ -377,8 +428,10 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
 }
 
 .entry-body p {
+  font-family: var(--font-body);
   margin: 12px 0;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 26px;
 }
 
 .entry-body blockquote {
@@ -462,18 +515,19 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
 }
 
 .ranked-card__title {
-  font-family: var(--font-mono);
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: 15px;
   font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: none;
   margin: 0;
 }
 
 .ranked-card__preview {
-  font-size: 12px;
-  line-height: 16px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 18px;
   color: var(--color-ink-secondary);
   margin: 4px 0 0;
   overflow: hidden;
@@ -554,12 +608,12 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
 
 /* Fallback: unstyled h2 cards for non-JS or non-ranking entries */
 .entry-body h2 {
-  font-family: var(--font-mono);
-  font-size: 14px;
+  font-family: var(--font-display);
+  font-size: 20px;
   font-weight: 700;
-  line-height: 20px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  text-transform: none;
   margin: 24px 0 0;
   padding: 20px 20px 0;
   border: 1px solid var(--color-ink);
@@ -594,10 +648,11 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
 
 /* Section headers for writing entries */
 .entry-body--writing h2 {
-  font-size: 16px;
+  font-family: var(--font-display);
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-transform: none;
   margin: 32px 0 12px;
   padding: 0 0 8px;
   border: none;
