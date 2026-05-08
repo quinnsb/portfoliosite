@@ -28,7 +28,7 @@ description: "A personal archive of rankings, writing, and projects."
       </a>
       <span class="label-caps text-ink">{{ collections.rankings.length }}</span>
     </div>
-    <div class="flex-1">
+    <div>
       {% for entry in collections.rankings %}
       {% if loop.index0 < 5 %}
       <a href="/rankings/{{ entry.data.catalogId.id | lower }}/"
@@ -39,7 +39,7 @@ description: "A personal archive of rankings, writing, and projects."
       {% endif %}
       {% endfor %}
     </div>
-    <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-t border-ink">
+    <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center mt-auto border-t border-ink">
       View All →
     </a>
   </div>
@@ -52,7 +52,7 @@ description: "A personal archive of rankings, writing, and projects."
       </a>
       <span class="label-caps" style="color: var(--color-bg);">{{ collections.writing.length }}</span>
     </div>
-    <div class="flex-1">
+    <div>
       {% for entry in collections.writing %}
       {% if loop.index0 < 5 %}
       <a href="/writing/{{ entry.data.catalogId.id | lower }}/"
@@ -63,7 +63,7 @@ description: "A personal archive of rankings, writing, and projects."
       {% endif %}
       {% endfor %}
     </div>
-    <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-t border-ink">
+    <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center mt-auto border-t border-ink">
       View All →
     </a>
   </div>
@@ -76,7 +76,7 @@ description: "A personal archive of rankings, writing, and projects."
       </a>
       <span class="label-caps" style="color: var(--color-bg);">{{ collections.projects.length }}</span>
     </div>
-    <div class="flex-1">
+    <div>
       {% for entry in collections.projects %}
       {% if loop.index0 < 5 %}
       <a href="/projects/{{ entry.data.catalogId.id | lower }}/"
@@ -96,7 +96,7 @@ description: "A personal archive of rankings, writing, and projects."
       {% endif %}
       {% endfor %}
     </div>
-    <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-t border-ink">
+    <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center mt-auto border-t border-ink">
       View All →
     </a>
   </div>
