@@ -9,496 +9,581 @@ permalink: "test/"
   <title>Brewer Research & Design — Test</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <style>
-    /* ===== MEDIUM-INSPIRED DESIGN TOKENS ===== */
+    /* ===== DESIGN TOKENS — Analog Editorial Collage ===== */
     :root {
-      --color-bg: #f7f4ed;
-      --color-white: #ffffff;
-      --color-black: #191919;
-      --color-ink: #242424;
-      --color-text: #333333;
-      --color-muted: #6b6b6b;
-      --color-green: #0aab4d;
-      --color-rust: #e45033;
-      --color-blue: #243f8c;
-      --color-yellow: #fccb2d;
+      /* Paper neutrals */
+      --paper-cream: #F7F3EB;
+      --paper-ivory: #F8F4EC;
+      --paper-white: #FCFBFA;
+      --paper-aged: #D3C7BA;
+      --paper-gray: #D2CFC9;
+      --grid-line: #D9DDD5;
 
-      --font-display: 'GT Super Display', Georgia, serif;
-      --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --font-mono: 'Departure Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+      /* Inks */
+      --ink-black: #252525;
+      --ink-deep: #271E1A;
+      --ink-body: #303030;
+      --ink-muted: #7B7471;
 
-      --radius-pill: 1386px;
-      --spacing-unit: 8px;
+      /* Accent scraps */
+      --scrap-blue: #8FADB3;
+      --scrap-sky: #708B9C;
+      --scrap-green: #35AB46;
+      --scrap-moss: #93AF7A;
+      --scrap-olive: #9EA165;
+      --scrap-lavender: #C6BED9;
+      --scrap-orange: #F25829;
+      --scrap-burnt: #D34B24;
+      --scrap-yellow: #EEC052;
+      --scrap-pink: #E7AFC8;
+      --scrap-brown: #543725;
+      --highlight-green: #E6F2E6;
+
+      /* System */
+      --font-display: 'GT Super Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Sohne', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-mono: 'Departure Mono', 'JetBrains Mono', ui-monospace, monospace;
+      --radius-pill: 999px;
     }
 
     html.dark {
-      --color-bg: #1b1d17;
-      --color-white: #22241e;
-      --color-black: #F5F2EC;
-      --color-ink: #e8e4dc;
-      --color-text: #ccc8c0;
-      --color-muted: #9a9590;
-      --color-green: #3dda76;
-      --color-rust: #f06a50;
-      --color-blue: #5b7ee6;
-      --color-yellow: #fccb2d;
+      --paper-cream: #1A1A18;
+      --paper-ivory: #1E1E1C;
+      --paper-white: #242420;
+      --paper-aged: #3A352E;
+      --paper-gray: #33312D;
+      --grid-line: #2A2926;
+      --ink-black: #F7F3EB;
+      --ink-deep: #F0ECE4;
+      --ink-body: #D8D4CC;
+      --ink-muted: #9A9590;
+      --scrap-blue: #7A9BA2;
+      --scrap-orange: #E8603F;
+      --scrap-green: #42C054;
+      --scrap-yellow: #E8B840;
+      --scrap-lavender: #A89CB8;
+      --highlight-green: #2A3A2A;
     }
 
     /* ===== FONT FACES ===== */
     @font-face {
       font-family: "GT Super Display";
       src: url("/assets/fonts/GTSuperDisplay-Light.woff2") format("woff2");
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 300; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: "GT Super Display";
       src: url("/assets/fonts/GTSuperDisplay-LightItalic.woff2") format("woff2");
-      font-weight: 300;
-      font-style: italic;
-      font-display: swap;
+      font-weight: 300; font-style: italic; font-display: swap;
     }
     @font-face {
       font-family: "GT Super Display";
       src: url("/assets/fonts/GTSuperDisplay-Bold.woff2") format("woff2");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 700; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: "GT Super Display";
       src: url("/assets/fonts/GTSuperDisplay-BoldItalic.woff2") format("woff2");
-      font-weight: 700;
-      font-style: italic;
-      font-display: swap;
+      font-weight: 700; font-style: italic; font-display: swap;
     }
     @font-face {
-      font-family: "GT Super Display";
-      src: url("/assets/fonts/GTSuperDisplay-SuperItalic.woff2") format("woff2");
-      font-weight: 900;
-      font-style: italic;
-      font-display: swap;
+      font-family: "Sohne";
+      src: url("/assets/fonts/Sohne-Buch.woff2") format("woff2"),
+           url("/assets/fonts/Sohne-Buch.woff") format("woff");
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "Sohne";
+      src: url("/assets/fonts/Sohne-Halbfett.woff2") format("woff2");
+      font-weight: 700; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: "Departure Mono";
       src: url("/assets/fonts/DepartureMono-Regular.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 400; font-style: normal; font-display: swap;
     }
 
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
     body {
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.5;
-      color: var(--color-text);
-      background-color: var(--color-bg);
+      color: var(--ink-body);
+      background-color: var(--paper-cream);
+      /* Graph paper grid */
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px;
       transition: background-color 200ms, color 200ms;
     }
 
+    /* Paper grain overlay on the whole page */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
     ::selection {
-      background-color: var(--color-black);
-      color: var(--color-bg);
+      background-color: var(--scrap-yellow);
+      color: var(--ink-deep);
     }
 
     a { color: inherit; }
 
     /* ===== LAYOUT ===== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .container--narrow {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 640px) { .container { padding: 0 16px; } }
 
     /* ===== HEADER ===== */
     .header {
-      border-bottom: 1px solid var(--color-text);
-      background-color: var(--color-bg);
+      background-color: var(--paper-cream);
+      border-bottom: 1px solid var(--ink-black);
       position: sticky;
       top: 0;
       z-index: 100;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
-
     .header__inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 16px 0;
     }
-
     .header__logo {
       font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 400;
+      font-size: 20px;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--color-black);
+      color: var(--ink-black);
       text-decoration: none;
     }
-
-    .header__nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
+    .header__nav { display: flex; align-items: center; gap: 24px; }
     .header__link {
       font-family: var(--font-body);
       font-size: 14px;
-      color: var(--color-ink);
+      color: var(--ink-muted);
       text-decoration: none;
       transition: color 150ms;
     }
-
-    .header__link:hover {
-      color: var(--color-black);
-    }
-
+    .header__link:hover { color: var(--ink-black); }
     .header__theme-toggle {
       font-size: 16px;
-      background: none;
-      border: 1px solid var(--color-text);
+      background: var(--paper-white);
+      border: 1px solid var(--ink-black);
       border-radius: var(--radius-pill);
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       cursor: pointer;
-      color: var(--color-ink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: var(--ink-black);
+      display: flex; align-items: center; justify-content: center;
       transition: background-color 150ms;
     }
-
     .header__theme-toggle:hover {
-      background-color: var(--color-black);
-      color: var(--color-bg);
+      background-color: var(--ink-black);
+      color: var(--paper-cream);
     }
 
-    /* ===== HERO ===== */
+    /* ===== HERO — Collage style ===== */
     .hero {
-      padding: 96px 0 80px;
-      border-bottom: 1px solid var(--color-text);
+      padding: 80px 0 72px;
+      position: relative;
+      overflow: hidden;
     }
+    .hero__layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: start;
+    }
+    .hero__text { position: relative; z-index: 2; }
 
+    /* Colored paper block behind headline */
+    .hero__headline-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .hero__headline-wrap::before {
+      content: '';
+      position: absolute;
+      top: -8px; left: -12px;
+      right: 40%; bottom: 30%;
+      background: var(--scrap-blue);
+      z-index: -1;
+      transform: rotate(-1.2deg);
+    }
     .hero__headline {
       font-family: var(--font-display);
-      font-size: clamp(48px, 8vw, 96px);
-      font-weight: 300;
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 700;
       line-height: 0.95;
       letter-spacing: -0.04em;
-      color: var(--color-black);
-      margin-bottom: 32px;
+      color: var(--ink-black);
+      margin-bottom: 24px;
     }
-
     .hero__headline em {
       font-weight: 300;
       font-style: italic;
     }
-
     .hero__subtitle {
       font-family: var(--font-body);
-      font-size: 20px;
-      line-height: 1.5;
-      color: var(--color-muted);
-      max-width: 540px;
-      margin-bottom: 40px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-muted);
+      max-width: 440px;
+      margin-bottom: 32px;
     }
-
     .hero__cta {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--color-bg);
-      background-color: var(--color-black);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--paper-cream);
+      background-color: var(--ink-black);
       border: none;
       border-radius: var(--radius-pill);
-      padding: 10px 24px;
+      padding: 14px 36px;
       text-decoration: none;
       cursor: pointer;
-      transition: opacity 150ms;
+      transition: transform 100ms;
+    }
+    .hero__cta:hover { transform: scale(1.03); }
+
+    /* Collage scraps on the right */
+    .hero__collage {
+      position: relative;
+      height: 320px;
+    }
+    .hero__scrap {
+      position: absolute;
+      border-radius: 0;
+    }
+    .hero__scrap--orange {
+      width: 180px; height: 120px;
+      background: var(--scrap-orange);
+      top: 0; right: 0;
+      transform: rotate(2deg);
+    }
+    .hero__scrap--yellow {
+      width: 140px; height: 90px;
+      background: var(--scrap-yellow);
+      top: 100px; right: 120px;
+      transform: rotate(-1.5deg);
+      z-index: 2;
+    }
+    .hero__scrap--yellow-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-deep);
+      padding: 12px 14px;
+    }
+    .hero__scrap--lavender {
+      width: 100px; height: 200px;
+      background: var(--scrap-lavender);
+      top: 60px; right: 20px;
+      transform: rotate(1deg);
+      z-index: 1;
+    }
+    .hero__scrap--aged {
+      width: 160px; height: 100px;
+      background: var(--paper-aged);
+      bottom: 0; right: 80px;
+      transform: rotate(-2.5deg);
+    }
+    /* Scribble circle (CSS) */
+    .hero__scribble {
+      position: absolute;
+      width: 120px; height: 120px;
+      border: 3px solid var(--ink-black);
+      border-radius: 50%;
+      top: 20px; right: 160px;
+      opacity: 0.15;
+      transform: rotate(15deg) scaleX(1.2);
     }
 
-    .hero__cta:hover {
-      opacity: 0.85;
-    }
+    /* ===== SECTION DIVIDER ===== */
+    .divider { height: 1px; background: var(--ink-black); }
 
-    /* ===== SECTIONS ===== */
-    .section {
-      padding: 64px 0;
-    }
-
-    .section + .section {
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-
-    html.dark .section + .section {
-      border-top-color: rgba(255,255,255,0.08);
-    }
-
-    .section__label {
+    /* ===== SECTION LABEL ===== */
+    .section-label {
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--color-muted);
-      margin-bottom: 24px;
+      color: var(--ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--ink-muted);
+      opacity: 0.3;
     }
 
-    .section__title {
+    /* ===== THREE-COLUMN INDEX (index card style) ===== */
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding: 56px 0;
+    }
+    @media (max-width: 768px) {
+      .index-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .index-col__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ink-black);
+      margin-bottom: 0;
+    }
+    .index-col__title {
       font-family: var(--font-display);
-      font-size: 32px;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--color-black);
-      margin-bottom: 40px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink-black);
+    }
+    .index-col__count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
     }
 
-    /* ===== ENTRY CARDS ===== */
-    .entries {
+    /* Index card items */
+    .index-item {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--paper-gray);
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 120ms, background-color 120ms;
+    }
+    .index-item:hover {
+      padding-left: 8px;
+      background-color: var(--highlight-green);
+      margin: 0 -8px;
+      padding-right: 8px;
+    }
+    .index-item__id {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .index-item__title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink-black);
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+    .index-col__more {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 150ms;
+    }
+    .index-col__more:hover { border-color: var(--ink-muted); }
+
+    /* ===== RECENT ENTRIES — Ticket / tab style ===== */
+    .recent {
+      padding: 56px 0;
+    }
+    .recent__list {
       display: flex;
       flex-direction: column;
       gap: 0;
+      max-width: 720px;
     }
-
-    .entry-card {
+    .recent__card {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 24px;
+      gap: 20px;
       align-items: start;
       padding: 24px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid var(--paper-gray);
       text-decoration: none;
       color: inherit;
-      transition: opacity 150ms;
+      transition: background-color 120ms;
     }
-
-    html.dark .entry-card {
-      border-bottom-color: rgba(255,255,255,0.08);
+    .recent__card:first-child { border-top: 1px solid var(--paper-gray); }
+    .recent__card:hover {
+      background-color: var(--paper-white);
+      margin: 0 -16px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
-
-    .entry-card:first-child {
-      padding-top: 0;
+    .recent__card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
     }
-
-    .entry-card:hover {
-      opacity: 0.7;
-    }
-
-    .entry-card__meta {
+    .recent__card-id {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--color-muted);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      color: var(--ink-muted);
     }
-
-    .entry-card__title {
+    .recent__card-date {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    .recent__card-title {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 700;
       letter-spacing: -0.01em;
-      color: var(--color-black);
+      color: var(--ink-black);
       line-height: 1.3;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-
-    .entry-card__excerpt {
+    .recent__card-excerpt {
       font-size: 15px;
       line-height: 1.5;
-      color: var(--color-muted);
+      color: var(--ink-muted);
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    .entry-card__tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      white-space: nowrap;
-      align-self: center;
-    }
-
-    .entry-card__tag--rnk {
-      background-color: var(--color-yellow);
-      color: #191919;
-    }
-
-    .entry-card__tag--wrt {
-      background-color: var(--color-blue);
-      color: #f7f4ed;
-    }
-
-    .entry-card__tag--prj {
-      background-color: var(--color-rust);
-      color: #f7f4ed;
-    }
-
-    .entry-card__status {
+    /* Type tab — looks like a physical paper tab */
+    .type-tab {
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--color-green);
+      padding: 6px 14px;
+      white-space: nowrap;
+      align-self: center;
+      position: relative;
     }
+    .type-tab--rnk { background: var(--scrap-yellow); color: var(--ink-deep); }
+    .type-tab--wrt { background: var(--scrap-blue); color: var(--paper-white); }
+    .type-tab--prj { background: var(--scrap-orange); color: var(--paper-white); }
 
-    /* ===== THREE-COLUMN GRID ===== */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
+    /* ===== MANIFESTO BAND ===== */
+    .manifesto {
+      background: var(--ink-black);
+      color: var(--paper-cream);
+      padding: 80px 0;
+      margin: 0 -9999px;
+      padding-left: 9999px;
+      padding-right: 9999px;
+      position: relative;
+      background-image: none;
     }
-
-    @media (max-width: 768px) {
-      .grid-3 {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-    }
-
-    .grid-3__col-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--color-black);
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .grid-3__col-label span:last-child {
-      color: var(--color-text);
-    }
-
-    .grid-3__item {
-      display: block;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 150ms;
-    }
-
-    html.dark .grid-3__item {
-      border-bottom-color: rgba(255,255,255,0.08);
-    }
-
-    .grid-3__item:hover {
-      opacity: 0.7;
-    }
-
-    .grid-3__item-id {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-    }
-
-    .grid-3__item-title {
+    .manifesto__inner { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+    .manifesto__text {
       font-family: var(--font-display);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--color-black);
-      margin-top: 2px;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 300;
       line-height: 1.3;
+      letter-spacing: -0.02em;
+      max-width: 680px;
     }
-
-    .grid-3__view-all {
-      display: inline-block;
-      margin-top: 16px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: var(--color-muted);
-      text-decoration: none;
-      transition: color 150ms;
+    .manifesto__text em {
+      background: var(--highlight-green);
+      color: var(--ink-black);
+      padding: 0 6px;
+      font-style: normal;
     }
-
-    .grid-3__view-all:hover {
-      color: var(--color-black);
+    html.dark .manifesto__text em {
+      background: var(--scrap-yellow);
+      color: var(--ink-deep);
+    }
+    /* Tiny star dots */
+    .manifesto__stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .manifesto__star {
+      position: absolute;
+      width: 3px; height: 3px;
+      background: var(--paper-cream);
+      border-radius: 50%;
+      opacity: 0.2;
     }
 
     /* ===== FOOTER ===== */
     .footer {
-      border-top: 1px solid var(--color-text);
-      padding: 32px 0 48px;
-      background-color: var(--color-bg);
+      border-top: 1px solid var(--ink-black);
+      padding: 28px 0 48px;
+      background-color: var(--paper-cream);
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
-
     .footer__inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     .footer__text {
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-muted);
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
     }
-
-    .footer__links {
-      display: flex;
-      gap: 20px;
-    }
-
+    .footer__links { display: flex; gap: 20px; }
     .footer__link {
       font-size: 13px;
-      color: var(--color-muted);
+      color: var(--ink-muted);
       text-decoration: none;
       transition: color 150ms;
     }
+    .footer__link:hover { color: var(--ink-black); }
 
-    .footer__link:hover {
-      color: var(--color-black);
-    }
-
-    /* ===== MOBILE ===== */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .hero { padding: 64px 0 48px; }
-      .hero__headline { font-size: 48px; }
-      .section { padding: 48px 0; }
-      .header__nav { gap: 16px; }
+      .hero { padding: 56px 0 48px; }
+      .hero__layout { grid-template-columns: 1fr; }
+      .hero__collage { display: none; }
+      .hero__headline { font-size: 42px; }
+      .section-label { margin-bottom: 20px; }
+      .recent__card { grid-template-columns: 1fr; gap: 8px; }
+      .type-tab { align-self: start; display: inline-block; }
       .header__link { display: none; }
-      .entry-card { grid-template-columns: 1fr; gap: 8px; }
-      .entry-card__tag { justify-self: start; }
       .footer__inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .manifesto { padding: 56px 9999px; }
     }
   </style>
   <script>
@@ -516,6 +601,7 @@ permalink: "test/"
           <a href="/rankings/" class="header__link">Rankings</a>
           <a href="/writing/" class="header__link">Writing</a>
           <a href="/projects/" class="header__link">Projects</a>
+          <a href="/logs/" class="header__link">Logs</a>
           <a href="/about/" class="header__link">About</a>
           <button id="theme-toggle" class="header__theme-toggle" aria-label="Toggle dark mode">
             <span id="theme-icon">☾</span>
@@ -525,99 +611,151 @@ permalink: "test/"
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO — Collage banner -->
   <section class="hero">
     <div class="container">
-      <h1 class="hero__headline">An archive of things<br><em>ranked, written,</em><br>and made.</h1>
-      <p class="hero__subtitle">A personal research archive by Quinn Brewer. Documenting the mundane with institutional seriousness since 2026.</p>
-      <a href="/rankings/" class="hero__cta">Start reading →</a>
+      <div class="hero__layout">
+        <div class="hero__text">
+          <div class="hero__headline-wrap">
+            <h1 class="hero__headline">
+              An archive of things<br>
+              <em>ranked, written,</em><br>
+              and made.
+            </h1>
+          </div>
+          <p class="hero__subtitle">
+            A personal research archive by Quinn Brewer. Documenting the mundane with institutional seriousness since 2026.
+          </p>
+          <a href="/rankings/" class="hero__cta">Start reading →</a>
+        </div>
+        <div class="hero__collage">
+          <div class="hero__scribble"></div>
+          <div class="hero__scrap hero__scrap--orange"></div>
+          <div class="hero__scrap hero__scrap--lavender"></div>
+          <div class="hero__scrap hero__scrap--yellow">
+            <div class="hero__scrap--yellow-label">
+              Est. 2026<br>
+              Quinn Brewer<br>
+              Filed under:<br>
+              absurdist records
+            </div>
+          </div>
+          <div class="hero__scrap hero__scrap--aged"></div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <div class="divider"></div>
+
   <!-- THREE-COLUMN INDEX -->
-  <section class="section">
+  <section>
     <div class="container">
-      <div class="grid-3">
+      <div class="index-grid">
 
         <!-- Rankings -->
         <div>
-          <div class="grid-3__col-label">
-            <span>Rankings</span>
-            <span>{{ collections.rankings.length }}</span>
+          <div class="index-col__header">
+            <span class="index-col__title">Rankings</span>
+            <span class="index-col__count">{{ collections.rankings.length }} filed</span>
           </div>
           {% for entry in collections.rankings %}
           {% if loop.index0 < 5 %}
-          <a href="/rankings/{{ entry.data.catalogId.id | lower }}/" class="grid-3__item">
-            <div class="grid-3__item-id">{{ entry.data.catalogId.id }}</div>
-            <div class="grid-3__item-title">{{ entry.data.title }}</div>
+          <a href="/rankings/{{ entry.data.catalogId.id | lower }}/" class="index-item">
+            <div class="index-item__id">{{ entry.data.catalogId.id }}</div>
+            <div class="index-item__title">{{ entry.data.title }}</div>
           </a>
           {% endif %}
           {% endfor %}
-          <a href="/rankings/" class="grid-3__view-all">View all →</a>
+          <a href="/rankings/" class="index-col__more">View all rankings →</a>
         </div>
 
         <!-- Writing -->
         <div>
-          <div class="grid-3__col-label">
-            <span>Writing</span>
-            <span>{{ collections.writing.length }}</span>
+          <div class="index-col__header">
+            <span class="index-col__title">Writing</span>
+            <span class="index-col__count">{{ collections.writing.length }} filed</span>
           </div>
           {% for entry in collections.writing %}
           {% if loop.index0 < 5 %}
-          <a href="/writing/{{ entry.data.catalogId.id | lower }}/" class="grid-3__item">
-            <div class="grid-3__item-id">{{ entry.data.catalogId.id }}</div>
-            <div class="grid-3__item-title">{{ entry.data.title }}</div>
+          <a href="/writing/{{ entry.data.catalogId.id | lower }}/" class="index-item">
+            <div class="index-item__id">{{ entry.data.catalogId.id }}</div>
+            <div class="index-item__title">{{ entry.data.title }}</div>
           </a>
           {% endif %}
           {% endfor %}
-          <a href="/writing/" class="grid-3__view-all">View all →</a>
+          <a href="/writing/" class="index-col__more">View all writing →</a>
         </div>
 
         <!-- Projects -->
         <div>
-          <div class="grid-3__col-label">
-            <span>Projects</span>
-            <span>{{ collections.projects.length }}</span>
+          <div class="index-col__header">
+            <span class="index-col__title">Projects</span>
+            <span class="index-col__count">{{ collections.projects.length }} filed</span>
           </div>
           {% for entry in collections.projects %}
           {% if loop.index0 < 5 %}
-          <a href="/projects/{{ entry.data.catalogId.id | lower }}/" class="grid-3__item">
-            <div class="grid-3__item-id">
+          <a href="/projects/{{ entry.data.catalogId.id | lower }}/" class="index-item">
+            <div class="index-item__id">
               {{ entry.data.catalogId.id }}
               {% if entry.data.status %}
-              <span class="entry-card__status" style="margin-left: 8px;">{{ entry.data.status }}</span>
+              <span style="color: var(--scrap-green); margin-left: 6px;">{{ entry.data.status }}</span>
               {% endif %}
             </div>
-            <div class="grid-3__item-title">{{ entry.data.title }}</div>
+            <div class="index-item__title">{{ entry.data.title }}</div>
           </a>
           {% endif %}
           {% endfor %}
-          <a href="/projects/" class="grid-3__view-all">View all →</a>
+          <a href="/projects/" class="index-col__more">View all projects →</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- RECENT ENTRIES (Feed) -->
-  <section class="section">
-    <div class="container--narrow">
-      <div class="section__label">Recent</div>
-      <div class="entries">
+  <!-- MANIFESTO BAND -->
+  <div class="manifesto">
+    <div class="manifesto__stars">
+      <div class="manifesto__star" style="top:12%;left:8%;"></div>
+      <div class="manifesto__star" style="top:28%;left:72%;"></div>
+      <div class="manifesto__star" style="top:65%;left:45%;"></div>
+      <div class="manifesto__star" style="top:80%;left:15%;"></div>
+      <div class="manifesto__star" style="top:40%;left:88%;"></div>
+      <div class="manifesto__star" style="top:55%;left:62%;"></div>
+      <div class="manifesto__star" style="top:18%;left:35%;"></div>
+      <div class="manifesto__star" style="top:72%;left:82%;"></div>
+      <div class="manifesto__star" style="top:90%;left:55%;"></div>
+      <div class="manifesto__star" style="top:8%;left:92%;"></div>
+      <div class="manifesto__star" style="top:48%;left:22%;"></div>
+    </div>
+    <div class="manifesto__inner">
+      <p class="manifesto__text">
+        Documenting the mundane with <em>institutional seriousness</em> is both a valid creative practice and an excellent way to avoid doing anything productive.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RECENT ENTRIES -->
+  <section class="recent">
+    <div class="container">
+      <div class="section-label">Recent entries</div>
+      <div class="recent__list">
         {%- set sortedEntries = collections.allEntries | sort(true, false, 'data.date') -%}
         {%- for entry in sortedEntries -%}
         {%- if loop.index0 < 6 -%}
-        <a href="{{ entry.url }}" class="entry-card">
+        <a href="{{ entry.url }}" class="recent__card">
           <div>
-            <div class="entry-card__meta">
-              <span>{{ entry.data.catalogId.id }}</span>
-              <span>{{ (entry.data.date or entry.data.date_updated) | dateFormat }}</span>
+            <div class="recent__card-meta">
+              <span class="recent__card-id">{{ entry.data.catalogId.id }}</span>
+              <span class="recent__card-date">{{ (entry.data.date or entry.data.date_updated) | dateFormat }}</span>
             </div>
-            <div class="entry-card__title">{{ entry.data.title }}</div>
-            <div class="entry-card__excerpt">{{ entry.templateContent | excerpt }}</div>
+            <div class="recent__card-title">{{ entry.data.title }}</div>
+            <div class="recent__card-excerpt">{{ entry.templateContent | excerpt }}</div>
           </div>
           {% set prefix = entry.data.catalogId.id.substring(0, 3) %}
-          <div class="entry-card__tag entry-card__tag--{{ prefix | lower }}">{{ prefix }}</div>
+          <div class="type-tab type-tab--{{ prefix | lower }}">{{ prefix }}</div>
         </a>
         {%- endif -%}
         {%- endfor -%}
@@ -625,11 +763,13 @@ permalink: "test/"
     </div>
   </section>
 
+  <div class="divider"></div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__text">Est. 2026 · Brewer Research & Design</div>
+        <div class="footer__text">Brewer Research & Design, est. 2026</div>
         <nav class="footer__links">
           <a href="/" class="footer__link">Current Home</a>
           <a href="/logs/" class="footer__link">Logs</a>
