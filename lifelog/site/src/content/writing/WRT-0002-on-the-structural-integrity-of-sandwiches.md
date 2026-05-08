@@ -2,7 +2,7 @@
 title: "On the Structural Integrity of Sandwiches"
 date: 2026-04-10
 published: true
-tags: [essay, food, engineering]
+tags: [essay, food, overanalysis]
 ---
 
 Every sandwich is a structural engineering problem disguised as lunch. The ratio of bread tensile strength to filling moisture content determines whether you eat with dignity or wear your meal. This paper examines the failure modes common to modern sandwich construction.

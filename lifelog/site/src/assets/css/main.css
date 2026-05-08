@@ -8,10 +8,13 @@
 
   /* Ink and Paper palette */
   --color-bg: #F5F2EC;
-  --color-ink: #1A1A1A;
-  --color-ink-secondary: #8B8680;
-  --color-accent-rust: #A8472E;
-  --color-accent-blue: #3D5A6B;
+  --color-ink: #1b1d17;
+  --color-ink-secondary: #454545;
+  --color-accent-rust: #e45033;
+  --color-accent-blue: #243f8c;
+  --color-accent-yellow: #fccb2d;
+  --color-accent-green: #0aab4d;
+  --color-accent-orange: #D4793A;
   --color-halftone: #E5E2DC;
 
   /* Surface variants from design system */
@@ -111,11 +114,21 @@
 
 @utility label-jp {
   font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 12px;
-  letter-spacing: 0;
-  color: var(--color-ink-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-rust);
+}
+
+@utility highlight {
+  background: linear-gradient(to top, var(--color-accent-yellow) 40%, transparent 40%);
+  padding: 0 2px;
+}
+
+@utility highlight-block {
+  border-left: 3px solid var(--color-accent-yellow);
+  padding-left: 12px;
 }
 
 @utility border-rule {
@@ -216,7 +229,25 @@
 
 .chip-blue {
   border-color: var(--color-accent-blue);
-  color: var(--color-accent-blue);
+  color: var(--color-bg);
+  background-color: var(--color-accent-blue);
+}
+
+.chip-green {
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green);
+}
+
+.chip-yellow {
+  border-color: var(--color-accent-yellow);
+  color: var(--color-ink);
+  background-color: var(--color-accent-yellow);
+}
+
+.chip-filled-rust {
+  border-color: var(--color-accent-rust);
+  color: var(--color-bg);
+  background-color: var(--color-accent-rust);
 }
 
 /* Filter dropdowns */

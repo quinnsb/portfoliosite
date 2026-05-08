@@ -25,7 +25,7 @@ permalink: "projects/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
       <p class="label-caps m-0">{{ collections.projects.length | default(0) }} Entries · Indexed by Last Update</p>
     </div>
     <div>
-      <span class="chip chip-rust">[ Status: Declassified ]</span>
+      <span class="chip chip-filled-rust">[ {{ collections.projects.length }} Filed ]</span>
     </div>
   </div>
 </section>
@@ -108,7 +108,7 @@ permalink: "projects/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNu
           <span class="label-caps shrink-0">{{ entry.data.date_started | dateFormat }} → {{ entry.data.date_updated | dateFormat }}</span>
           {% if entry.data.status %}
           <span class="chip
-            {% if entry.data.status === 'ongoing' %} chip-blue
+            {% if entry.data.status === 'ongoing' %} chip-green
             {% elif entry.data.status === 'abandoned' %} chip-rust
             {% endif %}
           ">{{ entry.data.status }}</span>

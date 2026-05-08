@@ -4,104 +4,100 @@ title: "Brewer Research & Design"
 description: "A personal archive of rankings, writing, and projects."
 ---
 
-{# Institutional header card #}
-<section class="border-rule p-5 relative flex flex-col md:flex-row gap-6">
-  <div class="absolute top-4 right-4 label-caps text-ink-secondary">
-    ID: ARCH-0001-BX
-  </div>
-
-  <div class="w-20 h-20 border-rule relative overflow-hidden flex items-center justify-center shrink-0">
-    <div class="absolute inset-0 halftone"></div>
-    <span class="relative z-10 text-3xl font-bold">B</span>
-  </div>
-
-  <div class="flex flex-col justify-center">
-    <h1 class="headline-lg m-0">Brewer Research & Design</h1>
-    <p class="text-sm mt-1 tracking-tight uppercase">An archive of things ranked, things written, and things made</p>
-    <p class="label-jp mt-1">個人のアーカイブ</p>
-
-    <div class="flex gap-2 mt-4 flex-wrap">
-      <span class="chip chip-rust">[ Status: Declassified ]</span>
-      <span class="chip">[ Clearance: Level 1 ]</span>
-    </div>
-  </div>
+{# Hero header — simpler, punchier #}
+<section class="border-rule p-6 md:p-8 mb-8">
+  <p class="label-jp text-lg m-0 mb-2">個人のアーカイブ — 記録と研究</p>
+  <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-tight m-0 leading-tight">
+    An archive of things <span class="highlight">ranked</span>,<br>
+    things <span class="highlight">written</span>,<br>
+    and things <span class="highlight">made</span>.
+  </h1>
+  <div class="divider mt-5 mb-4" style="border-top: 2px solid var(--color-accent-rust); height: 2px; background: var(--color-accent-rust);"></div>
+  <p class="text-sm m-0 uppercase tracking-wide">
+    A personal research archive by <span class="font-bold">Quinn Brewer</span> — est. 2026
+  </p>
 </section>
 
-{# 3-Column Index Grid #}
-<section class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-0 border-rule">
+{# 3-Column Index Grid — equal height columns #}
+<section class="grid grid-cols-1 md:grid-cols-3 gap-0 border-rule">
 
   {# Rankings column #}
-  <div class="border-b md:border-b-0 md:border-r border-ink">
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between">
-      <a href="/rankings/" class="label-caps no-underline text-ink hover:text-accent-rust">
+  <div class="border-b md:border-b-0 md:border-r border-ink flex flex-col">
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-yellow); border-bottom-color: var(--color-ink);">
+      <a href="/rankings/" class="label-caps no-underline text-ink">
         Rankings <span class="label-jp ml-1">順位</span>
       </a>
-      <span class="label-caps text-ink-secondary">{{ collections.rankings.length }}</span>
+      <span class="label-caps text-ink">{{ collections.rankings.length }}</span>
     </div>
-    {% for entry in collections.rankings %}
-    {% if loop.index0 < 5 %}
-    <a href="/rankings/{{ entry.data.catalogId.id | lower }}/"
-       class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
-      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-    </a>
-    {% endif %}
-    {% endfor %}
-    <a href="/rankings/" class="block px-4 py-2 label-caps text-ink-secondary no-underline hover:text-ink text-center">
+    <div class="flex-1">
+      {% for entry in collections.rankings %}
+      {% if loop.index0 < 5 %}
+      <a href="/rankings/{{ entry.data.catalogId.id | lower }}/"
+         class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+        <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-t border-ink">
       View All →
     </a>
   </div>
 
   {# Writing column #}
-  <div class="border-b md:border-b-0 md:border-r border-ink">
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between">
-      <a href="/writing/" class="label-caps no-underline text-ink hover:text-accent-rust">
-        Writing <span class="label-jp ml-1">執筆</span>
+  <div class="border-b md:border-b-0 md:border-r border-ink flex flex-col">
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-blue); border-bottom-color: var(--color-ink);">
+      <a href="/writing/" class="label-caps no-underline" style="color: var(--color-bg);">
+        Writing <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">執筆</span>
       </a>
-      <span class="label-caps text-ink-secondary">{{ collections.writing.length }}</span>
+      <span class="label-caps" style="color: var(--color-bg);">{{ collections.writing.length }}</span>
     </div>
-    {% for entry in collections.writing %}
-    {% if loop.index0 < 5 %}
-    <a href="/writing/{{ entry.data.catalogId.id | lower }}/"
-       class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
-      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-    </a>
-    {% endif %}
-    {% endfor %}
-    <a href="/writing/" class="block px-4 py-2 label-caps text-ink-secondary no-underline hover:text-ink text-center">
+    <div class="flex-1">
+      {% for entry in collections.writing %}
+      {% if loop.index0 < 5 %}
+      <a href="/writing/{{ entry.data.catalogId.id | lower }}/"
+         class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+        <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-t border-ink">
       View All →
     </a>
   </div>
 
   {# Projects column #}
-  <div>
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between">
-      <a href="/projects/" class="label-caps no-underline text-ink hover:text-accent-rust">
-        Projects <span class="label-jp ml-1">企画</span>
+  <div class="flex flex-col">
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-rust); border-bottom-color: var(--color-ink);">
+      <a href="/projects/" class="label-caps no-underline" style="color: var(--color-bg);">
+        Projects <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">企画</span>
       </a>
-      <span class="label-caps text-ink-secondary">{{ collections.projects.length }}</span>
+      <span class="label-caps" style="color: var(--color-bg);">{{ collections.projects.length }}</span>
     </div>
-    {% for entry in collections.projects %}
-    {% if loop.index0 < 5 %}
-    <a href="/projects/{{ entry.data.catalogId.id | lower }}/"
-       class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
-      <div class="flex items-center gap-2">
-        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
-        {% if entry.data.status %}
-        <span class="label-caps
-          {% if entry.data.status === 'ongoing' %} text-accent-blue
-          {% elif entry.data.status === 'abandoned' %} text-accent-rust
-          {% elif entry.data.status === 'dormant' %} text-ink-secondary
+    <div class="flex-1">
+      {% for entry in collections.projects %}
+      {% if loop.index0 < 5 %}
+      <a href="/projects/{{ entry.data.catalogId.id | lower }}/"
+         class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+        <div class="flex items-center gap-2">
+          <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+          {% if entry.data.status %}
+          <span class="chip text-[9px] py-0 px-1
+            {% if entry.data.status === 'ongoing' %} chip-green
+            {% elif entry.data.status === 'abandoned' %} chip-rust
+            {% endif %}
+          ">{{ entry.data.status }}</span>
           {% endif %}
-        ">{{ entry.data.status }}</span>
-        {% endif %}
-      </div>
-      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
-    </a>
-    {% endif %}
-    {% endfor %}
-    <a href="/projects/" class="block px-4 py-2 label-caps text-ink-secondary no-underline hover:text-ink text-center">
+        </div>
+        <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-t border-ink">
       View All →
     </a>
   </div>
@@ -111,15 +107,13 @@ description: "A personal archive of rankings, writing, and projects."
 {# Activity Feed #}
 <section class="mt-8">
   <div class="flex items-center gap-4 mb-4">
-    <h2 class="label-caps shrink-0 m-0">Activity Feed</h2>
+    <h2 class="label-caps shrink-0 m-0">Activity Feed <span class="label-jp ml-1">活動記録</span></h2>
     <div class="divider"></div>
   </div>
 
   <div class="border-rule">
-    {# Merge all entries and system events into a single sorted feed #}
     {%- set feed = [] -%}
 
-    {# Add content entries — normalize dates to strings for sorting #}
     {%- for entry in collections.allEntries -%}
       {%- set entryDate = (entry.data.date or entry.data.date_updated) | dateFormat -%}
       {%- set feedItem = {
@@ -133,7 +127,6 @@ description: "A personal archive of rankings, writing, and projects."
       {%- set feed = (feed.push(feedItem), feed) -%}
     {%- endfor -%}
 
-    {# Add system events #}
     {%- for event in events -%}
       {%- set eventDate = event.date | dateFormat -%}
       {%- set feedItem = {

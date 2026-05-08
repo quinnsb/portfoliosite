@@ -134,19 +134,14 @@
       var row = document.createElement('div');
       row.className = 'ranked-card__row';
 
-      var thumb = document.createElement('div');
-      thumb.className = 'ranked-card__thumb';
+      var thumb = null;
       if (thumbSrc) {
+        thumb = document.createElement('div');
+        thumb.className = 'ranked-card__thumb';
         var img = document.createElement('img');
         img.src = thumbSrc;
         img.alt = '';
         thumb.appendChild(img);
-      } else {
-        var ph = document.createElement('span');
-        ph.className = 'ranked-card__thumb-placeholder';
-        var numMatch = titleText.match(/^(\d+)/);
-        ph.textContent = numMatch ? '#' + numMatch[1] : '—';
-        thumb.appendChild(ph);
       }
 
       var info = document.createElement('div');
@@ -167,7 +162,11 @@
       expandIcon.className = 'ranked-card__expand-icon';
       expandIcon.textContent = '▼';
 
-      row.appendChild(thumb);
+      if (thumb) {
+        row.appendChild(thumb);
+      } else {
+        row.style.gridTemplateColumns = '1fr auto';
+      }
       row.appendChild(info);
       row.appendChild(expandIcon);
       card.appendChild(row);

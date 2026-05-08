@@ -15,36 +15,32 @@ permalink: "about/"
   <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-2">
     <div>
       <h1 class="text-4xl font-bold uppercase tracking-tight m-0">
-        Protocols <span class="label-jp ml-2 align-middle">手順</span>
+        Protocols <span class="label-jp ml-2 align-middle">手順と紹介</span>
       </h1>
       <div class="divider mt-3 mb-3" style="border-top: 2px solid var(--color-accent-rust); height: 2px; background: var(--color-accent-rust);"></div>
-      <p class="label-caps m-0">Institutional Documentation · Clearance: Level 1</p>
-    </div>
-    <div>
-      <span class="chip chip-rust">[ Status: Declassified ]</span>
+      <p class="label-caps m-0">About the Author & This Archive</p>
     </div>
   </div>
 </section>
 
 {# Author bio #}
 <section class="border-rule mb-6">
-  <div class="px-5 py-3 border-b border-ink">
-    <span class="label-caps">Section 1 — Personnel File</span>
+  <div class="px-5 py-3 border-b border-ink" style="background-color: var(--color-accent-yellow);">
+    <span class="label-caps">Personnel File <span class="label-jp ml-1">人事記録</span></span>
   </div>
-  <div class="p-5">
+  <div class="p-5 md:p-6">
     <div class="flex flex-col md:flex-row gap-6">
-      <div class="w-24 h-24 border-rule relative overflow-hidden flex items-center justify-center shrink-0">
-        <div class="absolute inset-0 halftone"></div>
-        <span class="relative z-10 text-4xl font-bold">Q</span>
+      <div class="w-32 h-32 border-rule relative overflow-hidden shrink-0">
+        <img src="/assets/images/quinnpixelmug.png" alt="Quinn Brewer" class="w-full h-full object-cover" style="image-rendering: pixelated;">
       </div>
       <div>
-        <h2 class="headline-md m-0 mb-2">Quinn Brewer</h2>
-        <p class="label-caps text-ink-secondary mb-3">Director of Research · Est. 2026</p>
+        <h2 class="headline-md m-0 mb-1">Quinn Brewer</h2>
+        <p class="label-jp m-0 mb-3">デザイナー · 戦略家 · アーキビスト</p>
         <p class="text-sm leading-relaxed mb-3">
           Quinn Brewer is a designer, strategist, and reluctant archivist based in the American South. By day, a marketing director. By night, a person who ranks things that do not need to be ranked and writes about topics that do not warrant the word count they receive.
         </p>
         <p class="text-sm leading-relaxed mb-3">
-          This archive exists because Quinn believes that documenting the mundane with institutional seriousness is both a valid creative practice and an excellent way to avoid doing anything productive.
+          This archive exists because Quinn believes that <span class="highlight">documenting the mundane with institutional seriousness</span> is both a valid creative practice and an excellent way to avoid doing anything productive.
         </p>
         <div class="flex gap-2 flex-wrap mt-4">
           <a href="https://quinnbrewer.com" class="chip no-underline hover-invert" target="_blank" rel="noopener">quinnbrewer.com ↗</a>
@@ -54,54 +50,27 @@ permalink: "about/"
   </div>
 </section>
 
-{# Site colophon #}
+{# About the archive #}
 <section class="border-rule mb-6">
   <div class="px-5 py-3 border-b border-ink">
-    <span class="label-caps">Section 2 — Site Colophon</span>
+    <span class="label-caps">About This Archive <span class="label-jp ml-1">このアーカイブについて</span></span>
   </div>
-  <div class="p-5">
-    <h2 class="headline-md m-0 mb-4">About This Archive</h2>
-    <p class="text-sm leading-relaxed mb-3">
+  <div class="p-5 md:p-6">
+    <p class="text-sm leading-relaxed mb-4">
       Brewer Research & Design is a personal archive operating under the aesthetic of a declassified institutional document system. All content is organized by catalog number, filed chronologically, and presented with the bureaucratic gravity it almost certainly does not deserve.
     </p>
 
-    <div class="divider-dashed my-6"></div>
-
-    <h3 class="label-caps mb-3">Technical Specifications</h3>
-    <div class="border-rule">
-      <div class="grid grid-cols-[140px_1fr] border-b border-ink">
-        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Generator</span>
-        <span class="label-caps px-3 py-2">Eleventy v3</span>
-      </div>
-      <div class="grid grid-cols-[140px_1fr] border-b border-ink">
-        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Styling</span>
-        <span class="label-caps px-3 py-2">Tailwind CSS v4 + Custom</span>
-      </div>
-      <div class="grid grid-cols-[140px_1fr] border-b border-ink">
-        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Typography</span>
-        <span class="label-caps px-3 py-2">Departure Mono</span>
-      </div>
-      <div class="grid grid-cols-[140px_1fr] border-b border-ink">
-        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Hosting</span>
-        <span class="label-caps px-3 py-2">Vercel</span>
-      </div>
-      <div class="grid grid-cols-[140px_1fr]">
-        <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">Domain</span>
-        <span class="label-caps px-3 py-2">archive.quinnbrewer.com</span>
-      </div>
+    <div class="highlight-block mb-4">
+      <p class="text-sm leading-relaxed m-0">
+        Every document is assigned a permanent catalog identifier: <code class="text-xs bg-surface-container px-1">{TYPE}-{NNNN}</code>
+      </p>
     </div>
 
-    <div class="divider-dashed my-6"></div>
-
-    <h3 class="label-caps mb-3">Classification System</h3>
-    <p class="text-sm leading-relaxed mb-2">
-      All documents are assigned a permanent catalog identifier upon creation. Identifiers follow the format <code class="text-xs bg-surface-container px-1">{TYPE}-{NNNN}</code> where TYPE designates the content classification:
-    </p>
-    <div class="flex gap-4 flex-wrap mt-3">
-      <span class="label-caps"><span class="text-accent-rust">RNK</span> — Rankings</span>
-      <span class="label-caps"><span class="text-accent-rust">WRT</span> — Writing</span>
-      <span class="label-caps"><span class="text-accent-rust">PRJ</span> — Projects</span>
-      <span class="label-caps"><span class="text-accent-rust">SYS</span> — System Events</span>
+    <div class="flex gap-3 flex-wrap mt-4">
+      <span class="chip chip-yellow">RNK — Rankings</span>
+      <span class="chip chip-blue">WRT — Writing</span>
+      <span class="chip chip-filled-rust">PRJ — Projects</span>
+      <span class="chip chip-green">SYS — System</span>
     </div>
   </div>
 </section>

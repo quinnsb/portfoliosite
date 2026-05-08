@@ -2,8 +2,8 @@
 title: "Worst 5 Industrial Lubricants for Domestic Use"
 date: 2026-04-22
 published: true
-category: Chemical
-tags: [chemical, safety]
+category: Worst Of
+tags: [cautionary, domestic, regret]
 ---
 
 A cautionary index of lubricants that should never leave the factory floor, ranked by their capacity to ruin a weekend.

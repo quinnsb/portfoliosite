@@ -40,7 +40,7 @@
       <span class="label-caps px-3 py-1.5 border-r border-ink">{{ date_started | dateFormat }} → {{ date_updated | dateFormat }}</span>
       {% if status %}
       <span class="label-caps px-3 py-1.5
-        {% if status === 'ongoing' %} text-accent-blue
+        {% if status === 'ongoing' %} text-accent-green
         {% elif status === 'abandoned' %} text-accent-rust
         {% elif status === 'dormant' %} text-ink-secondary
         {% endif %}

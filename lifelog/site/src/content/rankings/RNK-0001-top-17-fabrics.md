@@ -2,8 +2,8 @@
 title: "The Top 17 Fabrics, Ranked by Hand-Feel"
 date: 2026-05-07
 published: true
-category: Fabrics
-tags: [fabric, ranking, tactile]
+category: Sensation
+tags: [tactile, obsession, materials]
 ---
 
 A comprehensive tactile assessment of seventeen common and uncommon textiles, evaluated under controlled laboratory conditions.
