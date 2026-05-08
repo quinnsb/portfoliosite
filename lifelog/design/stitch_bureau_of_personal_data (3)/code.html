@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WRT-0017 - ON THE PHYSICS OF MELANCHOLY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-highest": "#e5e2dc",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed": "#e8e1da",
+                        "on-primary": "#ffffff",
+                        "primary": "#000000",
+                        "on-background": "#1c1c18",
+                        "surface": "#fcf9f3",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-container": "#e5dfd7",
+                        "tertiary-container": "#3c0800",
+                        "tertiary-fixed-dim": "#ffb4a2",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#cf6449",
+                        "on-tertiary-fixed": "#3c0800",
+                        "on-secondary-fixed": "#1e1b17",
+                        "inverse-on-surface": "#f3f0ea",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2dc",
+                        "on-primary-container": "#858383",
+                        "surface-container-high": "#ebe8e2",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container": "#f0eee8",
+                        "inverse-primary": "#c8c6c5",
+                        "on-surface": "#1c1c18",
+                        "on-surface-variant": "#444748",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdbd2",
+                        "surface-dim": "#dcdad4",
+                        "on-secondary-fixed-variant": "#4a4641",
+                        "on-tertiary-fixed-variant": "#802a13",
+                        "background": "#fcf9f3",
+                        "outline": "#747878",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary": "#625e58",
+                        "secondary-fixed-dim": "#ccc5bf",
+                        "on-secondary-container": "#66625c",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-bright": "#fcf9f3",
+                        "inverse-surface": "#31312d",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-container": "#1c1b1b",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["JetBrains Mono", "monospace"],
+                        "label-caps": ["JetBrains Mono", "monospace"],
+                        "label-jp": ["JetBrains Mono", "monospace"],
+                        "headline-md": ["JetBrains Mono", "monospace"],
+                        "body-md": ["JetBrains Mono", "monospace"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "label-jp": ["10px", { "lineHeight": "12px", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .halftone-bg {
+            background-image: radial-gradient(circle, rgba(28, 27, 27, 0.1) 1px, transparent 1px);
+            background-size: 4px 4px;
+        }
+        .ch-width {
+            max-width: 70ch;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-surface">
+<!-- TopAppBar -->
+<header class="bg-surface border-b border-primary w-full top-0 sticky z-50">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-unit max-w-container-max mx-auto">
+<div class="text-headline-lg font-headline-lg font-bold tracking-tighter text-primary uppercase">
+                ARCHIVE-00-SYS
+            </div>
+<nav class="flex gap-4 mt-2 md:mt-0">
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-75 p-1" href="#">RANKINGS</a>
+<a class="text-label-caps font-label-caps text-primary border-b-2 border-primary pb-1" href="#">WRITING</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-75 p-1" href="#">PROJECTS</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-75 p-1" href="#">SEARCH</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-75 p-1" href="#">ABOUT</a>
+</nav>
+<div class="flex items-center gap-2 mt-2 md:mt-0">
+<button class="hover:bg-primary hover:text-surface transition-colors duration-75 p-1 border border-transparent hover:border-primary">
+<span class="material-symbols-outlined block">qr_code_2</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin py-margin relative flex flex-col lg:flex-row gap-gutter">
+<!-- Document ID Header (Absolute for large screens, static for mobile) -->
+<div class="lg:absolute lg:top-margin lg:right-margin text-label-caps font-label-caps text-secondary border border-primary p-1 bg-surface-container-low mb-6 lg:mb-0 w-max">
+            [ DOC ID: WRT-0017-BX ]
+        </div>
+<!-- Sticky TOC (Left) -->
+<aside class="hidden lg:block w-48 shrink-0 relative">
+<div class="sticky top-24 border border-primary p-4 bg-surface-container-low">
+<div class="text-label-caps font-label-caps text-primary border-b border-primary pb-2 mb-4">INDEX</div>
+<ul class="space-y-3 text-label-caps font-label-caps text-on-surface-variant">
+<li class="flex items-start gap-2 group cursor-pointer">
+<span class="block w-1.5 h-1.5 bg-primary mt-1 group-hover:bg-on-tertiary-container transition-colors"></span>
+<a class="hover:text-primary" href="#intro">I. INTRODUCTION</a>
+</li>
+<li class="flex items-start gap-2 group cursor-pointer">
+<span class="block w-1.5 h-1.5 bg-primary mt-1 group-hover:bg-on-tertiary-container transition-colors"></span>
+<a class="hover:text-primary" href="#mechanics">II. MECHANICS OF SORROW</a>
+</li>
+<li class="flex items-start gap-2 group cursor-pointer">
+<span class="block w-1.5 h-1.5 bg-primary mt-1 group-hover:bg-on-tertiary-container transition-colors"></span>
+<a class="hover:text-primary" href="#density">III. DENSITY MASS</a>
+</li>
+<li class="flex items-start gap-2 group cursor-pointer">
+<span class="block w-1.5 h-1.5 bg-primary mt-1 group-hover:bg-on-tertiary-container transition-colors"></span>
+<a class="hover:text-primary" href="#conclusion">IV. ENTROPY</a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Content -->
+<article class="flex-1 ch-width mx-auto border-l border-r border-primary bg-surface p-4 md:p-8 relative">
+<!-- Halftone Header BG -->
+<div class="absolute top-0 left-0 w-full h-48 halftone-bg border-b border-primary z-0"></div>
+<div class="relative z-10">
+<!-- Metadata Block -->
+<div class="border border-primary bg-surface p-3 inline-flex items-center gap-4 mb-8">
+<span class="text-label-caps font-label-caps text-primary">[ WRT-0017 ]</span>
+<span class="w-1 h-4 bg-primary block"></span>
+<span class="text-label-caps font-label-caps text-secondary">REV. I</span>
+<span class="w-1 h-4 bg-primary block"></span>
+<span class="text-label-caps font-label-caps text-secondary">12 MIN READ</span>
+<span class="w-1 h-4 bg-primary block"></span>
+<span class="text-label-caps font-label-caps text-on-tertiary-container border border-on-tertiary-container px-1">DECLASSIFIED</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-primary mb-8 uppercase border-b-4 border-primary pb-4">On the Physics of Melancholy</h1>
+<section class="mb-12 relative" id="intro">
+<p class="mb-6 leading-relaxed">
+                        The quantification of abstract emotional states has long evaded rigorous institutional analysis. However, recent observations in sector 4 have isolated a peculiar energetic signature associated with prolonged periods of inertia. We hypothesize that melancholy is not merely a psychological condition, but a localized distortion of physical space, measurable in units of micro-drag.
+                    </p>
+<p class="mb-6 leading-relaxed">
+                        When a subject enters a state of profound apathy, the surrounding atmosphere demonstrably thickens. Air resistance increases by a factor of 1.04, and photons experience a slight delay traversing the immediate vicinity. This is the weight of sorrow made literal.
+                    </p>
+</section>
+<div class="border-t border-dashed border-primary my-8"></div>
+<section class="mb-12" id="mechanics">
+<h2 class="text-headline-md font-headline-md text-primary mb-6 uppercase tracking-tight">II. Mechanics of Sorrow</h2>
+<p class="mb-6 leading-relaxed">
+                        To understand this friction, we must look at the standard model of localized atmospheric pressure. The standard ambient emotional baseline operates at exactly 1.0 ATM. Variations previously thought to be negligible now reveal significant thermal fluctuations.
+                    </p>
+<figure class="my-8 border border-primary p-2 bg-surface-container-low">
+<img alt="Circuitry texture" class="w-full h-auto filter grayscale contrast-125 border border-primary mix-blend-multiply" data-alt="A macro photograph of an intricate, vintage analog circuit board. The lighting is harsh and clinical, casting sharp, deadpan shadows that emphasize the physical texture of capacitors and resistors. The color palette is restricted to institutional greens, stark blacks, and faded silver, reflecting a rigid, bureaucratic brutalist aesthetic. The mood is analytical and cold, resembling a declassified piece of technical evidence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZRyr0cNYBIdhmQdeiKcd6r1DZUhqdkTGopLKqPMSHIoGRjsKpbwR9NKrn4rXtUokrDzp5faiYCNVRw5ygZlnXz1_GyDsmYK43Wypi-SxCvGzf7-OT8QHPcoP6yzpGCWydvZaeurX_K9G5JfepjKBYjPcpx1IKgCdlI1y16R-FYHh7d_LhEnWSy2_u-s62Cx8qxe7vkB20-Jiyi29WFE9wU1I-KJ2jWKvP1l937gdouPPqk3WVE3YC-y7skntTzpPUOH02rb6Iijs"/>
+<figcaption class="text-label-caps font-label-caps text-secondary mt-2 border-t border-primary pt-2">FIG. 1: CIRCUITRY DECAY INDICATIVE OF EMOTIONAL FRICTION (MAGNIFICATION 400X)</figcaption>
+</figure>
+<blockquote class="my-10 pl-6 border-l-4 border-on-tertiary-container py-2 pr-4 bg-surface-container text-headline-md font-headline-md text-primary relative">
+<span class="absolute -left-[3px] top-0 bottom-0 w-[4px] bg-on-tertiary-container animate-pulse"></span>
+                        "The subject reported feeling 'heavy,' a sensation corroborated by gravimetric sensors indicating a 0.02% localized mass increase."
+                        <footer class="text-label-caps font-label-caps text-secondary mt-4 block">— LOG ENTRY: DR. A. VANCE, CYCLE 44</footer>
+</blockquote>
+<p class="mb-6 leading-relaxed">
+                        This indicates that the subjective experience of carrying a 'burden' translates into an objective, albeit minute, gravitational anomaly.
+                    </p>
+</section>
+<div class="border-t border-dashed border-primary my-8"></div>
+<section class="mb-12" id="density">
+<h2 class="text-headline-md font-headline-md text-primary mb-6 uppercase tracking-tight">III. Density Mass</h2>
+<p class="mb-6 leading-relaxed">
+                        The formulation for calculating this density shift is documented below. It is imperative to note the inverse relationship between cognitive velocity and atmospheric drag.
+                    </p>
+<div class="bg-primary text-surface p-4 font-label-caps text-label-caps mb-6 overflow-x-auto">
+<pre><code>[ CALCULATION PROTOCOL // OMEGA-9 ]
+M_melancholy = (T_inertia * D_atmospheric) / (V_cognitive + ε)
+
+WHERE:
+T = Time observed in stasis
+D = Baseline atmospheric density
+V = Speed of internal monologue processing
+ε = Constant of systemic fatigue (0.0034)
+                        </code></pre>
+</div>
+<p class="mb-6 leading-relaxed">
+                        As cognitive velocity approaches zero, the melancholy mass approaches infinity, theoretically creating a microscopic singularity of despair. Protocols are in place to artificially stimulate cognitive velocity should this threshold be neared.
+                    </p>
+</section>
+<div class="border-t border-dashed border-primary my-8"></div>
+<!-- Footnotes -->
+<section class="mt-16 border-t-[3px] border-primary pt-4 bg-surface-container-low p-4">
+<h3 class="text-label-caps font-label-caps text-primary mb-4 border-b border-primary pb-2 inline-block">APPENDICES &amp; ANNOTATIONS</h3>
+<ol class="list-decimal list-inside text-label-jp font-label-jp text-on-surface-variant space-y-2">
+<li class="pl-2 border-l border-transparent hover:border-primary transition-colors">See Sector 4 Incident Report #88-B for baseline readings.</li>
+<li class="pl-2 border-l border-transparent hover:border-primary transition-colors">The term "micro-drag" was coined during the initial phase of Project Lethargy.</li>
+<li class="pl-2 border-l border-transparent hover:border-primary transition-colors">Redacted pending review by the Directorate of Somatic Anomalies.</li>
+</ol>
+</section>
+</div>
+</article>
+<!-- Sidenotes (Right Margin) -->
+<aside class="hidden xl:block w-64 shrink-0">
+<div class="sticky top-24 space-y-8">
+<div class="border border-outline p-3 bg-surface text-label-jp font-label-jp text-secondary group hover:border-primary hover:text-primary transition-colors cursor-help">
+<span class="block text-label-caps font-label-caps border-b border-outline group-hover:border-primary pb-1 mb-2 text-primary">NOTE 01</span>
+                    Observations conducted in a vacuum chamber yielded null results, confirming the necessity of a medium for the transmission of emotional drag.
+                </div>
+<div class="border border-on-tertiary-container p-3 bg-error-container text-label-jp font-label-jp text-on-tertiary-fixed group relative">
+<div class="absolute -top-2 -right-2 bg-on-tertiary-container text-surface px-1 text-[8px] font-bold">CRITICAL</div>
+<span class="block text-label-caps font-label-caps border-b border-on-tertiary-container pb-1 mb-2 text-on-tertiary-fixed">WARNING</span>
+                    Prolonged exposure to localized density shifts may induce sympathetic lethargy in observing personnel. Rotate shifts every 4 hours.
+                </div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-primary mt-margin w-full">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin py-8 max-w-container-max mx-auto gap-gutter">
+<div class="text-label-caps font-label-caps font-bold text-primary">
+                EST. 2026 / REV. 4.0.1 / DOCUMENT-CLASS: UNRESTRICTED [ 奥付 ]
+            </div>
+<nav class="flex gap-4">
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:bg-primary hover:text-surface transition-colors duration-75 p-1" href="#">INDEX</a>
+<a class="text-label-caps font-label-caps text-primary underline p-1" href="#">LOGS</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:bg-primary hover:text-surface transition-colors duration-75 p-1" href="#">PROTOCOLS</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:bg-primary hover:text-surface transition-colors duration-75 p-1" href="#">ENCRYPTED</a>
+</nav>
+</div>
+</footer>
+</body></html>

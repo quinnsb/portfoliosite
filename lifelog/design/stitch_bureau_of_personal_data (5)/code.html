@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About / Colophon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#1c1b1b",
+                    "surface-container-highest": "#e5e2dc",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#e8e1da",
+                    "on-primary": "#ffffff",
+                    "primary": "#000000",
+                    "on-background": "#1c1c18",
+                    "surface": "#fcf9f3",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "secondary-container": "#e5dfd7",
+                    "tertiary-container": "#3c0800",
+                    "tertiary-fixed-dim": "#ffb4a2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#cf6449",
+                    "on-tertiary-fixed": "#3c0800",
+                    "on-secondary-fixed": "#1e1b17",
+                    "inverse-on-surface": "#f3f0ea",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e5e2dc",
+                    "on-primary-container": "#858383",
+                    "surface-container-high": "#ebe8e2",
+                    "outline-variant": "#c4c7c7",
+                    "surface-container": "#f0eee8",
+                    "inverse-primary": "#c8c6c5",
+                    "on-surface": "#1c1c18",
+                    "on-surface-variant": "#444748",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdbd2",
+                    "surface-dim": "#dcdad4",
+                    "on-secondary-fixed-variant": "#4a4641",
+                    "on-tertiary-fixed-variant": "#802a13",
+                    "background": "#fcf9f3",
+                    "outline": "#747878",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary": "#625e58",
+                    "secondary-fixed-dim": "#ccc5bf",
+                    "on-secondary-container": "#66625c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#fcf9f3",
+                    "inverse-surface": "#31312d",
+                    "primary-fixed": "#e5e2e1",
+                    "primary-container": "#1c1b1b",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f6f3ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "margin": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "label-caps": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "label-jp": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "headline-md": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "body-md": [
+                            "JetBrains Mono", "monospace"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "11px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-jp": [
+                            "10px",
+                            {
+                                    "lineHeight": "12px",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            background-image: radial-gradient(theme('colors.primary') 10%, transparent 10%);
+            background-size: 4px 4px;
+            background-position: 0 0;
+            background-color: theme('colors.surface');
+        }
+        .bg-halftone {
+            background-image: radial-gradient(theme('colors.primary') 10%, transparent 10%);
+            background-size: 8px 8px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary selection:text-surface">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 bg-surface border-b border-primary z-50">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-unit max-w-container-max mx-auto">
+<div class="text-headline-lg font-headline-lg font-bold tracking-tighter text-primary uppercase mb-2 md:mb-0">
+                ARCHIVE-00-SYS
+            </div>
+<nav aria-label="Main Navigation" class="flex flex-wrap justify-center gap-gutter">
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1 text-label-caps font-label-caps uppercase" href="#">RANKINGS</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1 text-label-caps font-label-caps uppercase" href="#">WRITING</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1 text-label-caps font-label-caps uppercase" href="#">PROJECTS</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1 text-label-caps font-label-caps uppercase" href="#">SEARCH</a>
+<a class="text-primary border-b-2 border-primary pb-1 px-2 py-1 text-label-caps font-label-caps uppercase bg-primary text-on-primary" href="#">ABOUT</a>
+</nav>
+<div class="mt-2 md:mt-0 flex items-center">
+<button aria-label="QR Code" class="text-primary hover:bg-primary hover:text-surface p-1 transition-colors duration-75">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin py-margin relative">
+<!-- Document ID Header -->
+<div class="absolute top-margin right-margin text-secondary text-label-caps font-label-caps uppercase border border-primary px-2 py-1 bg-surface z-10">
+            REF. #DOC-ABT-001/SYS
+        </div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-0 border border-primary bg-surface mt-12 relative shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+<!-- Halftone decorative background -->
+<div class="absolute inset-0 bg-halftone pointer-events-none mix-blend-multiply"></div>
+<!-- Left Sidebar / Metadata -->
+<aside class="md:col-span-3 border-b md:border-b-0 md:border-r border-primary p-gutter relative z-10 bg-surface">
+<div class="mb-8">
+<h2 class="text-headline-md font-headline-md font-bold mb-4 border-b border-primary pb-2 uppercase tracking-tight">[ STATUS: ACTIVE ]</h2>
+<ul class="space-y-4">
+<li class="border-b border-dashed border-primary pb-2">
+<span class="block text-label-caps font-label-caps text-secondary mb-1">CLASSIFICATION</span>
+<span class="block font-bold">UNRESTRICTED PUBLIC</span>
+</li>
+<li class="border-b border-dashed border-primary pb-2">
+<span class="block text-label-caps font-label-caps text-secondary mb-1">REVISION DATE</span>
+<span class="block font-bold">2026.04.15</span>
+</li>
+<li class="border-b border-dashed border-primary pb-2">
+<span class="block text-label-caps font-label-caps text-secondary mb-1">AUTHOR</span>
+<span class="block font-bold">SYSTEM ADMIN [99]</span>
+</li>
+</ul>
+</div>
+<!-- Redaction Block Example -->
+<div class="mt-8 border border-primary p-2 bg-primary group hover:bg-surface transition-colors cursor-help">
+<div class="text-surface group-hover:text-primary text-label-caps font-label-caps text-center">
+                        [ REDACTED CLEARANCE REQ ]
+                    </div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<article class="md:col-span-9 p-gutter md:p-margin relative z-10 bg-surface">
+<section class="mb-12">
+<h1 class="text-headline-lg font-headline-lg font-bold mb-6 border-b border-primary pb-2 uppercase tracking-tighter">Site Purpose</h1>
+<div class="space-y-4 text-justify">
+<p>This repository serves as a centralized, unyielding archive of technical specifications, project iterations, and system logic. It abandons modern fluid design in favor of strict, institutional brutalism. The primary directive is information density over aesthetic comfort.</p>
+<p>Every pixel is accounted for within a rigid grid structure. The interface is not designed to be friendly; it is designed to be undeniable. It functions as a declassified dossier, presenting raw data without the obfuscation of soft gradients or unnecessary animations.</p>
+</div>
+</section>
+<section class="mb-12">
+<h2 class="text-headline-md font-headline-md font-bold mb-6 border-b border-primary pb-2 uppercase tracking-tight">Build Stack</h2>
+<ul class="space-y-2">
+<li class="flex items-start">
+<span class="inline-block w-3 h-3 bg-primary mt-1 mr-4 flex-shrink-0"></span>
+<div>
+<strong class="uppercase text-label-caps font-label-caps">HTML5 / STRUCTURAL CORE:</strong> Semantic, rigid markup enforcing the fixed grid system.
+                            </div>
+</li>
+<li class="flex items-start">
+<span class="inline-block w-3 h-3 bg-primary mt-1 mr-4 flex-shrink-0"></span>
+<div>
+<strong class="uppercase text-label-caps font-label-caps">TAILWIND CSS v3:</strong> Utility-first styling utilized strictly to enforce the specified visual tokens and 1px mechanical rules. No arbitrary values permitted.
+                            </div>
+</li>
+<li class="flex items-start">
+<span class="inline-block w-3 h-3 bg-primary mt-1 mr-4 flex-shrink-0"></span>
+<div>
+<strong class="uppercase text-label-caps font-label-caps">TYPOGRAPHY:</strong> Google Fonts (JetBrains Mono) loaded synchronously for immediate rendering of monospace grid alignments.
+                            </div>
+</li>
+</ul>
+</section>
+<section class="mb-12">
+<h2 class="text-headline-md font-headline-md font-bold mb-6 border-b border-primary pb-2 uppercase tracking-tight">Typography</h2>
+<div class="border border-primary p-4 bg-surface-container-low mb-4">
+<div class="text-headline-lg font-headline-lg font-bold mb-2">JetBrains Mono - Bold</div>
+<div class="text-body-md font-body-md text-secondary">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br/>0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ &amp; * ( )</div>
+</div>
+<p class="text-justify">The chosen typeface reinforces the technical, terminal-like environment. Monospace fonts ensure consistent character widths, vital for the alignment of data tables and metadata tags inherent to institutional filing systems.</p>
+</section>
+<section>
+<h2 class="text-headline-md font-headline-md font-bold mb-6 border-b border-primary pb-2 uppercase tracking-tight">Revision History</h2>
+<div class="border border-primary divide-y divide-primary">
+<div class="flex flex-col md:flex-row p-2 hover:bg-primary hover:text-surface transition-colors group">
+<div class="md:w-1/4 text-label-caps font-label-caps font-bold">v4.0.1</div>
+<div class="md:w-1/4 text-label-caps font-label-caps text-secondary group-hover:text-surface-container-highest">2026.04.15</div>
+<div class="md:w-2/4">Implementation of Institutional Brutalism style protocols.</div>
+</div>
+<div class="flex flex-col md:flex-row p-2 hover:bg-primary hover:text-surface transition-colors group">
+<div class="md:w-1/4 text-label-caps font-label-caps font-bold">v3.5.0</div>
+<div class="md:w-1/4 text-label-caps font-label-caps text-secondary group-hover:text-surface-container-highest">2025.11.02</div>
+<div class="md:w-2/4">Migration to Tailwind utility framework. Legacy CSS deprecated.</div>
+</div>
+<div class="flex flex-col md:flex-row p-2 hover:bg-primary hover:text-surface transition-colors group">
+<div class="md:w-1/4 text-label-caps font-label-caps font-bold">v1.0.0</div>
+<div class="md:w-1/4 text-label-caps font-label-caps text-secondary group-hover:text-surface-container-highest">2022.01.10</div>
+<div class="md:w-2/4">Initial system deployment. Classified status.</div>
+</div>
+</div>
+</section>
+</article>
+</div>
+<!-- Colophon Dense Block -->
+<div class="mt-12 border-t-4 border-double border-primary pt-6 text-label-caps font-label-caps uppercase text-secondary tracking-widest leading-relaxed text-justify relative">
+<div class="absolute -top-4 bg-surface px-2 left-1/2 -translate-x-1/2 font-bold text-primary border border-primary">COLOPHON_DATA_STREAM</div>
+             INSPIRATION DRAWN FROM MID-CENTURY AEROSPACE MANUALS, DECLASSIFIED CIA DOSSIERS, AND EARLY MAINFRAME TERMINAL INTERFACES. THE DESIGN REJECTS CONTEMPORARY SOFTNESS FOR UNCOMPROMISING LEGIBILITY AND STRUCTURAL RIGIDITY. HOSTED ON SECURE, DISTRIBUTED EDGE NETWORKS. CACHING STRATEGIES PRIORITIZE IMMEDIATE CONTENT DELIVERY OVER SENSORY DELIGHT. NO COOKIES. NO TRACKERS. ONLY DATA. END OF FILE.
+        </div>
+</main>
+<!-- Footer -->
+<footer class="full-width bottom-0 bg-surface border-t border-primary mt-margin">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin py-8 max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col space-y-4">
+<div class="text-label-caps font-label-caps font-bold text-primary uppercase">EST. 2026 / REV. 4.0.1 / DOCUMENT-CLASS: UNRESTRICTED [ 奥付 ]</div>
+<div class="text-body-md font-body-md text-secondary">
+                    All data subject to immediate redaction without notice.
+                 </div>
+</div>
+<nav aria-label="Footer Navigation" class="flex flex-wrap gap-x-6 gap-y-2">
+<a class="text-on-surface-variant hover:bg-primary hover:text-surface transition-colors duration-75 text-label-caps font-label-caps uppercase px-1" href="#">INDEX</a>
+<a class="text-on-surface-variant hover:bg-primary hover:text-surface transition-colors duration-75 text-label-caps font-label-caps uppercase px-1" href="#">LOGS</a>
+<a class="text-on-surface-variant hover:bg-primary hover:text-surface transition-colors duration-75 text-label-caps font-label-caps uppercase px-1" href="#">PROTOCOLS</a>
+<a class="text-on-surface-variant hover:bg-primary hover:text-surface transition-colors duration-75 text-label-caps font-label-caps uppercase px-1" href="#">ENCRYPTED</a>
+</nav>
+</div>
+</footer>
+</body></html>

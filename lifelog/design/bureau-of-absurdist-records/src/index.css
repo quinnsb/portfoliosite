@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-surface: #fcf9f3;
+  --color-on-surface: #1c1c18;
+  --color-secondary: #625e58;
+  --color-accent-rust: #cf6449;
+  --color-halftone: #e5e2dc;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-mono selection:bg-on-surface selection:text-surface;
+  }
+}
+
+@layer utilities {
+  .border-1px {
+    border: 1px solid #000000;
+  }
+  
+  .bg-halftone-pattern {
+    background-image: radial-gradient(#000000 10%, transparent 10%);
+    background-size: 4px 4px;
+    opacity: 0.1;
+  }
+
+  .hover-invert {
+    @apply transition-colors duration-75;
+  }
+  
+  .hover-invert:hover {
+    @apply !bg-on-surface !text-surface;
+  }
+
+  .hover-invert:hover * {
+    @apply !text-surface;
+  }
+}

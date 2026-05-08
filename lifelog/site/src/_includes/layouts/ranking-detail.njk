@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ catalogId.id }} '{{ title }}' — Brewer Research & Design</title>
+  <meta name="description" content="{{ title }}">
+  {% include "partials/head-meta.njk" %}
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  {% include "partials/header.njk" %}
+
+  <main class="container py-6">
+
+    {# Doc ID top-right #}
+    <div class="flex justify-end mb-2">
+      <span class="label-caps text-ink-secondary">Doc-ID: {{ catalogId.id }}-BX</span>
+    </div>
+
+    {# Breadcrumb #}
+    <nav class="mb-6 label-caps" aria-label="Breadcrumb">
+      <a href="/" class="text-ink-secondary no-underline hover:text-ink">Home</a>
+      <span class="text-ink-secondary mx-1">/</span>
+      <a href="/rankings/" class="text-ink-secondary no-underline hover:text-ink">Rankings</a>
+      <span class="text-ink-secondary mx-1">/</span>
+      <span class="text-ink font-bold">{{ catalogId.id }}</span>
+    </nav>
+
+    {# Title #}
+    <div class="flex items-start gap-2 mb-4">
+      <div class="w-1 bg-ink shrink-0 self-stretch"></div>
+      <h1 class="headline-lg m-0">{{ catalogId.id }} '{{ title }}'</h1>
+    </div>
+
+    {# Metadata row #}
+    <div class="flex flex-wrap gap-0 mb-8 border-rule inline-flex">
+      <span class="label-caps px-3 py-1.5 border-r border-ink">{{ catalogId.id }}</span>
+      <span class="label-caps px-3 py-1.5 border-r border-ink">Posted {{ date | dateFormat }}</span>
+      {% if category %}
+      <span class="label-caps px-3 py-1.5">Category: {{ category }}</span>
+      {% endif %}
+    </div>
+
+    {# Entry body — intro paragraph renders normally, ranked items become expandable cards #}
+    <div class="entry-body mb-12" id="entry-body">
+      {{ content | safe }}
+    </div>
+
+    {# Divider #}
+    <div class="divider mb-6"></div>
+
+    {# Footer: Filed Under + Prev/Next #}
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      {# Filed Under #}
+      {% if tags and tags.length %}
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="label-caps text-ink-secondary">Filed Under:</span>
+        {% for tag in tags %}
+          {% if tag !== "rankings" %}
+          <span class="label-caps text-accent-rust">{{ tag }}</span>
+          {% if not loop.last %}<span class="text-ink-secondary">,</span>{% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {# Prev / Next #}
+      <div class="flex gap-2">
+        {% set allRankings = collections.rankings %}
+        {% set currentIndex = -1 %}
+        {% for item in allRankings %}
+          {% if item.data.catalogId.id == catalogId.id %}
+            {% set currentIndex = loop.index0 %}
+          {% endif %}
+        {% endfor %}
+
+        {% if currentIndex > 0 %}
+          {% set prevItem = allRankings[currentIndex - 1] %}
+          <a href="/rankings/{{ prevItem.data.catalogId.id | lower }}/" class="chip no-underline hover-invert">‹ Prev Record</a>
+        {% endif %}
+
+        {% if currentIndex < allRankings.length - 1 %}
+          {% set nextItem = allRankings[currentIndex + 1] %}
+          <a href="/rankings/{{ nextItem.data.catalogId.id | lower }}/" class="chip no-underline hover-invert">Next Record ›</a>
+        {% endif %}
+      </div>
+    </div>
+
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  <script>
+  (function() {
+    var body = document.getElementById('entry-body');
+    if (!body) return;
+
+    var headings = body.querySelectorAll('h2');
+    if (!headings.length) return;
+
+    headings.forEach(function(h2) {
+      var titleText = h2.textContent.trim();
+      var detailNodes = [];
+      var firstText = '';
+      var thumbSrc = null;
+      var sibling = h2.nextElementSibling;
+
+      while (sibling && sibling.tagName !== 'H2') {
+        detailNodes.push(sibling);
+        sibling = sibling.nextElementSibling;
+      }
+
+      detailNodes.forEach(function(node) {
+        var img = node.querySelector('img');
+        if (img && !thumbSrc) {
+          thumbSrc = img.src;
+        }
+        if (!firstText && node.textContent.trim()) {
+          var text = node.textContent.trim();
+          var dot = text.indexOf('.');
+          if (dot > 0 && dot < 120) {
+            firstText = text.substring(0, dot + 1);
+          } else {
+            firstText = text.substring(0, 80) + (text.length > 80 ? '…' : '');
+          }
+        }
+      });
+
+      var card = document.createElement('div');
+      card.className = 'ranked-card';
+
+      var row = document.createElement('div');
+      row.className = 'ranked-card__row';
+
+      var thumb = document.createElement('div');
+      thumb.className = 'ranked-card__thumb';
+      if (thumbSrc) {
+        var img = document.createElement('img');
+        img.src = thumbSrc;
+        img.alt = '';
+        thumb.appendChild(img);
+      } else {
+        var ph = document.createElement('span');
+        ph.className = 'ranked-card__thumb-placeholder';
+        var numMatch = titleText.match(/^(\d+)/);
+        ph.textContent = numMatch ? '#' + numMatch[1] : '—';
+        thumb.appendChild(ph);
+      }
+
+      var info = document.createElement('div');
+      info.className = 'ranked-card__info';
+      var title = document.createElement('div');
+      title.className = 'ranked-card__title';
+      title.textContent = titleText;
+      info.appendChild(title);
+
+      if (firstText) {
+        var preview = document.createElement('div');
+        preview.className = 'ranked-card__preview';
+        preview.textContent = firstText;
+        info.appendChild(preview);
+      }
+
+      var expandIcon = document.createElement('div');
+      expandIcon.className = 'ranked-card__expand-icon';
+      expandIcon.textContent = '▼';
+
+      row.appendChild(thumb);
+      row.appendChild(info);
+      row.appendChild(expandIcon);
+      card.appendChild(row);
+
+      var detail = document.createElement('div');
+      detail.className = 'ranked-card__detail';
+      detailNodes.forEach(function(node) {
+        detail.appendChild(node.cloneNode(true));
+      });
+      card.appendChild(detail);
+
+      card.addEventListener('click', function() {
+        card.classList.toggle('is-open');
+      });
+
+      h2.parentNode.insertBefore(card, h2);
+      detailNodes.forEach(function(node) { node.remove(); });
+      h2.remove();
+    });
+  })();
+  </script>
+
+</body>
+</html>

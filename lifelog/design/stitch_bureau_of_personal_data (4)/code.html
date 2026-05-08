@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PRJ-0008 'REBUILDING A 1994 SPORTSTER'</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#1c1b1b",
+                    "surface-container-highest": "#e5e2dc",
+                    "surface-tint": "#5f5e5e",
+                    "secondary-fixed": "#e8e1da",
+                    "on-primary": "#ffffff",
+                    "primary": "#000000",
+                    "on-background": "#1c1c18",
+                    "surface": "#fcf9f3",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "secondary-container": "#e5dfd7",
+                    "tertiary-container": "#3c0800",
+                    "tertiary-fixed-dim": "#ffb4a2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#cf6449",
+                    "on-tertiary-fixed": "#3c0800",
+                    "on-secondary-fixed": "#1e1b17",
+                    "inverse-on-surface": "#f3f0ea",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e5e2dc",
+                    "on-primary-container": "#858383",
+                    "surface-container-high": "#ebe8e2",
+                    "outline-variant": "#c4c7c7",
+                    "surface-container": "#f0eee8",
+                    "inverse-primary": "#c8c6c5",
+                    "on-surface": "#1c1c18",
+                    "on-surface-variant": "#444748",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdbd2",
+                    "surface-dim": "#dcdad4",
+                    "on-secondary-fixed-variant": "#4a4641",
+                    "on-tertiary-fixed-variant": "#802a13",
+                    "background": "#fcf9f3",
+                    "outline": "#747878",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary": "#625e58",
+                    "secondary-fixed-dim": "#ccc5bf",
+                    "on-secondary-container": "#66625c",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-bright": "#fcf9f3",
+                    "inverse-surface": "#31312d",
+                    "primary-fixed": "#e5e2e1",
+                    "primary-container": "#1c1b1b",
+                    "tertiary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f6f3ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "margin": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "label-caps": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "label-jp": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "headline-md": [
+                            "JetBrains Mono", "monospace"
+                    ],
+                    "body-md": [
+                            "JetBrains Mono", "monospace"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "11px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-jp": [
+                            "10px",
+                            {
+                                    "lineHeight": "12px",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Halftone pattern for "Classified" areas or headers */
+        .halftone-bg {
+            background-image: radial-gradient(circle, rgba(28, 27, 27, 0.1) 1px, transparent 1px);
+            background-size: 8px 8px;
+        }
+        
+        /* Dashed rule mimicking perforated paper */
+        .perforated-rule {
+            border-top: 1px dashed #1c1b1b;
+        }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b border-primary dark:border-outline top-0 z-50">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-unit max-w-container-max mx-auto">
+<div class="text-headline-lg font-headline-lg font-bold tracking-tighter text-primary dark:text-on-surface uppercase flex items-center gap-2">
+                ARCHIVE-00-SYS
+            </div>
+<nav class="hidden md:flex gap-4">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface text-label-caps font-label-caps hover:bg-primary hover:text-surface dark:hover:bg-on-surface dark:hover:text-surface-container transition-colors duration-75 px-2 py-1" href="#">RANKINGS</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface text-label-caps font-label-caps hover:bg-primary hover:text-surface dark:hover:bg-on-surface dark:hover:text-surface-container transition-colors duration-75 px-2 py-1" href="#">WRITING</a>
+<a class="text-primary dark:text-on-surface border-b-2 border-primary dark:border-on-surface pb-1 text-label-caps font-label-caps bg-primary text-on-primary px-2 py-1" href="#">PROJECTS</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface text-label-caps font-label-caps hover:bg-primary hover:text-surface dark:hover:bg-on-surface dark:hover:text-surface-container transition-colors duration-75 px-2 py-1" href="#">SEARCH</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface text-label-caps font-label-caps hover:bg-primary hover:text-surface dark:hover:bg-on-surface dark:hover:text-surface-container transition-colors duration-75 px-2 py-1" href="#">ABOUT</a>
+</nav>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary cursor-pointer">qr_code_2</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin py-8 flex flex-col gap-8">
+<!-- Project Header Block -->
+<section class="border border-primary p-4 relative bg-surface">
+<!-- ID Header -->
+<div class="absolute top-0 right-0 p-2 border-l border-b border-primary text-label-caps font-label-caps text-secondary bg-surface-container-low">
+                REF. #PRJ-0008/SP
+            </div>
+<h1 class="text-headline-lg font-headline-lg mb-4 pr-32">REBUILDING A 1994 SPORTSTER</h1>
+<div class="flex flex-wrap gap-2 items-center">
+<div class="border border-on-tertiary-container text-on-tertiary-container px-2 py-1 text-label-caps font-label-caps">
+                    [ STATUS: ONGOING ]
+                </div>
+<div class="border border-primary px-2 py-1 text-label-caps font-label-caps">
+                    STARTED: 2025.11.04
+                </div>
+<div class="border border-primary px-2 py-1 text-label-caps font-label-caps">
+                    CLASS: MECHANICAL REVISION
+                </div>
+</div>
+</section>
+<!-- Log Entries -->
+<section class="flex flex-col gap-6">
+<!-- Divider -->
+<div class="flex items-center gap-4 text-label-caps font-label-caps text-secondary w-full">
+<span>───</span>
+<span>2026.05.01</span>
+<span class="flex-grow border-t border-primary"></span>
+</div>
+<!-- Entry 1 -->
+<article class="border border-primary p-4 grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+<div class="absolute top-0 right-0 p-1 border-l border-b border-primary text-label-jp font-label-jp text-secondary">
+                    ENTRY.045
+                </div>
+<div class="md:col-span-2 flex flex-col gap-4">
+<p class="text-body-md font-body-md">Initial teardown of the top end complete. The rocker boxes showed significant oil seepage, indicating failed gaskets. Cylinder walls look surprisingly clean for the mileage, but cross-hatching is barely visible. Piston heads have moderate carbon buildup.</p>
+<div class="bg-primary text-surface p-4 text-body-md font-body-md font-mono overflow-x-auto">
+<pre>// Engine state diagnostic log
+INITIATE_SCAN(TOP_END);
+RESULT:
+- GASKET_INTEGRITY: 12% [FAIL]
+- CYL_WALL_WEAR: WITHIN_TOLERANCE
+- CARBON_DEPOSIT: MODERATE_TO_HIGH
+RECOMMENDATION: COMPLETE_RESEAL &amp;&amp; HONE_CYLINDERS;
+                        </pre>
+</div>
+</div>
+<div class="md:col-span-1 border border-primary p-2 halftone-bg flex flex-col items-center justify-center min-h-[200px]">
+<img alt="Motorcycle engine parts" class="w-full h-full object-cover grayscale mix-blend-multiply border border-primary" data-alt="A stark, clinical black and white photograph of disassembled motorcycle engine components laid out on a sterile metal workbench. The lighting is harsh and overhead, creating deep, solid shadows typical of institutional documentation. The visual style is gritty and highly detailed, resembling a xeroxed technical manual page. The mood is mechanical, cold, and forensic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdk_pCfRTim98RXVGeSsK1_s8CKQH4YaTARPSaU53n8sA-eLYGp3CnqYXwWFNcE7Oy3127VIAw4BpwYj3NEJKof8QMXvC3ZDJkzHYxiO8GeoXU8DNa8GCoonOnFiB6UkHdRYU2QSj2MqDiKYbsC_CRSiPJvKEoDvrtP3QoZn4BEUVQe2GpQVkxquApNboEkzTWh337NjcPHt82lAsXeZcmDlSO2myZOMHufiWE7LVMFy68r81IeXZVYnruFAoJHO6J9wCgHLNIKE"/>
+<span class="text-label-caps font-label-caps mt-2 text-primary bg-surface px-1">FIG. 1: CYLINDER HEADS</span>
+</div>
+</article>
+<!-- Divider -->
+<div class="flex items-center gap-4 text-label-caps font-label-caps text-secondary w-full">
+<span>───</span>
+<span>2026.04.15</span>
+<span class="flex-grow perforated-rule"></span>
+</div>
+<!-- Entry 2 -->
+<article class="border border-primary p-4 grid grid-cols-1 md:grid-cols-2 gap-6 relative bg-surface-container-lowest">
+<div class="absolute top-0 right-0 p-1 border-l border-b border-primary text-label-jp font-label-jp text-secondary">
+                    ENTRY.044
+                </div>
+<div class="flex flex-col gap-4">
+<h3 class="text-headline-md font-headline-md border-b border-primary pb-1">CARBURETOR REBUILD</h3>
+<p class="text-body-md font-body-md">The CV carburetor was completely disassembled and soaked in chem-dip. Jets were clogged solid. Replacing main jet with #170 and pilot with #45 to accommodate the new free-flowing exhaust system.</p>
+<ul class="flex flex-col gap-2 border-t border-primary pt-2">
+<li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary"></div><span>Soak duration: 24hrs</span></li>
+<li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary"></div><span>Slide needle: Shimmed 1 washer</span></li>
+<li class="flex items-center gap-2"><div class="w-1 h-1 bg-on-tertiary-container"></div><span class="text-on-tertiary-container">Mixture screw: 2.5 turns out (PENDING TEST)</span></li>
+</ul>
+</div>
+<div class="border border-primary p-2 flex flex-col items-center justify-center min-h-[200px] bg-surface-variant">
+<img alt="Carburetor parts" class="w-full h-full object-cover grayscale contrast-125 border border-primary" data-alt="A close-up, high-contrast monochrome image of intricate brass and aluminum carburetor parts scattered precisely on a white grid paper. The style mimics a 1960s declassified technical dossier, with harsh, flat lighting that eliminates gradients. The mood is analytical and clinical, focusing purely on the mechanical geometry of the objects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5zqOFJSaIdy1MoLOzGz84k8gCa-7WvnC6QdSVViUl4H0ghEvJ8os5u-Jx1kDR8Kmc27UsUJDXmyUTKOVKF8WR6lCHaKQ-PrBD2na-N4mbJU9gK63FDEp_Dwh7__1n6KreqOyHI61TmikxU59qKGNfq_8KsAS4N9z9nhlHuiEgkMFNgevLhVpK0jVmIWu7CKzrlCm1KJ0Oz8wWDFLdKsSXnE4Xm-eRRCRRPO1hvw_pRAjTaqE5Tpw3zqzo_jYCita7SQnnZIvdef8"/>
+<span class="text-label-caps font-label-caps mt-2 text-primary">FIG. 2: KEIHIN CVK</span>
+</div>
+</article>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-primary dark:border-outline mt-margin w-full">
+<div class="flex flex-col md:flex-row justify-between items-start w-full px-margin py-8 max-w-container-max mx-auto gap-gutter">
+<div class="text-label-caps font-label-caps font-bold text-primary dark:text-on-surface">
+                EST. 2026 / REV. 4.0.1 / DOCUMENT-CLASS: UNRESTRICTED [ 奥付 ]
+            </div>
+<nav class="flex gap-4">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant text-label-caps font-label-caps hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1" href="#">INDEX</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant text-label-caps font-label-caps hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1" href="#">LOGS</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant text-label-caps font-label-caps hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1" href="#">PROTOCOLS</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant text-label-caps font-label-caps hover:bg-primary hover:text-surface transition-colors duration-75 px-2 py-1" href="#">ENCRYPTED</a>
+</nav>
+</div>
+</footer>
+</body></html>

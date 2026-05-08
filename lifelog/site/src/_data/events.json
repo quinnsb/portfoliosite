@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2026-05-07",
+    "id": "SYS-995",
+    "description": "Archive Maintenance: Full Index Rebuild"
+  },
+  {
+    "date": "2026-04-28",
+    "id": "SYS-994",
+    "description": "Update: Font Rendering Protocol v2.1"
+  },
+  {
+    "date": "2026-04-15",
+    "id": "SYS-993",
+    "description": "System: Document Classification Audit"
+  },
+  {
+    "date": "2026-03-20",
+    "id": "SYS-992",
+    "description": "Archive Initialized: First Catalog Entry"
+  },
+  {
+    "date": "2026-02-01",
+    "id": "SYS-991",
+    "description": "System: Infrastructure Provisioning Complete"
+  }
+]

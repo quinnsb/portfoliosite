@@ -1,0 +1,170 @@
+---
+layout: base.njk
+title: "Brewer Research & Design"
+description: "A personal archive of rankings, writing, and projects."
+---
+
+{# Institutional header card #}
+<section class="border-rule p-5 relative flex flex-col md:flex-row gap-6">
+  <div class="absolute top-4 right-4 label-caps text-ink-secondary">
+    ID: ARCH-0001-BX
+  </div>
+
+  <div class="w-20 h-20 border-rule relative overflow-hidden flex items-center justify-center shrink-0">
+    <div class="absolute inset-0 halftone"></div>
+    <span class="relative z-10 text-3xl font-bold">B</span>
+  </div>
+
+  <div class="flex flex-col justify-center">
+    <h1 class="headline-lg m-0">Brewer Research & Design</h1>
+    <p class="text-sm mt-1 tracking-tight uppercase">An archive of things ranked, things written, and things made</p>
+    <p class="label-jp mt-1">個人のアーカイブ</p>
+
+    <div class="flex gap-2 mt-4 flex-wrap">
+      <span class="chip chip-rust">[ Status: Declassified ]</span>
+      <span class="chip">[ Clearance: Level 1 ]</span>
+    </div>
+  </div>
+</section>
+
+{# 3-Column Index Grid #}
+<section class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-0 border-rule">
+
+  {# Rankings column #}
+  <div class="border-b md:border-b-0 md:border-r border-ink">
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between">
+      <a href="/rankings/" class="label-caps no-underline text-ink hover:text-accent-rust">
+        Rankings <span class="label-jp ml-1">順位</span>
+      </a>
+      <span class="label-caps text-ink-secondary">{{ collections.rankings.length }}</span>
+    </div>
+    {% for entry in collections.rankings %}
+    {% if loop.index0 < 5 %}
+    <a href="/rankings/{{ entry.data.catalogId.id | lower }}/"
+       class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+    <a href="/rankings/" class="block px-4 py-2 label-caps text-ink-secondary no-underline hover:text-ink text-center">
+      View All →
+    </a>
+  </div>
+
+  {# Writing column #}
+  <div class="border-b md:border-b-0 md:border-r border-ink">
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between">
+      <a href="/writing/" class="label-caps no-underline text-ink hover:text-accent-rust">
+        Writing <span class="label-jp ml-1">執筆</span>
+      </a>
+      <span class="label-caps text-ink-secondary">{{ collections.writing.length }}</span>
+    </div>
+    {% for entry in collections.writing %}
+    {% if loop.index0 < 5 %}
+    <a href="/writing/{{ entry.data.catalogId.id | lower }}/"
+       class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+    <a href="/writing/" class="block px-4 py-2 label-caps text-ink-secondary no-underline hover:text-ink text-center">
+      View All →
+    </a>
+  </div>
+
+  {# Projects column #}
+  <div>
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between">
+      <a href="/projects/" class="label-caps no-underline text-ink hover:text-accent-rust">
+        Projects <span class="label-jp ml-1">企画</span>
+      </a>
+      <span class="label-caps text-ink-secondary">{{ collections.projects.length }}</span>
+    </div>
+    {% for entry in collections.projects %}
+    {% if loop.index0 < 5 %}
+    <a href="/projects/{{ entry.data.catalogId.id | lower }}/"
+       class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+      <div class="flex items-center gap-2">
+        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+        {% if entry.data.status %}
+        <span class="label-caps
+          {% if entry.data.status === 'ongoing' %} text-accent-blue
+          {% elif entry.data.status === 'abandoned' %} text-accent-rust
+          {% elif entry.data.status === 'dormant' %} text-ink-secondary
+          {% endif %}
+        ">{{ entry.data.status }}</span>
+        {% endif %}
+      </div>
+      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+    <a href="/projects/" class="block px-4 py-2 label-caps text-ink-secondary no-underline hover:text-ink text-center">
+      View All →
+    </a>
+  </div>
+
+</section>
+
+{# Activity Feed #}
+<section class="mt-8">
+  <div class="flex items-center gap-4 mb-4">
+    <h2 class="label-caps shrink-0 m-0">Activity Feed</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="border-rule">
+    {# Merge all entries and system events into a single sorted feed #}
+    {%- set feed = [] -%}
+
+    {# Add content entries — normalize dates to strings for sorting #}
+    {%- for entry in collections.allEntries -%}
+      {%- set entryDate = (entry.data.date or entry.data.date_updated) | dateFormat -%}
+      {%- set feedItem = {
+        sortDate: entryDate,
+        date: entry.data.date or entry.data.date_updated,
+        type: "entry",
+        id: entry.data.catalogId.id,
+        title: entry.data.title,
+        url: entry.url
+      } -%}
+      {%- set feed = (feed.push(feedItem), feed) -%}
+    {%- endfor -%}
+
+    {# Add system events #}
+    {%- for event in events -%}
+      {%- set eventDate = event.date | dateFormat -%}
+      {%- set feedItem = {
+        sortDate: eventDate,
+        date: event.date,
+        type: "system",
+        id: event.id,
+        title: event.description
+      } -%}
+      {%- set feed = (feed.push(feedItem), feed) -%}
+    {%- endfor -%}
+
+    {%- set sortedFeed = feed | sort(true, false, 'sortDate') -%}
+
+    {%- for item in sortedFeed -%}
+    {%- if loop.index0 < 15 -%}
+    {% if item.type === "entry" %}
+    <a href="{{ item.url }}"
+       class="grid grid-cols-[100px_80px_1fr] border-b border-ink hover-invert no-underline text-ink">
+      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ item.date | dateFormat }}</span>
+      <span class="label-caps px-3 py-2 border-r border-ink">{{ item.id }}</span>
+      <span class="px-3 py-2 uppercase text-xs font-bold truncate">{{ item.title }}</span>
+    </a>
+    {% else %}
+    <div class="grid grid-cols-[100px_80px_1fr] border-b border-ink">
+      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ item.date | dateFormat }}</span>
+      <span class="label-caps px-3 py-2 text-ink-secondary border-r border-ink">{{ item.id }}</span>
+      <span class="px-3 py-2 uppercase text-xs text-ink-secondary truncate">{{ item.title }}</span>
+    </div>
+    {% endif %}
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
