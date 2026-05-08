@@ -67,6 +67,25 @@ html.dark {
   --color-surface-container: #22241e;
 }
 
+/* Dark mode: yellow highlight needs dark text forced since bg is dark */
+html.dark .highlight {
+  color: var(--color-bg);
+  padding: 2px 4px;
+}
+
+/* Dark mode: yellow chip/header text needs to stay dark for contrast */
+html.dark .chip-yellow {
+  color: #1b1d17;
+}
+
+/* Dark mode: rankings column header link text */
+html.dark [style*="background-color: var(--color-accent-yellow)"] {
+  color: #1b1d17;
+}
+html.dark [style*="background-color: var(--color-accent-yellow)"] * {
+  color: #1b1d17 !important;
+}
+
 /* ===== BASE STYLES ===== */
 
 @layer base {
