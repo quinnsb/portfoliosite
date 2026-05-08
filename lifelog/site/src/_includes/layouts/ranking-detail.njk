@@ -163,7 +163,12 @@
       card.appendChild(detail);
 
       card.addEventListener('click', function() {
-        card.classList.toggle('is-open');
+        var wasOpen = card.classList.contains('is-open');
+        // Close all other cards first (accordion)
+        document.querySelectorAll('.ranked-card.is-open').forEach(function(other) {
+          if (other !== card) other.classList.remove('is-open');
+        });
+        card.classList.toggle('is-open', !wasOpen);
       });
 
       h2.parentNode.insertBefore(card, h2);
