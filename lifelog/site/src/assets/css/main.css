@@ -51,6 +51,22 @@
   font-display: swap;
 }
 
+/* ===== DARK MODE ===== */
+
+html.dark {
+  --color-bg: #1b1d17;
+  --color-ink: #F5F2EC;
+  --color-ink-secondary: #9a9590;
+  --color-accent-rust: #f06a50;
+  --color-accent-blue: #5b7ee6;
+  --color-accent-yellow: #fccb2d;
+  --color-accent-green: #3dda76;
+  --color-accent-orange: #e8955a;
+  --color-halftone: #2a2c26;
+  --color-surface-dim: #252720;
+  --color-surface-container: #22241e;
+}
+
 /* ===== BASE STYLES ===== */
 
 @layer base {
@@ -75,6 +91,7 @@
     background-color: var(--color-bg);
     margin: 0;
     padding: 0;
+    transition: background-color 200ms, color 200ms;
   }
 
   ::selection {
@@ -637,6 +654,17 @@
   border: 1px solid var(--color-ink);
   display: block;
   margin: 16px 0;
+}
+
+/* Dark mode toggle */
+#theme-toggle {
+  font-size: 16px;
+  line-height: 1;
+  width: 32px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Range input styling for cipher console */
