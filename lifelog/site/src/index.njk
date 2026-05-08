@@ -17,68 +17,69 @@ description: "A personal archive of rankings, writing, and projects."
   </p>
 </section>
 
-{# 3-Column Index Grid — equal height columns #}
-<section class="grid grid-cols-1 md:grid-cols-3 gap-0 border-rule">
+{# Compute max rows across all 3 sections (capped at 5) #}
+{%- set rnkCount = collections.rankings.length -%}
+{%- set wrtCount = collections.writing.length -%}
+{%- set prjCount = collections.projects.length -%}
+{%- set rnkShow = 5 if rnkCount > 5 else rnkCount -%}
+{%- set wrtShow = 5 if wrtCount > 5 else wrtCount -%}
+{%- set prjShow = 5 if prjCount > 5 else prjCount -%}
+{%- set maxRows = rnkShow -%}
+{%- if wrtShow > maxRows %}{% set maxRows = wrtShow %}{% endif -%}
+{%- if prjShow > maxRows %}{% set maxRows = prjShow %}{% endif -%}
 
-  {# Rankings column #}
-  <div class="border-b md:border-b-0 md:border-r border-ink flex flex-col">
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-yellow); border-bottom-color: var(--color-ink);">
-      <a href="/rankings/" class="label-caps no-underline text-ink">
-        Rankings <span class="label-jp ml-1">順位</span>
-      </a>
-      <span class="label-caps text-ink">{{ collections.rankings.length }}</span>
-    </div>
-    <div class="flex-1 flex flex-col">
-      {% for entry in collections.rankings %}
-      {% if loop.index0 < 5 %}
+{# 3-Column Index Grid — row-aligned across columns #}
+<section class="border-rule hidden md:grid" style="grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto repeat({{ maxRows }}, auto) auto;">
+
+  {# Header row #}
+  <div class="px-4 py-3 border-b border-r border-ink flex items-center justify-between" style="background-color: var(--color-accent-yellow); border-bottom-color: var(--color-ink);">
+    <a href="/rankings/" class="label-caps no-underline text-ink">
+      Rankings <span class="label-jp ml-1">順位</span>
+    </a>
+    <span class="label-caps text-ink">{{ rnkCount }}</span>
+  </div>
+  <div class="px-4 py-3 border-b border-r border-ink flex items-center justify-between" style="background-color: var(--color-accent-blue); border-bottom-color: var(--color-ink);">
+    <a href="/writing/" class="label-caps no-underline" style="color: var(--color-bg);">
+      Writing <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">執筆</span>
+    </a>
+    <span class="label-caps" style="color: var(--color-bg);">{{ wrtCount }}</span>
+  </div>
+  <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-rust); border-bottom-color: var(--color-ink);">
+    <a href="/projects/" class="label-caps no-underline" style="color: var(--color-bg);">
+      Projects <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">企画</span>
+    </a>
+    <span class="label-caps" style="color: var(--color-bg);">{{ prjCount }}</span>
+  </div>
+
+  {# Entry rows — all three columns per row #}
+  {% for i in range(0, maxRows) %}
+    {# Rankings cell #}
+    {% if i < rnkShow %}
+      {% set entry = collections.rankings[i] %}
       <a href="/rankings/{{ entry.data.catalogId.id | lower }}/"
-         class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+         class="block px-4 py-2.5 border-b border-r border-ink hover-invert no-underline text-ink">
         <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
         <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
       </a>
-      {% endif %}
-      {% endfor %}
-    </div>
-    <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">
-      View All →
-    </a>
-  </div>
+    {% else %}
+      <div class="border-b border-r border-ink"></div>
+    {% endif %}
 
-  {# Writing column #}
-  <div class="border-b md:border-b-0 md:border-r border-ink flex flex-col">
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-blue); border-bottom-color: var(--color-ink);">
-      <a href="/writing/" class="label-caps no-underline" style="color: var(--color-bg);">
-        Writing <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">執筆</span>
-      </a>
-      <span class="label-caps" style="color: var(--color-bg);">{{ collections.writing.length }}</span>
-    </div>
-    <div class="flex-1 flex flex-col">
-      {% for entry in collections.writing %}
-      {% if loop.index0 < 5 %}
+    {# Writing cell #}
+    {% if i < wrtShow %}
+      {% set entry = collections.writing[i] %}
       <a href="/writing/{{ entry.data.catalogId.id | lower }}/"
-         class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+         class="block px-4 py-2.5 border-b border-r border-ink hover-invert no-underline text-ink">
         <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
         <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
       </a>
-      {% endif %}
-      {% endfor %}
-    </div>
-    <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">
-      View All →
-    </a>
-  </div>
+    {% else %}
+      <div class="border-b border-r border-ink"></div>
+    {% endif %}
 
-  {# Projects column #}
-  <div class="flex flex-col">
-    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-rust); border-bottom-color: var(--color-ink);">
-      <a href="/projects/" class="label-caps no-underline" style="color: var(--color-bg);">
-        Projects <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">企画</span>
-      </a>
-      <span class="label-caps" style="color: var(--color-bg);">{{ collections.projects.length }}</span>
-    </div>
-    <div class="flex-1 flex flex-col">
-      {% for entry in collections.projects %}
-      {% if loop.index0 < 5 %}
+    {# Projects cell #}
+    {% if i < prjShow %}
+      {% set entry = collections.projects[i] %}
       <a href="/projects/{{ entry.data.catalogId.id | lower }}/"
          class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
         <div class="flex items-center gap-2">
@@ -93,14 +94,70 @@ description: "A personal archive of rankings, writing, and projects."
         </div>
         <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
       </a>
-      {% endif %}
-      {% endfor %}
-    </div>
-    <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">
-      View All →
-    </a>
-  </div>
+    {% else %}
+      <div class="border-b border-ink"></div>
+    {% endif %}
+  {% endfor %}
 
+  {# View All row #}
+  <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-r border-ink">
+    View All →
+  </a>
+  <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center border-r border-ink">
+    View All →
+  </a>
+  <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">
+    View All →
+  </a>
+</section>
+
+{# Mobile: stacked columns #}
+<section class="border-rule md:hidden">
+  {# Rankings #}
+  <div class="border-b border-ink">
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-yellow);">
+      <a href="/rankings/" class="label-caps no-underline text-ink">Rankings <span class="label-jp ml-1">順位</span></a>
+      <span class="label-caps text-ink">{{ rnkCount }}</span>
+    </div>
+    {% for entry in collections.rankings %}{% if loop.index0 < 5 %}
+    <a href="/rankings/{{ entry.data.catalogId.id | lower }}/" class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+    </a>
+    {% endif %}{% endfor %}
+    <a href="/rankings/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">View All →</a>
+  </div>
+  {# Writing #}
+  <div class="border-b border-ink">
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-blue);">
+      <a href="/writing/" class="label-caps no-underline" style="color: var(--color-bg);">Writing <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">執筆</span></a>
+      <span class="label-caps" style="color: var(--color-bg);">{{ wrtCount }}</span>
+    </div>
+    {% for entry in collections.writing %}{% if loop.index0 < 5 %}
+    <a href="/writing/{{ entry.data.catalogId.id | lower }}/" class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+      <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+    </a>
+    {% endif %}{% endfor %}
+    <a href="/writing/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">View All →</a>
+  </div>
+  {# Projects #}
+  <div>
+    <div class="px-4 py-3 border-b border-ink flex items-center justify-between" style="background-color: var(--color-accent-rust);">
+      <a href="/projects/" class="label-caps no-underline" style="color: var(--color-bg);">Projects <span class="label-jp ml-1" style="color: var(--color-bg); opacity: 0.7;">企画</span></a>
+      <span class="label-caps" style="color: var(--color-bg);">{{ prjCount }}</span>
+    </div>
+    {% for entry in collections.projects %}{% if loop.index0 < 5 %}
+    <a href="/projects/{{ entry.data.catalogId.id | lower }}/" class="block px-4 py-2.5 border-b border-ink hover-invert no-underline text-ink">
+      <div class="flex items-center gap-2">
+        <span class="label-caps text-ink-secondary">{{ entry.data.catalogId.id }}</span>
+        {% if entry.data.status %}<span class="chip text-[9px] py-0 px-1 {% if entry.data.status === 'ongoing' %} chip-green{% elif entry.data.status === 'abandoned' %} chip-rust{% endif %}">{{ entry.data.status }}</span>{% endif %}
+      </div>
+      <span class="block uppercase text-xs font-bold mt-0.5 truncate">{{ entry.data.title }}</span>
+    </a>
+    {% endif %}{% endfor %}
+    <a href="/projects/" class="block px-4 py-3 label-caps no-underline text-ink-secondary hover:text-ink text-center">View All →</a>
+  </div>
 </section>
 
 {# Activity Feed #}
