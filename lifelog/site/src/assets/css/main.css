@@ -11,18 +11,18 @@
   /* Ink and Paper palette — Medium-inspired */
   --color-bg: #F7F4EF;
   --color-ink: #242424;
-  --color-ink-secondary: #6b6b6b;
-  --color-accent-rust: #e45033;
-  --color-accent-blue: #243f8c;
-  --color-accent-yellow: #fccb2d;
-  --color-accent-green: #0aab4d;
-  --color-accent-orange: #D4793A;
-  --color-grid: #E2DFD8;
+  --color-ink-secondary: #6B6B6B;
+  --color-accent-rust: #C94A2E;
+  --color-accent-blue: #4B6BFB;
+  --color-accent-yellow: #FFC017;
+  --color-accent-green: #1A8917;
+  --color-accent-orange: #E8955A;
+  --color-grid: #EAE7E1;
   --color-halftone: #E5E2DC;
 
-  /* Surface variants from design system */
-  --color-surface-dim: #DCDAD4;
-  --color-surface-container: #F0EEE8;
+  /* Surface variants */
+  --color-surface-dim: #E8E5DF;
+  --color-surface-container: #F0EDE7;
 
   /* Spacing follows 4px grid */
   --spacing-unit: 4px;
@@ -108,36 +108,36 @@
 html.dark {
   --color-bg: #191919;
   --color-ink: #F2F2F2;
-  --color-ink-secondary: #9a9590;
-  --color-accent-rust: #f06a50;
-  --color-accent-blue: #5b7ee6;
-  --color-accent-yellow: #fccb2d;
-  --color-accent-green: #3dda76;
-  --color-accent-orange: #e8955a;
-  --color-grid: #262822;
-  --color-halftone: #2a2c26;
-  --color-surface-dim: #252720;
-  --color-surface-container: #22241e;
+  --color-ink-secondary: #A0A0A0;
+  --color-accent-rust: #E8654A;
+  --color-accent-blue: #7B9AFF;
+  --color-accent-yellow: #FFC017;
+  --color-accent-green: #2ECC40;
+  --color-accent-orange: #E8955A;
+  --color-grid: #2A2A2A;
+  --color-halftone: #2E2E2E;
+  --color-surface-dim: #262626;
+  --color-surface-container: #222222;
 }
 
 /* Dark mode: full yellow background instead of partial marker */
 html.dark .highlight {
   background: var(--color-accent-yellow);
-  color: #1b1d17;
+  color: #191919;
   padding: 2px 6px;
 }
 
 /* Dark mode: yellow chip/header text needs to stay dark for contrast */
 html.dark .chip-yellow {
-  color: #1b1d17;
+  color: #191919;
 }
 
 /* Dark mode: rankings column header link text */
 html.dark [style*="background-color: var(--color-accent-yellow)"] {
-  color: #1b1d17;
+  color: #191919;
 }
 html.dark [style*="background-color: var(--color-accent-yellow)"] * {
-  color: #1b1d17 !important;
+  color: #191919 !important;
 }
 
 /* ===== BASE STYLES ===== */
