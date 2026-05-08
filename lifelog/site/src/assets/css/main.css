@@ -15,6 +15,7 @@
   --color-accent-yellow: #fccb2d;
   --color-accent-green: #0aab4d;
   --color-accent-orange: #D4793A;
+  --color-grid: #E2DFD8;
   --color-halftone: #E5E2DC;
 
   /* Surface variants from design system */
@@ -62,6 +63,7 @@ html.dark {
   --color-accent-yellow: #fccb2d;
   --color-accent-green: #3dda76;
   --color-accent-orange: #e8955a;
+  --color-grid: #262822;
   --color-halftone: #2a2c26;
   --color-surface-dim: #252720;
   --color-surface-container: #22241e;
@@ -109,6 +111,10 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
     letter-spacing: 0;
     color: var(--color-ink);
     background-color: var(--color-bg);
+    background-image:
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 24px 24px;
     margin: 0;
     padding: 0;
     transition: background-color 200ms, color 200ms;
@@ -202,6 +208,11 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
 }
 
 /* ===== COMPONENT STYLES ===== */
+
+/* Solid background for cards/sections sitting on the grid */
+.border-rule {
+  background-color: var(--color-bg);
+}
 
 /* Halftone dot pattern — 45deg, ink at 10% opacity, 4px grid */
 .halftone {
