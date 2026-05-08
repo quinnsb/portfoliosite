@@ -404,6 +404,7 @@ html.dark [style*="background-color: var(--color-accent-yellow)"] * {
   margin: 16px 0 0;
   cursor: pointer;
   transition: background-color 75ms;
+  background-color: var(--color-bg);
 }
 
 .ranked-card:first-child {
