@@ -12,7 +12,7 @@ interface NavOverlayProps {
 }
 
 const navLinks = [
-  { label: "Works", href: "/#works" },
+  { label: "Works", href: "/works" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "#contact" },
 ];

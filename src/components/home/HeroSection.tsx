@@ -62,8 +62,8 @@ export default function HeroSection() {
           />
           <div className={styles.imageWrap}>
             <Image
-              src="/images/hero/quinn-chair.png"
-              alt="Quinn Brewer sitting in a chair"
+              src="/images/hero/quinn-hero.jpg"
+              alt="Quinn Brewer portrait"
               fill
               sizes="(max-width: 1024px) 80vw, 42vw"
               priority

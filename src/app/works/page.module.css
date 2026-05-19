@@ -1,0 +1,115 @@
+.page {
+  padding-top: var(--nav-height);
+}
+
+.hero {
+  padding: clamp(40px, 6vw, 80px) 0 clamp(32px, 4vw, 56px);
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.heading {
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1;
+  color: var(--color-black);
+}
+
+.subtitle {
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: var(--color-gray-dark);
+  max-width: 480px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+  padding: 0 0 clamp(60px, 7vw, 100px);
+}
+
+.card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: clamp(12px, 1.4vw, 20px);
+  aspect-ratio: 4 / 3;
+  background: var(--color-gray-light);
+}
+
+.card:nth-child(3n + 1) {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 7;
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 2.4vw, 36px);
+  background: linear-gradient(
+    to top,
+    rgb(0 0 0 / 0.52) 0%,
+    rgb(0 0 0 / 0.18) 40%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.cardTitle {
+  font-size: clamp(18px, 1.6vw, 26px);
+  color: var(--color-white);
+  line-height: 1.15;
+}
+
+.cardRole {
+  font-size: clamp(12px, 0.9vw, 14px);
+  color: rgb(255 255 255 / 0.72);
+  margin-top: 4px;
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card:nth-child(3n + 1) {
+    grid-column: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgb(0 0 0 / 0.48) 0%,
+      transparent 60%
+    );
+  }
+}

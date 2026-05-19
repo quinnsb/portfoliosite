@@ -71,7 +71,7 @@ export default function AboutPage() {
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.imageWrap}>
             <Image
-              src="/images/about/quinn-about-2026.jpg"
+              src="/images/about/Daymade-16.jpg"
               alt="Quinn Brewer smiling"
               fill
               sizes="(max-width: 860px) 86vw, 30vw"
@@ -81,7 +81,9 @@ export default function AboutPage() {
           </div>
           <div className={styles.heroCopy}>
             <h1 className={styles.title}>
-              I&apos;m Quinn, a marketing leader and multimedia creative.
+              I&apos;m Quinn, a{" "}
+              <span className="accent-font-italic">marketing leader</span> and{" "}
+              <span className="accent-font-italic">multimedia</span> creative.
             </h1>
             <p className={styles.intro}>
               I care about strategy, storytelling, and making work that feels thoughtful,
