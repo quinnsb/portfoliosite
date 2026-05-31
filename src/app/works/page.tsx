@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const projectPreviewImages: Record<string, string> = {
-  "the-forgotten-initiative": "/images/gallery/photo-01.webp",
+  "the-forgotten-initiative": "/images/projects/the-forgotten-initiative/booklet-cover.webp",
   "bright-trip": "/images/gallery/photo-02.webp",
   "collegiate-church-network": "/images/gallery/photo-03.webp",
   copywriting: "/images/gallery/photo-04.webp",

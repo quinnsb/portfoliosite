@@ -8,16 +8,18 @@ import styles from "./ImageGallery.module.css";
 interface ImageGalleryProps {
   images: string[];
   layout?: ("full" | "grid")[];
+  fit?: ("cover" | "contain")[];
   title: string;
 }
 
-export default function ImageGallery({ images, layout = [], title }: ImageGalleryProps) {
+export default function ImageGallery({ images, layout = [], fit = [], title }: ImageGalleryProps) {
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
   return (
     <section className={styles.gallery}>
       {images.map((image, index) => {
         const mode = layout[index] ?? (index % 3 === 0 ? "full" : "grid");
+        const imageFit = fit[index] ?? "cover";
         return (
           <button
             key={`${image}-${index}`}
@@ -30,7 +32,7 @@ export default function ImageGallery({ images, layout = [], title }: ImageGaller
               alt=""
               fill
               sizes={mode === "full" ? "100vw" : "(max-width: 900px) 100vw, 50vw"}
-              className={styles.image}
+              className={`${styles.image} ${imageFit === "contain" ? styles.contain : ""}`}
             />
           </button>
         );

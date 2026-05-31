@@ -56,85 +56,97 @@ const jobs = [
   },
 ];
 
-const strengths = [
-  "Lead full-funnel marketing strategies",
-  "Create content that builds trust and drives action",
-  "Turn insights into campaigns that convert",
-  "Manage cross-functional teams and freelancers",
-  "Build systems that scale with clarity and consistency",
-];
-
 export default function AboutPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroGrid}`}>
-          <div className={styles.imageWrap}>
-            <Image
-              src="/images/about/Daymade-16.jpg"
-              alt="Quinn Brewer smiling"
-              fill
-              sizes="(max-width: 860px) 86vw, 30vw"
-              className={styles.image}
-              priority
-            />
-          </div>
           <div className={styles.heroCopy}>
             <h1 className={styles.title}>
-              I&apos;m Quinn, a{" "}
-              <span className="accent-font-italic">marketing leader</span> and{" "}
-              <span className="accent-font-italic">multimedia</span> creative.
+              <span>I&apos;m Quinn,</span>
+              <span className="accent-font-italic">creative marketing</span>
+              <span>leader and</span>
+              <span>multi-media wizard.</span>
             </h1>
             <p className={styles.intro}>
-              I care about strategy, storytelling, and making work that feels thoughtful,
-              excellent, and alive.
+              I make strategy, stories, campaigns, podcasts, photos, videos, and
+              whatever else helps a good idea become easier to understand and harder
+              to ignore.
             </p>
+          </div>
+          <div className={styles.imageHover}>
+            <img
+              src="/images/icons/asset-7.svg"
+              alt=""
+              aria-hidden="true"
+              className={styles.peekIcon}
+            />
+            <div className={styles.imageWrap}>
+              <Image
+                src="/images/about/Daymade-57.jpg"
+                alt="Quinn Brewer headshot"
+                fill
+                sizes="(max-width: 1024px) 80vw, 42vw"
+                className={styles.image}
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.mission}>
+        <div className="container">
+          <div className={styles.missionPanel}>
+            <p className={`${styles.kicker} accent-font-italic`}>My mission</p>
+            <h2>
+              Make beautiful and excellent things with people I care about.
+            </h2>
           </div>
         </div>
       </section>
 
       <section className={styles.section}>
-        <div className={`container ${styles.split}`}>
-          <h2 className={styles.sectionTitle}>My Mission</h2>
-          <div className={styles.statement}>
-            <p>
-              My mission is to make the world a better place by creating beautiful
-              &amp; excellent things with people I care about.
-            </p>
+        <div className={`container ${styles.aboutGrid}`}>
+          <div className={styles.photoStack}>
+            <div className={styles.secondaryImage}>
+              <Image
+                src="/images/about/Daymade-16.jpg"
+                alt="Quinn Brewer smiling"
+                fill
+                sizes="(max-width: 900px) 90vw, 460px"
+                className={styles.image}
+              />
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={`container ${styles.split}`}>
-          <h2 className={styles.sectionTitle}>A Bit More</h2>
           <div className={styles.copy}>
+            <h2 className={styles.sectionTitle}>
+              <span className="accent-font-italic">The person</span>
+              <br />
+              behind the work
+            </h2>
             <p>
-              I live with my wife and family in Normal, Illinois. I like birding,
-              reading long fantasy novels, cooking elaborate recipes, and hanging
-              out with my dog Koda.
+              I care about making creative work that feels thoughtful, useful,
+              and alive. Sometimes that means building a campaign strategy. Sometimes
+              it means editing a podcast, writing the copy, shaping the art direction,
+              or helping a team find the clearest version of what they are trying to say.
             </p>
             <p>
-              Thanks for checking out my work.
+              I live with my wife and family in Normal, Illinois. Away from work,
+              I&apos;m usually reading a long fantasy novel, cooking something too
+              elaborate for a weeknight, birding, or finding a reason to be outside.
             </p>
           </div>
         </div>
       </section>
 
       <section className={styles.section}>
-        <div className={`container ${styles.split}`}>
-          <h2 className={styles.sectionTitle}>What I Do Best</h2>
-          <ul className={styles.strengths}>
-            {strengths.map((strength) => (
-              <li key={strength}>{strength}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={`container ${styles.split}`}>
-          <h2 className={styles.sectionTitle}>Work History</h2>
+        <div className={`container ${styles.historyGrid}`}>
+          <h2 className={styles.sectionTitle}>
+            <span className="accent-font-italic">Work</span>
+            <br />
+            history
+          </h2>
           <div className={styles.timeline}>
             {jobs.map((job) => (
               <article key={`${job.role}-${job.company}`} className={styles.job}>

@@ -43,6 +43,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const { frontmatter, content } = project;
   const { previous, next } = getAdjacentProjects(slug);
+  const gallery = (
+    <ImageGallery
+      images={frontmatter.images}
+      layout={frontmatter.imageLayout}
+      fit={frontmatter.imageFit}
+      title={frontmatter.title}
+    />
+  );
 
   return (
     <main>
@@ -62,12 +70,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </section>
       <section className={styles.content}>
         <div className="container">
+          {frontmatter.galleryPlacement === "beforeContent" && gallery}
           <MDXRemote source={content} components={mdxComponents} />
-          <ImageGallery
-            images={frontmatter.images}
-            layout={frontmatter.imageLayout}
-            title={frontmatter.title}
-          />
+          {frontmatter.galleryPlacement !== "beforeContent" && gallery}
           {frontmatter.testimonial && (
             <ProjectTestimonial testimonial={frontmatter.testimonial} />
           )}

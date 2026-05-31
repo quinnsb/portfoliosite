@@ -14,6 +14,8 @@ export interface ProjectFrontmatter {
   heroImage: string;
   images: string[];
   imageLayout?: ("full" | "grid")[];
+  imageFit?: ("cover" | "contain")[];
+  galleryPlacement?: "beforeContent" | "afterContent";
   testimonial?: ProjectTestimonial;
   order: number;
 }

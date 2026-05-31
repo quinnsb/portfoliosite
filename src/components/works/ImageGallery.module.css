@@ -27,6 +27,11 @@
   transition: transform 0.35s ease;
 }
 
+.contain {
+  object-fit: contain;
+  padding: clamp(14px, 2vw, 28px);
+}
+
 .full:hover .image,
 .grid:hover .image {
   transform: scale(1.03);
