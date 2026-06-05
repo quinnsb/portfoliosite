@@ -46,6 +46,27 @@
   margin-top: clamp(42px, 5vw, 72px);
 }
 
+.flatButton {
+  background: transparent;
+  border-color: var(--color-text);
+  box-shadow: none;
+  color: var(--color-text);
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.flatButton:hover,
+.flatButton:focus-visible {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  box-shadow: none;
+  color: var(--color-cream);
+  transform: none;
+}
+
 .list {
   display: grid;
   gap: 0;

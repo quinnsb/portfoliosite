@@ -32,7 +32,7 @@ export default function AboutTeaser() {
               digging through records, reading a giant fantasy novel, cooking something new, or
               chasing the next idea before it gets obvious.
             </p>
-            <Button href="/about" variant="outline">
+            <Button href="/about" variant="outline" className={styles.flatButton}>
               Read more
             </Button>
           </div>

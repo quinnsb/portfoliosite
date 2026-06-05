@@ -49,7 +49,7 @@ export default function HeroSection() {
             </m.span>
             <m.span className={styles.line} variants={lineVariants}>
               <span className={`${styles.emphasis} accent-font-italic`}>
-                Creative Marketer
+                Marketing Leader
                 <span className={styles.underlineReveal} aria-hidden="true">
                   <img
                     src="/images/elements/hero-underline.svg"
@@ -60,7 +60,7 @@ export default function HeroSection() {
               </span>
             </m.span>
             <m.span className={`${styles.line} ${styles.afterLeaderLine}`} variants={lineVariants}>
-              and Multimedia Wizard.
+              and Multimedia Creative.
             </m.span>
           </h1>
         </m.div>

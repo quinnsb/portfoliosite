@@ -14,6 +14,11 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
 }
 
+.darkSurface.solid {
+  background: #1c1a18;
+  box-shadow: 0 1px 0 rgb(248 245 239 / 0.1);
+}
+
 .hidden {
   transform: translateY(-100%);
 }
@@ -33,6 +38,10 @@
   color: var(--color-black);
 }
 
+.darkSurface .logo {
+  color: var(--color-cream);
+}
+
 .menuButton {
   width: 58px;
   height: 58px;
@@ -47,6 +56,10 @@
   border-radius: 0;
 }
 
+.darkSurface .menuButton {
+  background: var(--color-cream);
+}
+
 .menuLine {
   display: block;
   width: 36px;
@@ -55,6 +68,10 @@
   transition:
     transform 0.22s ease,
     opacity 0.22s ease;
+}
+
+.darkSurface .menuLine {
+  background: #1c1a18;
 }
 
 .open .menuLine:first-child {

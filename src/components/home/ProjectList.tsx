@@ -76,7 +76,7 @@ export default function ProjectList() {
           ))}
         </div>
         <ScrollReveal className={styles.ctaWrap} delay={0.12}>
-          <Button href="/works" variant="outline">
+          <Button href="/works" variant="outline" className={styles.flatButton}>
             View all work
           </Button>
         </ScrollReveal>

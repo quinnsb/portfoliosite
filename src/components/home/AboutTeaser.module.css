@@ -36,8 +36,8 @@
 
 .image {
   object-fit: cover;
-  object-position: 50% 36%;
-  transform: scale(1.18);
+  object-position: 52% 30%;
+  transform: scale(1.34);
 }
 
 .card {
@@ -45,11 +45,11 @@
   z-index: 1;
   max-width: 520px;
   border-radius: 8px;
-  background: rgb(255 255 255 / 0.92);
+  background: var(--color-cream);
   padding: 34px;
   color: var(--color-black);
   text-align: left;
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.12);
 }
 
 .card h3 {
@@ -59,6 +59,27 @@
 
 .card p {
   margin-bottom: 24px;
+}
+
+.flatButton {
+  background: transparent;
+  border-color: var(--color-text);
+  box-shadow: none;
+  color: var(--color-text);
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.flatButton:hover,
+.flatButton:focus-visible {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  box-shadow: none;
+  color: var(--color-cream);
+  transform: none;
 }
 
 @media (max-width: 900px) {

@@ -1,0 +1,27 @@
+.shell {
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+  background: #1c1a18;
+  color: var(--color-cream);
+}
+
+.contentFrame {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 clamp(10px, 1.35vw, 22px);
+}
+
+@media (min-width: 768px) {
+  .contentFrame {
+    padding: 0 clamp(12px, 1.45vw, 24px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentFrame {
+    padding: 0 clamp(14px, 1.55vw, 28px);
+  }
+}

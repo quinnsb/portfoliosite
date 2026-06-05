@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ContactCTA from "@/components/layout/ContactCTA";
 import WorkMockShell from "@/components/work-mock/WorkMockShell";
-import styles from "../all-work/page.module.css";
+import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Work — Quinn Brewer",
-  description:
-    "Selected projects spanning brand strategy, creative production, copywriting, photography, and more.",
+  title: "All Work Mock — Quinn Brewer",
+  description: "An unlisted editorial-style portfolio work landing page concept.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 const tickerItems = [
@@ -19,14 +22,14 @@ const tickerItems = [
   "Portland / Cam Reid",
 ];
 
-export default function WorkPage() {
+export default function AllWorkPage() {
   const tickerLoop = [...tickerItems, ...tickerItems];
 
   return (
     <WorkMockShell>
       <main className={styles.page}>
         <section className={styles.projectStack} aria-label="Featured work">
-          <Link href="/works/southtown-design-build" className={`${styles.card} ${styles.bitsCard}`}>
+          <Link href="/all-work/southtown-design-build" className={`${styles.card} ${styles.bitsCard}`}>
             <div className={styles.mesh} />
             <span className={styles.bitsMark}>Bright Bits</span>
             <span className={styles.projectReveal}>
@@ -38,7 +41,7 @@ export default function WorkPage() {
             </span>
           </Link>
 
-          <Link href="/works/southtown-design-build" className={`${styles.card} ${styles.southtownCard}`}>
+          <Link href="/all-work/southtown-design-build" className={`${styles.card} ${styles.southtownCard}`}>
             <div className={styles.notchedPhoto}>
               <span>Build notes / 2026</span>
             </div>
@@ -53,7 +56,7 @@ export default function WorkPage() {
           </Link>
 
           <div className={styles.teaserPair}>
-            <Link href="/works/southtown-design-build" className={`${styles.card} ${styles.blueCard}`}>
+            <Link href="/all-work/southtown-design-build" className={`${styles.card} ${styles.blueCard}`}>
               <span className={styles.badge}>Travel Lab</span>
               <span className={styles.postcard}>Field guide</span>
               <span className={styles.projectReveal}>
@@ -64,7 +67,7 @@ export default function WorkPage() {
                 <span className={styles.revealArrow}>→</span>
               </span>
             </Link>
-            <Link href="/works/southtown-design-build" className={`${styles.card} ${styles.oliveCard}`}>
+            <Link href="/all-work/southtown-design-build" className={`${styles.card} ${styles.oliveCard}`}>
               <span className={styles.ribbon}>Campaign</span>
               <span className={styles.oliveType}>Rooted</span>
               <span className={styles.projectReveal}>
@@ -88,7 +91,7 @@ export default function WorkPage() {
             </div>
           </section>
 
-          <Link href="/works/southtown-design-build" className={`${styles.card} ${styles.orangeCard}`}>
+          <Link href="/all-work/southtown-design-build" className={`${styles.card} ${styles.orangeCard}`}>
             <span className={styles.orangeLabel}>Launch week</span>
             <span className={styles.orangeType}>Daymade</span>
             <span className={styles.projectReveal}>
@@ -100,7 +103,7 @@ export default function WorkPage() {
             </span>
           </Link>
 
-          <Link href="/works/southtown-design-build" className={`${styles.card} ${styles.creamCard}`}>
+          <Link href="/all-work/southtown-design-build" className={`${styles.card} ${styles.creamCard}`}>
             <span className={styles.scriptMark}>Quinn</span>
             <span className={styles.stamp}>Selected stories / strategy / production</span>
             <span className={styles.projectReveal}>
