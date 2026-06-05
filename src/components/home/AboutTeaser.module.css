@@ -15,8 +15,8 @@
   overflow: hidden;
   border-radius: 8px;
   background:
-    radial-gradient(circle at 34% 18%, var(--color-yellow) 0 90px, transparent 91px),
-    linear-gradient(135deg, var(--color-blue-light) 0 28%, var(--color-green) 28% 70%, var(--color-blue-light) 70%);
+    url("/images/about/variant-1@2x.png") center / cover no-repeat,
+    var(--color-cream);
   display: grid;
   grid-template-columns: 0.9fr 1fr;
   align-items: center;
@@ -45,17 +45,11 @@
   z-index: 1;
   max-width: 520px;
   border-radius: 8px;
-  background: var(--color-white);
+  background: rgb(255 255 255 / 0.92);
   padding: 34px;
   color: var(--color-black);
-  text-align: center;
+  text-align: left;
   box-shadow: 0 20px 42px rgba(0, 0, 0, 0.14);
-}
-
-.signature {
-  margin-bottom: 10px;
-  color: var(--color-orange);
-  font-size: 32px;
 }
 
 .card h3 {
@@ -63,7 +57,7 @@
   font-size: 28px;
 }
 
-.card p:not(.signature) {
+.card p {
   margin-bottom: 24px;
 }
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import Button from "@/components/ui/Button";
 import styles from "./ProjectList.module.css";
 
 const projectPreviewImages: Record<string, string> = {
@@ -74,6 +75,11 @@ export default function ProjectList() {
             </ul>
           ))}
         </div>
+        <ScrollReveal className={styles.ctaWrap} delay={0.12}>
+          <Button href="/works" variant="outline">
+            View all work
+          </Button>
+        </ScrollReveal>
       </div>
     </section>
   );

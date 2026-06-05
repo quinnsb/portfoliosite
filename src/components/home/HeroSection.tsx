@@ -4,9 +4,16 @@ import { m } from "framer-motion";
 import Image from "next/image";
 import styles from "./HeroSection.module.css";
 
+const heroEase: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+
 const lineVariants = {
   hidden: { opacity: 0, y: 28, filter: "blur(8px)" },
-  show: { opacity: 1, y: 0, filter: "blur(0px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.82, ease: heroEase },
+  },
 };
 
 export default function HeroSection() {
@@ -21,30 +28,39 @@ export default function HeroSection() {
             hidden: {},
             show: {
               transition: {
-                staggerChildren: 0.08,
-                delayChildren: 0.14,
+                staggerChildren: 0.14,
+                delayChildren: 0.22,
               },
             },
           }}
         >
+          <m.div className={styles.greeting} variants={lineVariants}>
+            <img
+              src="/images/icons/hi-there-icon.svg"
+              alt=""
+              aria-hidden="true"
+              className={styles.greetingIcon}
+            />
+            <span className="accent-font-italic">Hi there!</span>
+          </m.div>
           <h1 className={styles.title}>
             <m.span className={styles.line} variants={lineVariants}>
               I&apos;m Quinn,
             </m.span>
-            <m.span className={`${styles.line} accent-font-italic`} variants={lineVariants}>
-              Creative Marketing
-            </m.span>
             <m.span className={styles.line} variants={lineVariants}>
-              <span className="accent-font-italic">Leader</span> and
+              <span className={`${styles.emphasis} accent-font-italic`}>
+                Creative Marketer
+                <span className={styles.underlineReveal} aria-hidden="true">
+                  <img
+                    src="/images/elements/hero-underline.svg"
+                    alt=""
+                    className={styles.underlineImage}
+                  />
+                </span>
+              </span>
             </m.span>
-            <m.span className={styles.line} variants={lineVariants}>
-              multi-media wizard
-            </m.span>
-            <m.span className={styles.line} variants={lineVariants}>
-              with <span className="accent-font-italic">10 years</span> of
-            </m.span>
-            <m.span className={styles.line} variants={lineVariants}>
-              experience.
+            <m.span className={`${styles.line} ${styles.afterLeaderLine}`} variants={lineVariants}>
+              and Multimedia Wizard.
             </m.span>
           </h1>
         </m.div>

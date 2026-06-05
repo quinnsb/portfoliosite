@@ -10,22 +10,48 @@
   gap: 10px;
   border-radius: 999px;
   padding: 13px 22px;
-  font-family: var(--font-inter-bold);
-  font-size: 15px;
+  font-family: var(--font-averia), Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 700;
   line-height: 1;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .primary {
   background: var(--color-yellow);
   color: var(--color-text);
   border: 2px solid var(--color-yellow);
+  box-shadow: 0 8px 0 rgb(0 0 0 / 0.12);
 }
 
 .outline {
-  background: transparent;
+  background: var(--color-yellow);
   color: var(--color-text);
   border: 2px solid var(--color-text);
+  box-shadow: 5px 5px 0 var(--color-orange);
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translate(-1px, -1px);
+}
+
+.outline:hover,
+.outline:focus-visible {
+  background: var(--color-blue-light);
+  color: var(--color-black);
+  box-shadow: 6px 6px 0 var(--color-orange);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 4px;
 }
 
 .button:disabled {

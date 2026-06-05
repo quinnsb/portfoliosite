@@ -7,26 +7,40 @@
   border-radius: 8px;
   background: var(--color-blue);
   color: var(--color-white);
-  min-height: 420px;
+  min-height: 470px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 38px;
-  padding: 52px 24px;
+  padding: 58px clamp(18px, 4vw, 52px);
   text-align: center;
 }
 
 .kicker {
+  position: relative;
   font-size: 22px;
   font-weight: 700;
 }
 
+.kicker::after {
+  position: absolute;
+  right: -0.38em;
+  bottom: -0.28em;
+  left: -0.38em;
+  height: 0.5em;
+  background-image: url("data:image/svg+xml,%3Csvg width='160' height='24' viewBox='0 0 160 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 14 C 34 7, 57 8, 80 13 C 106 19, 130 18, 155 10' fill='none' stroke='%23FF5324' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  content: "";
+}
+
 .list {
+  width: min(100%, 1080px);
   list-style: none;
   font-family: var(--font-inter-bold);
   font-weight: 700;
-  font-size: clamp(34px, 6vw, 72px);
+  font-size: clamp(34px, 5.55vw, 66px);
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -35,8 +49,90 @@
   gap: 12px;
 }
 
-.list li {
+.item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 1.05em;
   font-weight: 700;
+  outline: none;
+}
+
+.serviceMain {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.penIcon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: clamp(34px, 4vw, 54px);
+  height: auto;
+  opacity: 0;
+  transform: translate(-150%, -50%) scale(0.82) rotate(-3deg);
+  transition:
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.serviceName {
+  display: inline-block;
+  white-space: nowrap;
+  transition:
+    letter-spacing 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.includes {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + clamp(12px, 1.7vw, 24px));
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: clamp(130px, 13vw, 180px);
+  color: rgb(255 255 255 / 0.86);
+  font-family: var(--font-averia), Georgia, serif;
+  font-size: clamp(11px, 0.92vw, 14px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-12px, -50%);
+  transition:
+    opacity 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item:hover .serviceMain,
+.item:focus-visible .serviceMain {
+  transform: translateX(18px);
+}
+
+.item:hover .penIcon,
+.item:focus-visible .penIcon {
+  opacity: 1;
+  transform: translate(-122%, -50%) scale(1) rotate(0deg);
+}
+
+.item:hover .serviceName,
+.item:focus-visible .serviceName {
+  letter-spacing: -0.035em;
+}
+
+.item:hover .includes,
+.item:focus-visible .includes {
+  opacity: 1;
+  transform: translate(0, -50%);
 }
 
 .badgeWrap {
@@ -45,6 +141,7 @@
   justify-content: center;
   width: clamp(40px, 5vw, 56px);
   aspect-ratio: 1;
+  margin-top: clamp(10px, 1.8vw, 24px);
 }
 
 .badge {
@@ -55,8 +152,8 @@
   display: block;
   margin: auto;
   transition:
-    opacity 0.24s ease,
-    transform 0.24s ease;
+    opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .badgeHover {
@@ -72,4 +169,48 @@
 .badgeWrap:hover .badgeHover {
   opacity: 1;
   transform: translateX(8px) scale(2.08) rotate(-10deg);
+}
+
+@media (max-width: 900px) {
+  .card {
+    min-height: 500px;
+  }
+
+  .serviceMain {
+    flex-direction: column;
+  }
+
+  .includes {
+    position: static;
+    align-items: center;
+    width: auto;
+    margin-top: 8px;
+    text-align: center;
+    transform: translateY(-6px);
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item:hover .includes,
+  .item:focus-visible .includes {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .list {
+    font-size: clamp(28px, 10vw, 44px);
+  }
+
+  .serviceName {
+    white-space: normal;
+  }
+
+  .item:hover .serviceMain,
+  .item:focus-visible .serviceMain {
+    transform: translateX(18px);
+  }
 }

@@ -25,11 +25,12 @@ export default function AboutTeaser() {
             />
           </div>
           <div className={styles.card}>
-            <p className={`${styles.signature} accent-font-italic`}>Quinn Brewer</p>
             <h3>About me</h3>
             <p>
-              I&apos;m a marketing leader and multimedia creative who blends strategy,
-              storytelling, and production craft to help ideas move with clarity.
+              I&apos;m a curious, culture-hungry creative who likes building things that feel both
+              useful and alive. When I&apos;m not shaping a campaign or production, I&apos;m probably
+              digging through records, reading a giant fantasy novel, cooking something new, or
+              chasing the next idea before it gets obvious.
             </p>
             <Button href="/about" variant="outline">
               Read more
