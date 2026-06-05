@@ -16,7 +16,8 @@ export default function Navbar() {
   const usesDarkNav =
     pathname.startsWith("/all-work") ||
     pathname === "/works" ||
-    pathname === "/works/southtown-design-build";
+    pathname === "/works/southtown-design-build" ||
+    pathname === "/works/wholly-balls";
 
   useEffect(() => {
     if (isOpen || isContactOpen) {

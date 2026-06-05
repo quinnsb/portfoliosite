@@ -1,0 +1,384 @@
+.page {
+  background: #1c1a18;
+  color: #ede9e2;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: clamp(112px, 12vw, 150px) clamp(18px, 3vw, 44px) clamp(42px, 6vw, 82px);
+  overflow: hidden;
+  background: #037b85;
+}
+
+.backLink {
+  position: absolute;
+  top: clamp(24px, 4vw, 48px);
+  left: clamp(20px, 4vw, 56px);
+  z-index: 3;
+  padding: 12px 16px;
+  border: 1px solid rgb(250 237 222 / 0.42);
+  border-radius: 999px;
+  color: rgb(250 237 222 / 0.86);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.backLink:hover {
+  background: #faedde;
+  color: #037b85;
+}
+
+.heroImage {
+  position: relative;
+  z-index: 2;
+  width: min(96vw, 1320px);
+  min-height: clamp(500px, 68vh, 760px);
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+
+.featureImage,
+.panelImage,
+.mockupImage {
+  object-fit: cover;
+}
+
+.heroPattern {
+  display: none;
+}
+
+.heroLogo {
+  position: relative;
+  z-index: 1;
+  width: min(88vw, 1060px);
+  height: auto;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.info {
+  padding: clamp(54px, 7vw, 96px) clamp(22px, 5vw, 76px);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(300px, 0.28fr);
+  gap: clamp(34px, 7vw, 110px);
+  align-items: start;
+}
+
+.copyBlock {
+  max-width: 840px;
+}
+
+.eyebrow {
+  margin-bottom: 18px;
+  color: rgb(250 237 222 / 0.54);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.copyBlock > p:not(.eyebrow) {
+  color: #faedde;
+  font-size: clamp(20px, 2.1vw, 30px);
+  line-height: 1.38;
+  letter-spacing: -0.035em;
+}
+
+.metaPanel {
+  display: grid;
+  gap: 24px;
+}
+
+.metaList {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.metaList div {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(250 237 222 / 0.16);
+}
+
+.metaList dt {
+  color: rgb(250 237 222 / 0.5);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.metaList dd {
+  color: #faedde;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags span {
+  padding: 11px 14px;
+  border: 1px solid rgb(250 237 222 / 0.28);
+  border-radius: 999px;
+  color: rgb(250 237 222 / 0.78);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fullWidthFeature {
+  position: relative;
+  min-height: auto;
+  aspect-ratio: 1024 / 658;
+  margin: 0 clamp(14px, 2vw, 28px) clamp(66px, 8vw, 116px);
+  padding: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: clamp(18px, 2vw, 30px);
+  box-shadow: 0 34px 90px rgb(0 0 0 / 0.26);
+  isolation: isolate;
+}
+
+.storySection {
+  padding: 0 clamp(22px, 5vw, 76px) clamp(58px, 8vw, 104px);
+}
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 780px);
+  gap: clamp(18px, 3vw, 42px);
+  padding: 0 0 clamp(22px, 3vw, 40px);
+}
+
+.sectionHeader > p {
+  color: rgb(250 237 222 / 0.46);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.sectionHeader h2 {
+  max-width: 780px;
+  color: #faedde;
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  font-size: clamp(34px, 4.6vw, 68px);
+  line-height: 0.96;
+  letter-spacing: -0.08em;
+}
+
+.sectionHeader div p {
+  max-width: 680px;
+  margin-top: 16px;
+  color: rgb(250 237 222 / 0.68);
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.6;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.34fr);
+  gap: clamp(18px, 3vw, 42px);
+  align-items: stretch;
+}
+
+.logoPanel,
+.productPage,
+.guideCard,
+.landscapeMockup,
+.portraitMockup {
+  position: relative;
+  overflow: hidden;
+  border-radius: clamp(18px, 2vw, 28px);
+  background: #faedde;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 0.18);
+}
+
+.logoPanel {
+  min-height: clamp(340px, 42vw, 640px);
+}
+
+.brandNote {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: clamp(22px, 3vw, 38px);
+  border-radius: clamp(18px, 2vw, 28px);
+  background: #037b85;
+  color: #faedde;
+}
+
+.brandNote span {
+  color: rgb(250 237 222 / 0.7);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.brandNote p {
+  font-size: clamp(17px, 1.55vw, 22px);
+  line-height: 1.5;
+}
+
+.flavorLogoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 26px);
+  margin-top: clamp(18px, 3vw, 42px);
+}
+
+.flavorLogoPanel {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: clamp(18px, 2vw, 28px);
+  background: #000;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 0.18);
+}
+
+.flavorLogoImage {
+  object-fit: contain;
+  padding: clamp(22px, 3.6vw, 44px);
+}
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
+}
+
+.guideCard {
+  aspect-ratio: 16 / 9;
+}
+
+.productSystem {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 26px);
+}
+
+.productPage {
+  aspect-ratio: 16 / 9;
+}
+
+.packagingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.44fr);
+  gap: clamp(16px, 2vw, 28px);
+  align-items: stretch;
+}
+
+.landscapeMockup {
+  min-height: clamp(340px, 40vw, 560px);
+  background: #fadb14;
+}
+
+.portraitMockup {
+  min-height: clamp(340px, 40vw, 560px);
+  background: #78af61;
+}
+
+.mockupImage {
+  object-fit: contain;
+  padding: clamp(18px, 2.6vw, 40px);
+}
+
+.mockupGallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
+  margin-top: clamp(16px, 2vw, 28px);
+}
+
+.mockupCard {
+  position: relative;
+  min-height: clamp(260px, 26vw, 440px);
+  overflow: hidden;
+  border-radius: clamp(18px, 2vw, 28px);
+  background:
+    radial-gradient(circle at 18% 12%, rgb(250 237 222 / 0.16), transparent 24%),
+    #282620;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 0.18);
+}
+
+.projectNav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgb(250 237 222 / 0.14);
+  border-bottom: 1px solid rgb(250 237 222 / 0.14);
+}
+
+.projectNav a {
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  color: #faedde;
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  font-size: clamp(30px, 4vw, 62px);
+  letter-spacing: -0.06em;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.projectNav a + a {
+  border-left: 1px solid rgb(250 237 222 / 0.14);
+}
+
+.projectNav a:hover {
+  background: #faedde;
+  color: #1c1a18;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 82vh;
+  }
+
+  .heroImage {
+    width: 100%;
+  }
+
+  .infoGrid,
+  .logoGrid,
+  .flavorLogoGrid,
+  .guideGrid,
+  .productSystem,
+  .packagingGrid,
+  .mockupGallery,
+  .projectNav {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .projectNav a + a {
+    border-top: 1px solid rgb(250 237 222 / 0.14);
+    border-left: 0;
+  }
+}

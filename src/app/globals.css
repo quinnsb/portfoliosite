@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "TAY Dumpling";
+  src: url("/fonts/TAYDumpling.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TAY Milkbar";
+  src: url("/fonts/TAYMilkbar.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-text: #42423A;
   --color-black: #000000;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ContactCTA from "@/components/layout/ContactCTA";
 import WorkMockShell from "@/components/work-mock/WorkMockShell";
@@ -26,13 +27,18 @@ export default function WorkPage() {
     <WorkMockShell>
       <main className={styles.page}>
         <section className={styles.projectStack} aria-label="Featured work">
-          <Link href="/works/southtown-design-build" className={`${styles.card} ${styles.bitsCard}`}>
-            <div className={styles.mesh} />
-            <span className={styles.bitsMark}>Bright Bits</span>
+          <Link href="/works/wholly-balls" className={`${styles.card} ${styles.whollyCard}`}>
+            <Image
+              src="/images/projects/wholly-balls/logo-light-cream-transparent.png"
+              alt=""
+              width={1024}
+              height={473}
+              className={styles.whollyLogo}
+            />
             <span className={styles.projectReveal}>
               <span className={styles.revealCopy}>
-                <strong>Bright Bits</strong>
-                <small>A playful identity system for a highly technical creative brand.</small>
+                <strong>Wholly Balls</strong>
+                <small>Complete rebrand and packaging design for a protein bites company.</small>
               </span>
               <span className={styles.revealArrow}>→</span>
             </span>

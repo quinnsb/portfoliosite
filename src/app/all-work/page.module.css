@@ -109,6 +109,24 @@
   transform: translateX(0);
 }
 
+
+.whollyCard {
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgb(3 123 133 / 0.28), rgb(3 123 133 / 0.28)),
+    url("/images/projects/wholly-balls/brand-guide/page-03.png") center / cover no-repeat,
+    #037b85;
+}
+
+.whollyLogo {
+  position: relative;
+  z-index: 1;
+  width: min(78%, 720px);
+  height: auto;
+  filter: drop-shadow(0 22px 44px rgb(0 0 0 / 0.34));
+}
+
 .bitsCard {
   display: grid;
   place-items: center;

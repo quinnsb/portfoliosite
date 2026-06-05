@@ -11,17 +11,17 @@
   width: 100%;
   max-width: none;
   margin: 0 auto;
-  padding: 0 clamp(10px, 1.35vw, 22px);
+  padding: 0 clamp(22px, 3.2vw, 56px);
 }
 
 @media (min-width: 768px) {
   .contentFrame {
-    padding: 0 clamp(12px, 1.45vw, 24px);
+    padding: 0 clamp(28px, 4vw, 72px);
   }
 }
 
 @media (min-width: 1024px) {
   .contentFrame {
-    padding: 0 clamp(14px, 1.55vw, 28px);
+    padding: 0 clamp(36px, 4.8vw, 88px);
   }
 }
